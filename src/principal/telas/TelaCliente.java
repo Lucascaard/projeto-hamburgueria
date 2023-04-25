@@ -10,13 +10,14 @@ public class TelaCliente {
 
     public static void mostrar(){
 
-
 		Prompt.linhaEmBranco();
-		Prompt.imprimir("MENU CLIENTE");
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.MENU_CLIENTE);
+		Prompt.separador();
 		Prompt.linhaEmBranco();
-		Prompt.imprimir("[1] - CADASTRAR");
-		Prompt.imprimir("[2] - LISTAR");
-		Prompt.imprimir("[3] - VOLTAR");
+		Prompt.imprimir("[1] - " + Mensagem.CADASTRAR);
+		Prompt.imprimir("[2] - " + Mensagem.LISTAR);
+		Prompt.imprimir("[3] - " + Mensagem.VOLTAR);
 		Integer opcao = Prompt.lerInteiro();
 
 			switch(opcao){
@@ -27,30 +28,49 @@ public class TelaCliente {
 					TelaCliente.listar();
 					break;
 				default:
-					Prompt.imprimir("Opção invalida!");
-					TelaCliente.mostrar();
+					Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
+					TelaPrincipal.mostrar();
 					break;
 			}
 	}
 
 	public static void cadastrar(){
         
+		// Lendo e guardando dados em variáveis
+
+		Prompt.separador();
         Prompt.imprimir(Mensagem.MSG_CADASTRO_CLIENTE);
-        String nome = Prompt.lerLinha("Informe o nome: ");
-        String CPF = Prompt.lerLinha("CPF: ");
-        String telefone = Prompt.lerLinha("Telefone: ");
-        String email = Prompt.lerLinha("Email: ");
-        String sexo = Prompt.lerLinha("Sexo: ");
-        String endereco = Prompt.lerLinha("Endereço: ");
+		Prompt.separador();
+        String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
+        String CPF = Prompt.lerLinha(Mensagem.INFORME_CPF);
+        String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
+        String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
+        String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
+        String endereco = Prompt.lerLinha(Mensagem.INFORME_ENDERECO);
+
+		// Verificando se nome esta vazio
 
         if(!nome.isEmpty()) {
+
+			/* Chamando a função adicionar da Classe ControleCliente, criando um objeto e passando
+			 as variáveis como parâmetro para a criação do novo Cliente */
+			 
         	ControleCliente.adicionar(new Cliente(nome, CPF, telefone, sexo, email, endereco));
         }
+		Prompt.pressionarEnter();
+		TelaCliente.refazer();
+		
+	}
 
-		Prompt.imprimir("DESEJA CADASTRAR NOVO CLIENTE? ");
-		Prompt.imprimir("[1] - SIM ");
-		Prompt.imprimir("[2] - IR PRO MENU");
-		Prompt.imprimir("[3] - FINALIZAR PROGRAMA");
+	public static void refazer(){
+
+		// Menu pra escolher o que deseja fazer a seguir com recursão em caso de opção invalida
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.NOVO_CLIENTE);
+		Prompt.separador();
+		Prompt.imprimir("[1] - " + Mensagem.SIM);
+		Prompt.imprimir("[2] - " + Mensagem.VOLTAR);
+		Prompt.imprimir("[3] - " + Mensagem.FINALIZAR_PROGRAMA);
 		Integer op = Prompt.lerInteiro();
 		switch (op) {
 			case 1:
@@ -60,166 +80,44 @@ public class TelaCliente {
 				TelaCliente.mostrar();
 				break;
 			case 3:
-				Prompt.imprimir("PROGRAMA FINALIZADO!");
+				Prompt.imprimir(Mensagem.FINALIZADO);
 			default:
-				Prompt.imprimir("OPÇÃO INVALIDA! TENTE NOVAMENTE");
-				TelaCliente.mostrar();
+				Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
+				TelaCliente.refazer();
 				break;
 		}
     }
 
-	// não esta listando, precisa resolver 
 	public static void listar(){
-		Prompt.imprimir("LISTA DE CLIENTES");
+
+		// Imprime uma mensagem de cabeçalho
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.LISTA_DE_CLIENTES);
+		Prompt.separador();
+		
+		// Adiciona uma linha em branco
 		Prompt.linhaEmBranco();
+		
+		// Verifica se a lista de clientes está vazia
 		if (Banco.clientes.isEmpty()) {
-			Prompt.imprimir("Nenhum Cliente"); 
+			// Se a lista de clientes estiver vazia, imprime uma mensagem informando que não há clientes
+			Prompt.imprimir(Mensagem.NAO_HA_CLIENTES); 
 		} else {
-			for (Cliente clientes : Banco.clientes) {
-				Prompt.imprimir(clientes.toString());
+			// Se houver clientes na lista, percorre a lista com um laço 'for'
+			for (Cliente cliente : Banco.clientes) {
+				// Monta uma string com as informações do cliente
+				String infoCliente = "Nome: " + cliente.getNome() + "\n"
+									+ "CPF: " + cliente.getCPF() + "\n"
+									+ "Telefone: " + cliente.getTelefone() + "\n"
+									+ "Email: " + cliente.getEmail() + "\n"
+									+ "Sexo: " + cliente.getSexo() + "\n"
+									+ "Endereço: " + cliente.getEndereco() + "\n";
+				// Imprime as informações do cliente
+				Prompt.imprimir(infoCliente);
 			}
 		}
-		
-	}
-
-}
-//CÓDIGO DO PROFESSOR 
-
-/*package principal.telas;
-
-import principal.controles.CadastroDeProdutos;
-import principal.db.Banco;
-import principal.modelos.Produto;
-import principal.util.Mensagem;
-import principal.util.Prompt;
-
-public class TelaDeProdutos {
-	
-	public static void mostrar() {
-		
-		Prompt.linhaEmBranco();
-		Prompt.imprimir(Mensagem.TELA_CADASTRO_DE_PRODUTOS);
-		Prompt.imprimir(Mensagem.MSG_ESCOLHA);
-		Prompt.imprimir("[1] " + Mensagem.MENU_LISTAR_PRODUTOS);
-		Prompt.imprimir("[2] " + Mensagem.MENU_INCLUIR_PRODUTO);
-		Prompt.imprimir("[3] " + Mensagem.MENU_ALTERAR_PRODUTO);
-		Prompt.imprimir("[4] " + Mensagem.MENU_EXCLUIR_PRODUTO);
-		Prompt.imprimir("[5] " + Mensagem.MENU_VOLTAR);
-
-		Integer opcao = Prompt.lerInteiro();
-		
-		switch (opcao) {
-			case 1: {
-				TelaDeProdutos.listar();
-				break;
-			}
-			case 2: {
-				TelaDeProdutos.incluir();
-				break;
-			}
-			case 3: {
-				TelaDeProdutos.alterar();
-				break;
-			}
-			case 4: {
-				TelaDeProdutos.excluir();
-				break;
-			}
-			case 5: {
-				TelaDeCadastros.mostrar();
-				break;
-			}
-		}
-	}
-
-	public static void listar() {
-		
-		Prompt.linhaEmBranco();
-		Prompt.imprimir(Mensagem.MSG_LISTA_DE_PRODUTOS);
-		
-		if (Banco.produtos.isEmpty()) {
-			Prompt.imprimir(Mensagem.MSG_NENHUM_PRODUTO); 
-		} else {
-			for (Produto produto : Banco.produtos) {
-				Prompt.imprimir(produto.toString());
-			}
-		}
-		
 		Prompt.linhaEmBranco();
 		Prompt.pressionarEnter();
-		TelaDeProdutos.mostrar();
-		
-	}
-
-	private static void incluir() {
-		
-		Prompt.linhaEmBranco();
-		Prompt.imprimir(Mensagem.MSG_INCLUSAO_PRODUTO);
-		String nome = Prompt.lerLinha(Mensagem.MSG_INFORME_NOME);
-		Double preco = Prompt.lerDecimal(Mensagem.MSG_INFORME_PRECO);
-		
-		if (!nome.isEmpty()) {
-			CadastroDeProdutos.adicionar(new Produto(nome, preco));
-			//CadastroDecliente.adicionar(nome, cpf)
-			Prompt.linhaEmBranco();
-			Prompt.pressionarEnter();
-		}
-		TelaDeProdutos.listar();
-		
-	}
-
-	private static void alterar() {
-
-		Prompt.linhaEmBranco();
-		Prompt.imprimir(Mensagem.MSG_ALTERACAO_PRODUTO);
-		String nomeOriginal = Prompt.lerLinha(Mensagem.MSG_INFORME_NOME_ORIGINAL);	
-		
-		if (!nomeOriginal.isEmpty()) {
-			Produto produtoAlterar = CadastroDeProdutos.buscar(nomeOriginal);
-			
-			if (produtoAlterar != null) {
-				String nome = Prompt.lerLinha(Mensagem.MSG_INFORME_NOME);
-				Double preco = Prompt.lerDecimal(Mensagem.MSG_INFORME_PRECO);
-				
-				if (!nome.isEmpty()) {		
-					produtoAlterar.nome = nome;
-					produtoAlterar.preco = preco;
-					
-					CadastroDeProdutos.atualizar(nomeOriginal, produtoAlterar);
-		
-					Prompt.linhaEmBranco();
-					Prompt.imprimir(Mensagem.MSG_PRODUTO_ALTERADO);
-				}
-			} else {
-				Prompt.linhaEmBranco();
-				Prompt.imprimir(Mensagem.MSG_PRODUTO_NAO_ENCONTRADO);
-			}
-			Prompt.linhaEmBranco();
-			Prompt.pressionarEnter();
-		}
-		TelaDeProdutos.listar();
-	}
-
-	private static void excluir() {
-
-		Prompt.linhaEmBranco();
-		Prompt.imprimir(Mensagem.MSG_EXCLUSAO_PRODUTO);
-		String nome = Prompt.lerLinha(Mensagem.MSG_INFORME_NOME_ORIGINAL);	
-		
-		if (!nome.isEmpty()) {
-			boolean produtoExcluido = CadastroDeProdutos.excluir(nome);
-			
-			Prompt.linhaEmBranco();
-			if (produtoExcluido) {
-				Prompt.imprimir(Mensagem.MSG_PRODUTO_EXCLUIDO);
-			} else {
-				Prompt.imprimir(Mensagem.MSG_PRODUTO_NAO_ENCONTRADO);
-			}
-			Prompt.linhaEmBranco();
-			Prompt.pressionarEnter();
-		}
-		TelaDeProdutos.listar();
+		TelaCliente.mostrar();
 	}
 }
-		
-	 */

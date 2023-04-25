@@ -8,7 +8,9 @@ public class TelaLogin {
     
     public static void mostrar(){
 
+        Prompt.separador();
         Prompt.imprimir(Mensagem.TELA_LOGIN);
+        Prompt.separador();
         String login = Prompt.lerLinha(Mensagem.MSG_INFORME_LOGIN);
         String senha = Prompt.lerLinha(Mensagem.MSG_INFORME_SENHA);
 

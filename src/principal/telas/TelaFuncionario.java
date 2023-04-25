@@ -1,6 +1,6 @@
 package principal.telas;
 
-public class TelaCadastrarFuncionario {
+public class TelaFuncionario {
 
     public static void mostrar(){
         

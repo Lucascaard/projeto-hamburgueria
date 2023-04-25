@@ -1,6 +1,6 @@
 package principal.telas;
 
-public class TelaCadastrarProduto {
+public class TelaGerente {
 
     public static void mostrar(){
         

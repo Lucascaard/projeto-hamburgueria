@@ -1,38 +1,35 @@
 package principal.telas;
-
-import java.util.Scanner;
-
 import principal.util.Mensagem;
 import principal.util.Prompt;
-
 public class TelaPrincipal {
-
     
     public static void mostrar(){
         
-        Scanner leitor = new Scanner(System.in);
         Prompt.linhaEmBranco();
-        Prompt.imprimir(Mensagem.MENU_GERENTE);
+        Prompt.separador();
+        Prompt.imprimir(Mensagem.MENU_PRINCIPAL);
+        Prompt.separador();
         Prompt.imprimir(Mensagem.MSG_ESCOLHA_UMA_OPÇÃO);
+        Prompt.linhaEmBranco();
         Prompt.imprimir("[1] " + Mensagem.MENU_CLIENTE);
-        Prompt.imprimir("[2] " + Mensagem.CADASTRAR_FUNCIONARIO);
-        Prompt.imprimir("[3] " + Mensagem.CADASTRAR_PRODUTO);
-        Prompt.imprimir("[4] " + Mensagem.CADASTRAR_GERENTE);
+        Prompt.imprimir("[2] " + Mensagem.MENU_GERENTE);
+        Prompt.imprimir("[3] " + Mensagem.MENU_ESTOQUE);
+        Prompt.imprimir("[4] " + Mensagem.MENU_PRODUTO);
         Prompt.imprimir("[5] " + Mensagem.VOLTAR);
-        Integer opcao = leitor.nextInt();
+        Integer opcao = Prompt.lerInteiro();
 
         switch (opcao) {
             case 1:
                 TelaCliente.mostrar();
                 break;
             case 2:
-                TelaCadastrarFuncionario.mostrar();
+                TelaFuncionario.mostrar();
                 break;
             case 3:
-                TelaCadastrarProduto.mostrar();
+                TelaProduto.mostrar();
                 break;
             case 4:
-                TelaCadastrarGerente.mostrar();
+                TelaGerente.mostrar();
                 break;
             case 5:
                 TelaLogin.mostrar();
@@ -43,7 +40,5 @@ public class TelaPrincipal {
                 TelaPrincipal.mostrar();
                 break;
         }
-        
-        leitor.close();
     }
 }
