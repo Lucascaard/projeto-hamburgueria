@@ -44,4 +44,18 @@ public class Prompt {
 		}
 	}
 
+    public static int lerInteiro() {
+		while (true) {
+			try {
+				String linha = lerLinha();
+				if (linha.isEmpty()) {
+					return 0;
+				}
+				return Integer.parseInt(linha);
+			} catch (NumberFormatException tExcept) {
+				System.out.println("Inteiro inválido, digite novamente...");
+			}
+		}
+	}
+
 }

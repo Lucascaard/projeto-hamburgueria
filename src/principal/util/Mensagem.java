@@ -12,9 +12,10 @@ public interface Mensagem {
     final static String MSG_ESCOLHA_UMA_OPÇÃO = "ESCOLHA UMA DAS OPÇÕES";
     final static String CADASTRAR_PRODUTO = "CADASTRAR PRODUTO";
     final static String CADASTRAR_FUNCIONARIO = "CADASTRAR FUNCIONÁRIO";
-    final static String CADASTRAR_CLIENTE = "CADASTRAR CLIENTE";
+    final static String MENU_CLIENTE = "MENU CLIENTE";
     final static String CADASTRAR_GERENTE = "CADASTRAR GERENTE";
     final static String VOLTAR = "VOLTAR";
     final static String OPCAO_INVALIDA = "OPÇÃO INVALIDA";
+    final static String MSG_CADASTRO_CLIENTE = "CADASTRO DE CLIENTES"; 
 
 }

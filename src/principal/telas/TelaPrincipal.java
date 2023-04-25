@@ -14,7 +14,7 @@ public class TelaPrincipal {
         Prompt.linhaEmBranco();
         Prompt.imprimir(Mensagem.MENU_GERENTE);
         Prompt.imprimir(Mensagem.MSG_ESCOLHA_UMA_OPÇÃO);
-        Prompt.imprimir("[1] " + Mensagem.CADASTRAR_CLIENTE);
+        Prompt.imprimir("[1] " + Mensagem.MENU_CLIENTE);
         Prompt.imprimir("[2] " + Mensagem.CADASTRAR_FUNCIONARIO);
         Prompt.imprimir("[3] " + Mensagem.CADASTRAR_PRODUTO);
         Prompt.imprimir("[4] " + Mensagem.CADASTRAR_GERENTE);
@@ -23,7 +23,7 @@ public class TelaPrincipal {
 
         switch (opcao) {
             case 1:
-                TelaCadastrarCliente.mostrar();
+                TelaCliente.mostrar();
                 break;
             case 2:
                 TelaCadastrarFuncionario.mostrar();
