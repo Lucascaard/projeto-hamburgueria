@@ -1,5 +1,9 @@
 package principal.controles;
 
+/*
+* @version 1.0 Abr 2023
+* @author Lucas Cardoso
+*/
 public class LoginAutenticacao {
 
     public static boolean autenticar(String login, String senha){

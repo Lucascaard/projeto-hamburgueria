@@ -7,6 +7,10 @@ import java.util.List;
 
 import principal.modelos.*;
 
+/*
+* @version 1.0 Abr 2023
+* @author Lucas Cardoso
+*/
 public class Banco {
 
     public static List<Cliente> clientes = new ArrayList<>();
