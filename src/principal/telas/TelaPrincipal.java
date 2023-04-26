@@ -1,13 +1,12 @@
 package principal.telas;
+
 import principal.util.Mensagem;
 import principal.util.Prompt;
-/*
-* @version 1.0 Abr 2023
-* @author Lucas Cardoso
-*/
+
 public class TelaPrincipal {
+
     
-    public static void mostrar(){
+public static void mostrar(){
         
         Prompt.linhaEmBranco();
         Prompt.separador();

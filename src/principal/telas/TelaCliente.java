@@ -6,14 +6,9 @@ import principal.modelos.Cliente;
 import principal.util.Mensagem;
 import principal.util.Prompt;
 
-
-/*
-* @version 1.0 Abr 2023
-* @author Lucas Cardoso
-*/
 public class TelaCliente {
-
-    public static void mostrar(){
+	
+	public static void mostrar(){
 
 		Prompt.linhaEmBranco();
 		Prompt.separador();
@@ -126,4 +121,5 @@ public class TelaCliente {
 		Prompt.pressionarEnter();
 		TelaCliente.mostrar();
 	}
+	
 }

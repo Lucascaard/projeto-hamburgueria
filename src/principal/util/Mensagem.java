@@ -3,8 +3,8 @@ package principal.util;
 import java.time.LocalDate;
 
 public interface Mensagem {
-
-    //MENUS
+	
+	//MENUS
     final static String MENU_PRINCIPAL = "               MENU PRINCIPAL";
     final static String OPCAO_INVALIDA = "OPÇÃO INVALIDA, TENTE NOVAMENTE";
     final static String MSG_ESCOLHA_UMA_OPÇÃO = "ESCOLHA UMA DAS OPÇÕES";
@@ -55,12 +55,19 @@ public interface Mensagem {
     final static String MENU_GERENTE = "MENU GERENTE";
 
     //PRODUTO
+    final static String MSG_CADASTRO_PRODUTO = "CADASTRO DE PRODUTOS";
     final static String MENU_PRODUTO = "MENU PRODUTOS";
-
+    final static String LISTA_DE_PRODUTOS = "LISTA DE PRODUTOS";
+    final static String NOVO_PRODUTO = "DESEJA CADASTRAR UM NOVO PRODUTO?";
+    final static String INFORME_NOME_PRODUTO = "NOME DO PRODUTO:";
+    final static String INFORME_MARCA = "MARCA:";
+    final static String INFORME_PRECO = "PREÇO:";
+    final static String INFORME_CODBARRA = "CÓDIGO DE BARRAS:";
+    final static String NAO_HA_PRODUTOS = "NÃO EXISTEM PRODUTOS CADASTRADOS";
+    
     //ESTOQUE
     final static String MENU_ESTOQUE = "MENU ESTOQUE";
 
     
 
 }
-

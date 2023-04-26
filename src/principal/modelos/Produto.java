@@ -1,14 +1,13 @@
 package principal.modelos;
-import java.math.BigDecimal;
 
 public class Produto  {
 
     private String nome;
     private String marca;
-    private BigDecimal preco;
+    private double preco;
     private int codBarra;
     
-    public Produto(String nome, String marca, BigDecimal preco, int codBarra) {
+    public Produto(String nome, String marca, double preco, int codBarra) {
     	this.nome = nome;
     	this.marca = marca;
     	this.preco = preco;
@@ -34,11 +33,11 @@ public class Produto  {
     }
 
     //preco
-    public BigDecimal getPreco(){
+    public double getPreco(){
         return preco;
     }
 
-    public void setPreco(BigDecimal preco){
+    public void setPreco(double preco){
         this.preco = preco;
     }
 
