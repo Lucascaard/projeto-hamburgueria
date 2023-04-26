@@ -4,8 +4,6 @@ import principal.util.Mensagem;
 import principal.util.Prompt;
 import principal.controles.ControleEstoque;
 import principal.controles.ControleProduto;
-import principal.db.Banco;
-import principal.modelos.Estoque;
 import principal.modelos.ItemEstoque;
 import principal.modelos.Produto;
 

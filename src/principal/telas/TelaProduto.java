@@ -1,7 +1,4 @@
 package principal.telas;
-
-import java.math.BigDecimal;
-
 import principal.controles.ControleProduto;
 import principal.db.Banco;
 import principal.modelos.Produto;
