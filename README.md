@@ -33,4 +33,12 @@ Este repositório contém todo o código fonte do projeto e a documentação nec
 
 Com estes passos, você poderá explorar a aplicação, cadastrar clientes, gerentes, produtos e funcionários, e utilizar as funcionalidades de CRUD implementadas. Sinta-se à vontade para sugerir melhorias e enviar feedbacks.
 
+## Contribuidores
+
+- @Lucascaard
+- @gabriellegomess
+- @V1nicius00
+- @VitorGabriel-TI
+- @PauloAfonsoGR
+
 Agradecemos a oportunidade de participar deste projeto e esperamos que esta aplicação seja útil para a gestão de uma hamburgueria.
