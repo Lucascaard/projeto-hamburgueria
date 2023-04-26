@@ -43,9 +43,9 @@ public interface Mensagem {
     //FUNCIONARIO 
     final static String MENU_FUNCIONARIO = "MENU FUNCIONÁRIO";
     final static String MSG_CADASTRO_FUNCIONARIO = "CADASTRO DE FUNCIONÁRIOS";
-    final static String INFORME_DATA = "INFORME A DATA";
-    final static String INFORME_HORA_ENTRADA = "INFORME A HORA DA ENTRADA";
-    final static String INFORME_HORA_SAIDA = "INFORME A HORA DA SAÍDA";
+    final static String INFORME_DATA = "INFORME A DATA DE ADMISSÃO Ex(0000-00-00)";
+    final static String INFORME_HORA_ENTRADA = "INFORME A HORA DA ENTRADA Ex(HH:mm:ss)";
+    final static String INFORME_HORA_SAIDA = "INFORME A HORA DA SAÍDA Ex(HH:mm:ss)";
     final static String NOVO_FUNCIONARIO = "DESEJA CADASTRAR UM NOVO FUNCIONÁRIO? ";
     final static String LISTA_DE_FUNCIONARIOS = "LISTA DE FUNCIONÁRIOS";
     final static String NAO_HA_FUNCIONARIOS = "NAÕ EXISTEM FUNCIONÁRIOS CADASTRADOS";

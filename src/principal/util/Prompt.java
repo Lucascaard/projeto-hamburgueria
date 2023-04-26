@@ -115,7 +115,7 @@ public class Prompt {
 		LocalDate data = null;
 		while (data == null) {
 			try {
-				System.out.print(mensagem);
+				Prompt.imprimir(mensagem);
 				String input = lerLinha();
 				data = LocalDate.parse(input);
 			} catch (DateTimeParseException e) {
