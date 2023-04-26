@@ -15,8 +15,8 @@ public class TelaPrincipal {
         Prompt.separador();
         Prompt.imprimir(Mensagem.MSG_ESCOLHA_UMA_OPÇÃO);
         Prompt.linhaEmBranco();
-        Prompt.imprimir("[1] " + Mensagem.MENU_CLIENTE);
-        Prompt.imprimir("[2] " + Mensagem.MENU_GERENTE);
+        Prompt.imprimir("[1] " + Mensagem.MENU_CLIENTE); // Lucas Cardoso
+        Prompt.imprimir("[2] " + Mensagem.MENU_GERENTE); // mudar pra menu_funcionario
         Prompt.imprimir("[3] " + Mensagem.MENU_ESTOQUE);
         Prompt.imprimir("[4] " + Mensagem.MENU_PRODUTO);
         Prompt.imprimir("[5] " + Mensagem.VOLTAR);
