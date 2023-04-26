@@ -24,19 +24,28 @@ public class TelaCliente {
 
 			switch(opcao){
 				case 1:
-					TelaCliente.cadastrar();
+					TelaCliente.create();
 					break;
 				case 2:
-					TelaCliente.listar();
+					TelaCliente.read();
+					break;
+				case 3:
+					TelaCliente.update();
+					break;
+				case 4:
+					TelaCliente.delete();
+					break;
+				case 5:
+					TelaPrincipal.mostrar();
 					break;
 				default:
 					Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
-					TelaPrincipal.mostrar();
+					TelaCliente.mostrar();
 					break;
 			}
 	}
 
-	public static void cadastrar(){
+	public static void create(){
         
 		// Lendo e guardando dados em variáveis
 
@@ -76,7 +85,7 @@ public class TelaCliente {
 		Integer op = Prompt.lerInteiro();
 		switch (op) {
 			case 1:
-				TelaCliente.cadastrar();
+				TelaCliente.create();
 				break;
 			case 2:
 				TelaCliente.mostrar();
@@ -91,7 +100,7 @@ public class TelaCliente {
 		}
     }
 
-	public static void listar(){
+	public static void read() {
 
 		// Imprime uma mensagem de cabeçalho
 		Prompt.separador();
@@ -124,4 +133,11 @@ public class TelaCliente {
 		TelaCliente.mostrar();
 	}
 	
+	public static void update(){
+
+	}
+
+	public static void delete(){
+
+	}
 }
