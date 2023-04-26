@@ -35,10 +35,10 @@ Com estes passos, você poderá explorar a aplicação, cadastrar clientes, gere
 
 ## Contribuidores
 
-- @Lucascaard
-- @gabriellegomess
-- @V1nicius00
-- @VitorGabriel-TI
-- @PauloAfonsoGR
+  @Lucascaard
+  @gabriellegomess
+  @V1nicius00
+  @VitorGabriel-TI
+  @PauloAfonsoGR
 
 Agradecemos a oportunidade de participar deste projeto e esperamos que esta aplicação seja útil para a gestão de uma hamburgueria.
