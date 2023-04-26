@@ -1,13 +1,12 @@
 package principal.telas;
+
 import principal.util.Mensagem;
 import principal.util.Prompt;
-/*
-* @version 1.0 Abr 2023
-* @author Lucas Cardoso
-*/
+
 public class TelaPrincipal {
+
     
-    public static void mostrar(){
+public static void mostrar(){
         
         Prompt.linhaEmBranco();
         Prompt.separador();
@@ -17,8 +16,8 @@ public class TelaPrincipal {
         Prompt.linhaEmBranco();
         Prompt.imprimir("[1] " + Mensagem.MENU_CLIENTE);
         Prompt.imprimir("[2] " + Mensagem.MENU_GERENTE);
-        Prompt.imprimir("[3] " + Mensagem.MENU_ESTOQUE);
-        Prompt.imprimir("[4] " + Mensagem.MENU_PRODUTO);
+        Prompt.imprimir("[3] " + Mensagem.MENU_PRODUTO);
+        Prompt.imprimir("[4] " + Mensagem.MENU_ESTOQUE);
         Prompt.imprimir("[5] " + Mensagem.VOLTAR);
         Integer opcao = Prompt.lerInteiro();
 
