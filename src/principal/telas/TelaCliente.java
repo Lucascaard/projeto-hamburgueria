@@ -86,6 +86,7 @@ public class TelaCliente {
 				break;
 			case 3:
 				Prompt.imprimir(Mensagem.FINALIZADO);
+				break;
 			default:
 				Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
 				TelaCliente.refazer();
