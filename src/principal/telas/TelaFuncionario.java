@@ -51,7 +51,7 @@ public class TelaFuncionario {
         String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
         String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
         String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
-        LocalDate dataAdmissao = Prompt.lerData(Mensagem.INFORME_DATA);
+        LocalDate dataAdmissao = Prompt.lerData(Mensagem.INFORME_DATA); //nao ta funfando n sei pq???
         LocalTime horarioEntrada = Prompt.lerHora(Mensagem.INFORME_HORA_ENTRADA);
         LocalTime horarioSaida = Prompt.lerHora(Mensagem.INFORME_HORA_SAIDA);
 		
@@ -67,7 +67,7 @@ public class TelaFuncionario {
 		TelaFuncionario.refazer();
 	}
 
-    
+
     public static void refazer(){
 
 		// Menu pra escolher o que deseja fazer a seguir com recursão em caso de opção invalida
