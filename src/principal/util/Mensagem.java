@@ -1,8 +1,8 @@
 package principal.util;
 
 public interface Mensagem {
-
-    //MENUS
+	
+	//MENUS
     final static String MENU_PRINCIPAL = "               MENU PRINCIPAL";
     final static String OPCAO_INVALIDA = "OPÇÃO INVALIDA, TENTE NOVAMENTE";
     final static String MSG_ESCOLHA_UMA_OPÇÃO = "ESCOLHA UMA DAS OPÇÕES";
@@ -38,12 +38,31 @@ public interface Mensagem {
     final static String LISTA_DE_CLIENTES = "LISTA DE CLIENTES";
     final static String NAO_HA_CLIENTES = "NAÕ EXISTEM CLIENTES CADASTRADOS";
 
+    //FUNCIONARIO 
+    final static String MENU_FUNCIONARIO = "MENU FUNCIONÁRIO";
+    final static String MSG_CADASTRO_FUNCIONARIO = "CADASTRO DE FUNCIONÁRIOS";
+    final static String INFORME_DATA = "INFORME A DATA DE ADMISSÃO Ex(0000-00-00)";
+    final static String INFORME_HORA_ENTRADA = "INFORME A HORA DA ENTRADA Ex(HH:mm:ss)";
+    final static String INFORME_HORA_SAIDA = "INFORME A HORA DA SAÍDA Ex(HH:mm:ss)";
+    final static String NOVO_FUNCIONARIO = "DESEJA CADASTRAR UM NOVO FUNCIONÁRIO? ";
+    final static String LISTA_DE_FUNCIONARIOS = "LISTA DE FUNCIONÁRIOS";
+    final static String NAO_HA_FUNCIONARIOS = "NAÕ EXISTEM FUNCIONÁRIOS CADASTRADOS";
+
+
     //GERENTE
     final static String MENU_GERENTE = "MENU GERENTE";
 
     //PRODUTO
+    final static String MSG_CADASTRO_PRODUTO = "CADASTRO DE PRODUTOS";
     final static String MENU_PRODUTO = "MENU PRODUTOS";
-
+    final static String LISTA_DE_PRODUTOS = "LISTA DE PRODUTOS";
+    final static String NOVO_PRODUTO = "DESEJA CADASTRAR UM NOVO PRODUTO?";
+    final static String INFORME_NOME_PRODUTO = "NOME DO PRODUTO:";
+    final static String INFORME_MARCA = "MARCA:";
+    final static String INFORME_PRECO = "PREÇO:  Ex(4.99)";
+    final static String INFORME_CODBARRA = "CÓDIGO DE BARRAS:";
+    final static String NAO_HA_PRODUTOS = "NÃO EXISTEM PRODUTOS CADASTRADOS";
+    
     //ESTOQUE
     final static String MENU_ESTOQUE = "MENU ESTOQUE";
     final static String MSG_CADASTRO_ESTOQUE = "CADASTRO DE ESTOQUE";
@@ -52,5 +71,6 @@ public interface Mensagem {
     final static String INFORME_ENDERECO_ESTOQUE = "INFORME O ENDEREÇO: ";
 
 
-}
+    
 
+}
