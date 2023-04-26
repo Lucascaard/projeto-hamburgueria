@@ -73,18 +73,42 @@ public class Prompt {
 			}
 		}
 		/**
-		 * Lê um número decimal digitado pelo usuário a partir da entrada padrão.
-		 * Se o usuário digitar um valor inválido, exibe uma mensagem de erro e solicita
-		 * que o usuário tente novamente.
-		 * @param mensagem a mensagem a ser exibida antes da entrada do usuário
-		 * @return o número decimal digitado pelo usuário
-		 */
-		public static double lerDecimal(String mensagem) {
-			// exibe a mensagem fornecida antes da entrada do usuário
-			imprimir(mensagem);
-			// lê a entrada do usuário e retorna o número decimal correspondente
-			return lerDecimal();
+	 * Lê um número decimal digitado pelo usuário a partir da entrada padrão.
+	 * Se o usuário digitar um valor inválido, exibe uma mensagem de erro e solicita
+	 * que o usuário tente novamente.
+	 * @param mensagem a mensagem a ser exibida antes da entrada do usuário
+	 * @return o número decimal digitado pelo usuário
+	 */
+	public static double lerDecimal(String mensagem) {
+		// exibe a mensagem fornecida antes da entrada do usuário
+		imprimir(mensagem);
+		// lê a entrada do usuário e retorna o número decimal correspondente
+		return lerDecimal();
+	}
+
+	/**
+	 * Lê um número decimal digitado pelo usuário a partir da entrada padrão.
+	 * Se o usuário digitar um valor inválido, exibe uma mensagem de erro e solicita
+	 * que o usuário tente novamente.
+	 * @return o número decimal digitado pelo usuário
+	 */
+	public static double lerDecimal() {
+		while (true) {
+			try {
+				// lê uma linha de texto da entrada padrão
+				String linha = lerLinha();
+				// se a linha estiver vazia, retorna 0
+				if (linha.isEmpty()) {
+					return 0;
+				}
+				// converte a linha em um número decimal e retorna o valor correspondente
+				return Double.parseDouble(linha);
+			} catch (NumberFormatException e) {
+				// exibe uma mensagem de erro e solicita que o usuário tente novamente
+				imprimir("Decimal inválido, digite novamente...");
+			}
 		}
+	}
 
 	//ler uma data digitada pelo usuário
 	public static LocalDate lerData(String mensagem) {

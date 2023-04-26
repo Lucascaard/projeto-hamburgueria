@@ -1,7 +1,5 @@
 package principal.util;
 
-import java.time.LocalDate;
-
 public interface Mensagem {
 	
 	//MENUS
@@ -61,7 +59,7 @@ public interface Mensagem {
     final static String NOVO_PRODUTO = "DESEJA CADASTRAR UM NOVO PRODUTO?";
     final static String INFORME_NOME_PRODUTO = "NOME DO PRODUTO:";
     final static String INFORME_MARCA = "MARCA:";
-    final static String INFORME_PRECO = "PREÇO:";
+    final static String INFORME_PRECO = "PREÇO:  Ex(4.99)";
     final static String INFORME_CODBARRA = "CÓDIGO DE BARRAS:";
     final static String NAO_HA_PRODUTOS = "NÃO EXISTEM PRODUTOS CADASTRADOS";
     
