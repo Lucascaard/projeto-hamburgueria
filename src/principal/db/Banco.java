@@ -2,6 +2,7 @@ package principal.db;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class Banco {
     public static List<Cliente> clientes = new ArrayList<>();
     public static List<Produto> produtos = new ArrayList<>();
     public static List<Gerente> gerentes = new ArrayList<>();
+    public static List<Funcionario> funcionarios = new ArrayList<>();
 
     public static void inserindoDados(){
 
@@ -27,5 +29,9 @@ public class Banco {
 
     Gerente gerente = new Gerente("Geucemar", "15151", "98989", "Masculino", "email@exemplo.com",LocalDate.of(2020, 1, 1), new BigDecimal(5.000));
     gerentes.add(gerente);
+
+    Funcionario funcionario = new Funcionario("Petter", "4565", "545545", "M", "@gmail.com", LocalDate.of(2023, 2, 6), LocalTime.of(10, 15, 20), LocalTime.of(5, 10, 30));
+    funcionarios.add(funcionario);
+    
     }
 }

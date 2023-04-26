@@ -1,5 +1,7 @@
 package principal.util;
 
+import java.time.LocalDate;
+
 public interface Mensagem {
 
     //MENUS
@@ -38,6 +40,17 @@ public interface Mensagem {
     final static String LISTA_DE_CLIENTES = "LISTA DE CLIENTES";
     final static String NAO_HA_CLIENTES = "NAÕ EXISTEM CLIENTES CADASTRADOS";
 
+    //FUNCIONARIO 
+    final static String MENU_FUNCIONARIO = "MENU FUNCIONÁRIO";
+    final static String MSG_CADASTRO_FUNCIONARIO = "CADASTRO DE FUNCIONÁRIOS";
+    final static String INFORME_DATA = "INFORME A DATA";
+    final static String INFORME_HORA_ENTRADA = "INFORME A HORA DA ENTRADA";
+    final static String INFORME_HORA_SAIDA = "INFORME A HORA DA SAÍDA";
+    final static String NOVO_FUNCIONARIO = "DESEJA CADASTRAR UM NOVO FUNCIONÁRIO? ";
+    final static String LISTA_DE_FUNCIONARIOS = "LISTA DE FUNCIONÁRIOS";
+    final static String NAO_HA_FUNCIONARIOS = "NAÕ EXISTEM FUNCIONÁRIOS CADASTRADOS";
+
+
     //GERENTE
     final static String MENU_GERENTE = "MENU GERENTE";
 
@@ -46,6 +59,8 @@ public interface Mensagem {
 
     //ESTOQUE
     final static String MENU_ESTOQUE = "MENU ESTOQUE";
+
+    
 
 }
 

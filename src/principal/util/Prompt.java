@@ -3,6 +3,10 @@ package principal.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class Prompt {
 
@@ -102,6 +106,36 @@ public class Prompt {
 			} catch (NumberFormatException e) {
 				// exibe uma mensagem de erro e solicita que o usuário tente novamente
 				imprimir("Decimal inválido, digite novamente...");
+			}
+		}
+	}
+
+	//ler uma data digitada pelo usuário
+	public static LocalDate lerData(String mensagem) {
+		LocalDate data = null;
+		while (data == null) {
+			try {
+				System.out.print(mensagem);
+				String input = lerLinha();
+				data = LocalDate.parse(input);
+			} catch (DateTimeParseException e) {
+				System.out.println("Data inválida. Digite novamente.");
+			}
+		}
+		return data;
+	}
+
+	//ler a hora digitada pelo usuário 
+	public static LocalTime lerHora(String mensagem) {
+		System.out.println(mensagem);
+		while (true) {
+			try {
+				String horaStr = lerLinha();
+				// Formato de hora esperado
+				DateTimeFormatter formatador = DateTimeFormatter.ofPattern("HH:mm:ss");
+				return LocalTime.parse(horaStr, formatador);
+			} catch (Exception e) {
+				System.out.println("Hora inválida, digite novamente...");
 			}
 		}
 	}
