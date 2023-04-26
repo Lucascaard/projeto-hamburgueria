@@ -35,10 +35,10 @@ Com estes passos, você poderá explorar a aplicação, cadastrar clientes, gere
 
 ## Contribuidores
 
-  @Lucascaard
-  @gabriellegomess
-  @V1nicius00
-  @VitorGabriel-TI
-  @PauloAfonsoGR
+- [Lucas Cardoso](https://github.com/Lucascaard)
+- [Gabrielle Gomes](https://github.com/gabriellegomess)
+- [Vinicius Cordeiro](https://github.com/V1nicius00)
+- [Vitor Gabriel](https://github.com/VitorGabriel-TI)
+- [Paulo Afonso](https://github.com/PauloAfonsoGR)
 
 Agradecemos a oportunidade de participar deste projeto e esperamos que esta aplicação seja útil para a gestão de uma hamburgueria.
