@@ -51,8 +51,8 @@ public class TelaFuncionario {
         String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
         String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
         String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
-        LocalDate dataAdmissao = Prompt.lerData(Mensagem.INFORME_DATA); //nao ta funfando n sei pq???
-        LocalTime horarioEntrada = Prompt.lerHora(Mensagem.INFORME_HORA_ENTRADA);
+        LocalDate dataAdmissao = Prompt.lerData(Mensagem.INFORME_DATA); //usar com - ( 2001-02-03 )
+        LocalTime horarioEntrada = Prompt.lerHora(Mensagem.INFORME_HORA_ENTRADA); //usar com : ( hora:min:seg )
         LocalTime horarioSaida = Prompt.lerHora(Mensagem.INFORME_HORA_SAIDA);
 		
         //verificar se o nome ta vazio e continuar
