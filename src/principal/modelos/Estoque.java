@@ -4,21 +4,15 @@ import java.util.List;
 
 public class Estoque {
 	
-		private List<Produto> itensEstoque = new ArrayList<Produto>();
-		private int qtde;
+		private List<ItemEstoque> itensEstoque = new ArrayList<ItemEstoque>();
 		private String enderecoEstoque;
 		
-		public void adicionarItem(Produto produto) {
-			this.itensEstoque.add(produto);
+		public void adicionarItem(ItemEstoque item) {
+			this.itensEstoque.add(item);
 		}
 		
 		public Estoque() {
 			
-		}
-		
-		public Estoque( int qtde, String enderecoEstoque) {
-			this.qtde = qtde;
-			this.enderecoEstoque = enderecoEstoque;
 		}
 		
 		//Setters
@@ -26,24 +20,18 @@ public class Estoque {
 				this.enderecoEstoque = enderecoEstoque;
 			}
 			
-			public void setQtde( int qtdeExterno ) {
-				this.qtde = qtdeExterno;
-			}
 		
 		//Getters
 			public String getEnderecoEstoque() {
 				return enderecoEstoque;
 			}
-			
-			public int getQtde() {
-				return qtde;
-			}
+
 	
-			public List<Produto> getItensEstoque() {
+			public List<ItemEstoque> getItensEstoque() {
 				return itensEstoque;
 			}
 	
-			public void setItensEstoque(List<Produto> itensEstoque) {
+			public void setItensEstoque(List<ItemEstoque> itensEstoque) {
 				this.itensEstoque = itensEstoque;
 			}
 	}

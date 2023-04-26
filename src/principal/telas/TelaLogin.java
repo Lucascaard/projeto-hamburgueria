@@ -4,14 +4,9 @@ import principal.util.Mensagem;
 import principal.util.Prompt;
 import principal.controles.*;
 
-
-/*
-* @version 1.0 Abr 2023
-* @author Lucas Cardoso
-*/
 public class TelaLogin {
     
-    public static void mostrar(){
+	public static void mostrar(){
 
         Prompt.separador();
         Prompt.imprimir(Mensagem.TELA_LOGIN);
