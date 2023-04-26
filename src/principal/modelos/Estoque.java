@@ -16,7 +16,8 @@ public class Estoque {
 			
 		}
 		
-		public Estoque( int qtde, String enderecoEstoque) {
+		public Estoque(Produto produto, int qtde, String enderecoEstoque) {
+			this.itensEstoque.add(produto);
 			this.qtde = qtde;
 			this.enderecoEstoque = enderecoEstoque;
 		}

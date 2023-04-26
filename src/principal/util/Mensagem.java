@@ -46,6 +46,11 @@ public interface Mensagem {
 
     //ESTOQUE
     final static String MENU_ESTOQUE = "MENU ESTOQUE";
+    final static String MSG_CADASTRO_ESTOQUE = "CADASTRO DE ESTOQUE";
+    final static String INFORME_PRODUTO = "INFORME O PRODUTO: ";
+    final static String INFORME_QUANTIDADE = "INFORME A QUANTIDADE: ";
+    final static String INFORME_ENDERECO_ESTOQUE = "INFORME O ENDEREÇO: ";
+
 
 }
 

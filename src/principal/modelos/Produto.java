@@ -3,16 +3,27 @@ import java.math.BigDecimal;
 
 public class Produto  {
 
+    private int id;
     private String nome;
     private String marca;
     private BigDecimal preco;
     private int codBarra;
     
-    public Produto(String nome, String marca, BigDecimal preco, int codBarra) {
+    public Produto(int id, String nome, String marca, BigDecimal preco, int codBarra) {
+        this.id = id;
     	this.nome = nome;
     	this.marca = marca;
     	this.preco = preco;
     	this.codBarra = codBarra;
+    }
+
+    //id
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 	//nome
@@ -50,4 +61,6 @@ public class Produto  {
     public void setCodBarra(int codBarra){
         this.codBarra = codBarra;
     }
+
+    
 }

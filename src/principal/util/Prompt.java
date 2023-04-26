@@ -116,4 +116,9 @@ public class Prompt {
 		// aguarda até que o usuário pressione ENTER
 		lerLinha();
 	}
+
+
+	public static Object lerObj(Object object){
+		return object;
+	} 
 }
