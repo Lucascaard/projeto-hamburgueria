@@ -62,6 +62,7 @@ public interface Mensagem {
     final static String INFORME_PRECO = "PREÇO:  Ex(4.99)";
     final static String INFORME_CODBARRA = "CÓDIGO DE BARRAS:";
     final static String NAO_HA_PRODUTOS = "NÃO EXISTEM PRODUTOS CADASTRADOS";
+    final static String INFORME_ID = "INFORME O ID DO PRODUTO: ";
     
     //ESTOQUE
     final static String MENU_ESTOQUE = "MENU ESTOQUE";

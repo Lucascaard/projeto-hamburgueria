@@ -151,8 +151,4 @@ public class Prompt {
 		lerLinha();
 	}
 
-
-	public static Object lerObj(Object object){
-		return object;
-	} 
 }

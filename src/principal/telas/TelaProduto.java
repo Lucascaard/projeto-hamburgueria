@@ -1,5 +1,7 @@
 package principal.telas;
 
+import java.math.BigDecimal;
+
 import principal.controles.ControleProduto;
 import principal.db.Banco;
 import principal.modelos.Produto;
@@ -40,6 +42,7 @@ public class TelaProduto {
 		Prompt.separador();
         Prompt.imprimir(Mensagem.MSG_CADASTRO_PRODUTO);
 		Prompt.separador();
+		Integer id = Prompt.lerInteiro(Mensagem.INFORME_ID);
         String nome = Prompt.lerLinha(Mensagem.INFORME_NOME_PRODUTO);
         String marca = Prompt.lerLinha(Mensagem.INFORME_MARCA);
         double preco  = Prompt.lerDecimal(Mensagem.INFORME_PRECO);
@@ -48,7 +51,7 @@ public class TelaProduto {
 
         if(!nome.isEmpty()) {
 			 
-        	ControleProduto.adicionar(new Produto(nome, marca, preco, codBarra));
+        	ControleProduto.adicionar(new Produto(id, nome, marca, preco, codBarra));
         }
 		Prompt.pressionarEnter();
 		TelaProduto.refazer();

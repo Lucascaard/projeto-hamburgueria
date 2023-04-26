@@ -3,8 +3,10 @@ package principal.telas;
 import principal.util.Mensagem;
 import principal.util.Prompt;
 import principal.controles.ControleEstoque;
+import principal.controles.ControleProduto;
 import principal.db.Banco;
 import principal.modelos.Estoque;
+import principal.modelos.ItemEstoque;
 import principal.modelos.Produto;
 
 
@@ -35,7 +37,7 @@ public class TelaEstoque {
                     TelaEstoque.listar();
                     break;
                 case 3:
-                    TelaEstoque.voltar();
+                    TelaPrincipal.mostrar();
                     break;
                 default:
                     Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
@@ -53,13 +55,32 @@ public class TelaEstoque {
         Prompt.separador();
         Prompt.imprimir(Mensagem.MSG_CADASTRO_ESTOQUE);
         Prompt.separador();
+        Integer idProduto = Prompt.lerInteiro(Mensagem.INFORME_ID);
         Integer qtde = Prompt.lerInteiro(Mensagem.INFORME_QUANTIDADE);
-        String endereco = Prompt.lerLinha(Mensagem.INFORME_ENDERECO_ESTOQUE);
 
-        if(!produto.isEmpty()) {
+        if(!idProduto.equals(null)) {
 
-            ControleEstoque.adicionar(new Estoque(produto, qtde, endereco));
+
+            Produto produto = ControleProduto.buscarPorId(idProduto);
+
+            ItemEstoque item = new ItemEstoque();
+            item.setProduto(produto);
+            item.setQtde(qtde);
+
+            ControleEstoque.adicionar(item);
         }
+
+        Prompt.pressionarEnter();
+		TelaEstoque.mostrar();
+
+    }
+
+
+    public static void listar(){
+
+    }
+
+    public static void voltar(){
 
     }
 

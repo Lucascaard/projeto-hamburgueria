@@ -32,7 +32,7 @@ public static void mostrar(){
                 TelaProduto.mostrar();
                 break;
             case 4:
-                TelaGerente.mostrar();
+                TelaEstoque.mostrar(); // alterado para teste
                 break;
             case 5:
                 TelaLogin.mostrar();
