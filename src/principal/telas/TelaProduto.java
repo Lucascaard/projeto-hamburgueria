@@ -97,7 +97,8 @@ public class TelaProduto {
 		} else {
 			
 			for (Produto produto : Banco.produtos) {
-				String infoProduto = "Nome: " + produto.getNome() + "\n"
+				String infoProduto = "ID: " + produto.getId() + "\n"
+									+ "Nome: " + produto.getNome() + "\n"  
 									+ "Marca: " + produto.getMarca() + "\n"
 									+ "Preço: " + produto.getPreco() + "\n"
 									+ "Código de Barras: " + produto.getCodBarra() + "\n";
