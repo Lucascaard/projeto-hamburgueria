@@ -22,8 +22,8 @@ public class TelaEstoque {
         Prompt.imprimir(Mensagem.MENU_ESTOQUE);
         Prompt.separador();
         Prompt.linhaEmBranco();
-        Prompt.imprimir("[1] - " + Mensagem.CADASTRAR);
-        Prompt.imprimir("[2] - " + Mensagem.LISTAR);
+        Prompt.imprimir("[1] - " + Mensagem.CREATE);
+        Prompt.imprimir("[2] - " + Mensagem.READ);
         Prompt.imprimir("[3] - " + Mensagem.VOLTAR);
         Integer opcao = Prompt.lerInteiro();
 

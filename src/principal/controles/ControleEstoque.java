@@ -1,7 +1,6 @@
 package principal.controles;
 
 import principal.db.Banco;
-import principal.modelos.Estoque;
 import principal.modelos.ItemEstoque;
 
 public class ControleEstoque {

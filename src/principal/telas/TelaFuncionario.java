@@ -20,8 +20,8 @@ public class TelaFuncionario {
 		Prompt.imprimir(Mensagem.MENU_FUNCIONARIO);
 		Prompt.separador();
 		Prompt.linhaEmBranco();
-		Prompt.imprimir("[1] - " + Mensagem.CADASTRAR);
-		Prompt.imprimir("[2] - " + Mensagem.LISTAR);
+		Prompt.imprimir("[1] - " + Mensagem.CREATE);
+		Prompt.imprimir("[2] - " + Mensagem.READ);
 		Prompt.imprimir("[3] - " + Mensagem.VOLTAR);
 		Integer opcao = Prompt.lerInteiro();
 
@@ -58,7 +58,7 @@ public class TelaFuncionario {
         //verificar se o nome ta vazio e continuar
 
         if(!nome.isEmpty()) {
-            //função adicionar na classe ControleFuncionario e as variaveis como parametro
+            //função adicionar na classe ControleFuncionario e as variáveis como parâmetro
 
             ControleFuncionario.adicionar(new Funcionario(nome, CPF, telefone, sexo, email, dataAdmissao, horarioEntrada, horarioSaida));
 

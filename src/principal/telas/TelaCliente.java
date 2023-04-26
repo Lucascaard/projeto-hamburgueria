@@ -15,9 +15,11 @@ public class TelaCliente {
 		Prompt.imprimir(Mensagem.MENU_CLIENTE);
 		Prompt.separador();
 		Prompt.linhaEmBranco();
-		Prompt.imprimir("[1] - " + Mensagem.CADASTRAR);
-		Prompt.imprimir("[2] - " + Mensagem.LISTAR);
-		Prompt.imprimir("[3] - " + Mensagem.VOLTAR);
+		Prompt.imprimir("[1] - " + Mensagem.CREATE);
+		Prompt.imprimir("[2] - " + Mensagem.READ);
+		Prompt.imprimir("[3] - " + Mensagem.UPDATE);
+		Prompt.imprimir("[4] - " + Mensagem.DELETE);
+		Prompt.imprimir("[5] - " + Mensagem.VOLTAR);
 		Integer opcao = Prompt.lerInteiro();
 
 			switch(opcao){

@@ -1,13 +1,19 @@
 package principal.util;
 
 public interface Mensagem {
-	
+
+
+    //CRUD
+    final static String CREATE = "CADASTRAR ";
+    final static String READ = "LISTAR";
+    final static String UPDATE = "ALTERAR";
+    final static String DELETE = "DELETAR";
+
 	//MENUS
     final static String MENU_PRINCIPAL = "               MENU PRINCIPAL";
     final static String OPCAO_INVALIDA = "OPÇÃO INVALIDA, TENTE NOVAMENTE";
     final static String MSG_ESCOLHA_UMA_OPÇÃO = "ESCOLHA UMA DAS OPÇÕES";
     final static String FINALIZADO = "PROGRAMA FINALIZADO";
-    final static String LISTAR = "LISTAR";
     final static String EXCLUIR = "EXCLUIR";
     final static String VOLTAR = "VOLTAR";
     final static String SIM = "SIM";
@@ -21,7 +27,6 @@ public interface Mensagem {
 
     //CADASTROS
     final static String TELA_DE_CADASTROS = "TELA DE CADASTROS";
-    final static String CADASTRAR = "CADASTRAR ";
     
     //PESSOA
     final static String INFORME_NOME = "NOME:";
