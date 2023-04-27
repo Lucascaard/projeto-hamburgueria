@@ -37,7 +37,7 @@ Com estes passos, você poderá explorar a aplicação, cadastrar clientes, gere
 
 - [Lucas Cardoso](https://github.com/Lucascaard)
 - [Gabrielle Gomes](https://github.com/gabriellegomess)
-- [Vinicius Cordeiro](https://github.com/V1nicius00)
+- [Vinícius Cordeiro](https://github.com/V1nicius00)
 - [Vitor Gabriel](https://github.com/VitorGabriel-TI)
 - [Paulo Afonso](https://github.com/PauloAfonsoGR)
 
