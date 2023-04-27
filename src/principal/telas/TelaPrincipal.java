@@ -19,6 +19,7 @@ public static void mostrar(){
         Prompt.imprimir("[3] " + Mensagem.MENU_PRODUTO);
         Prompt.imprimir("[4] " + Mensagem.MENU_GERENTE);
         Prompt.imprimir("[5] " + Mensagem.VOLTAR);
+        Prompt.imprimir("[6] " + Mensagem.FINALIZAR_PROGRAMA);
         Integer opcao = Prompt.lerInteiro();
 
         switch (opcao) {
@@ -36,6 +37,9 @@ public static void mostrar(){
                 break;
             case 5:
                 TelaLogin.mostrar();
+                break;
+            case 6:
+                Prompt.imprimir(Mensagem.FINALIZADO);
                 break;
             default:
                 Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
