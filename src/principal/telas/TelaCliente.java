@@ -151,9 +151,28 @@ public class TelaCliente {
 
 	public static void delete(){
 
+		Prompt.linhaEmBranco();
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.EXCLUIR_CLIENTE);
+		Prompt.separador();
+		String nome = Prompt.lerLinha(Mensagem.NOME_EXCLUIR);
+		
+		if(!nome.isEmpty()) {
+			boolean clienteExcluido = ControleCliente.excluir(nome);
+			Prompt.linhaEmBranco();
+			if(clienteExcluido) {
+				Prompt.imprimir(Mensagem.EXCLUIDO_COM_SUCESSO);
+			} else {
+				Prompt.imprimir(Mensagem.CLIENTE_NAO_ENCONTRADO);
+			}
+		Prompt.linhaEmBranco();
+		Prompt.pressionarEnter();
+
+		}
+	TelaCliente.mostrar();
 
 	}
-	
+
 	public static void refazer(){
 
 	// Menu pra escolher o que deseja fazer a seguir com recursão em caso de opção invalida

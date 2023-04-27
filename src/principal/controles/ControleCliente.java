@@ -39,4 +39,18 @@ public class ControleCliente {
 			}
 		}
 	}
+
+    public static boolean excluir(String nome) {
+		boolean clienteExcluido = false;
+		for (int i = 0; i < Banco.clientes.size(); i++) {
+			Cliente cliente = Banco.clientes.get(i);
+			if (cliente.getNome().equalsIgnoreCase(nome)) {
+				Banco.clientes.remove(i);
+				clienteExcluido = true;
+				break;
+			}
+		}
+		return clienteExcluido;
+	}
 }
+
