@@ -135,6 +135,45 @@ public class TelaCliente {
 	
 	public static void update(){
 
+		Prompt.linhaEmBranco();
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.UPDATE_CLIENTE);
+		Prompt.separador();
+		String nomeOriginal = Prompt.lerLinha(Mensagem.NOME_ORIGINAL);
+		if(!nomeOriginal.isEmpty()) {
+			Cliente clienteAlterado = ControleCliente.buscar(nomeOriginal);
+
+			if(clienteAlterado != null) {
+				Prompt.imprimir(Mensagem.NOVOS_DADOS);
+				Prompt.linhaEmBranco();
+				String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
+				String CPF = Prompt.lerLinha(Mensagem.INFORME_CPF);
+				String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
+				String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
+				String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
+				String endereco = Prompt.lerLinha(Mensagem.INFORME_ENDERECO);
+
+				if(!nome.isEmpty() && !CPF.isEmpty()) {
+					clienteAlterado.setNome(nome);
+					clienteAlterado.setCPF(CPF);
+					clienteAlterado.setTelefone(telefone);
+					clienteAlterado.setEmail(email);
+					clienteAlterado.setSexo(sexo);
+					clienteAlterado.setEndereco(endereco);
+					
+					ControleCliente.atualizar(nomeOriginal, clienteAlterado);
+					Prompt.linhaEmBranco();
+					Prompt.imprimir(Mensagem.ALTERADO_COM_SUCESSO);
+				} 
+			} else {
+				Prompt.linhaEmBranco();
+				Prompt.imprimir(Mensagem.CLIENTE_NAO_ENCONTRADO);
+			}
+		Prompt.linhaEmBranco();
+		Prompt.pressionarEnter();
+		TelaCliente.mostrar();
+			
+		}
 	}
 
 	public static void delete(){
