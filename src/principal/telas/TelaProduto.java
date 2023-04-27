@@ -16,7 +16,8 @@ public class TelaProduto {
 		Prompt.linhaEmBranco();
 		Prompt.imprimir("[1] - " + Mensagem.CREATE);
 		Prompt.imprimir("[2] - " + Mensagem.READ);
-		Prompt.imprimir("[3] - " + Mensagem.VOLTAR);
+		Prompt.imprimir("[3] - " + Mensagem.DELETE);
+		Prompt.imprimir("[4] - " + Mensagem.VOLTAR);
 		Integer opcao = Prompt.lerInteiro();
 		
 		switch(opcao){
@@ -25,6 +26,9 @@ public class TelaProduto {
 			break;
 		case 2:
 			TelaProduto.listar();
+			break;
+		case 3:
+			TelaProduto.excluir();
 			break;
 		default:
 			Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
@@ -106,4 +110,20 @@ public class TelaProduto {
 		Prompt.pressionarEnter();
 		TelaProduto.mostrar();
 	}
+
+	public static void excluir() {
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.MSG_EXCLUSAO_PRODUTO);
+		Prompt.separador();
+		Integer id = Prompt.lerInteiro(Mensagem.INFORME_ID);
+		boolean excluiu = ControleProduto.excluir(id);
+		if(excluiu) {
+		Prompt.imprimir(Mensagem.PRODUTO_EXCLUIDO_SUCESSO);
+		} else {
+		Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
+		}
+		Prompt.pressionarEnter();
+		TelaProduto.refazer();
+		}
+
 }

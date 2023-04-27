@@ -25,4 +25,14 @@ public class ControleProduto {
 
         return null;
     }
+
+    public static boolean excluir(Integer id) {
+        for (Produto produto : Banco.produtos) {
+        if (produto.getId() == id) {
+        Banco.produtos.remove(produto);
+        return true;
+        }
+        }
+        return false;
+        }
 }

@@ -68,6 +68,9 @@ public interface Mensagem {
     final static String INFORME_CODBARRA = "CÓDIGO DE BARRAS:";
     final static String NAO_HA_PRODUTOS = "NÃO EXISTEM PRODUTOS CADASTRADOS";
     final static String INFORME_ID = "INFORME O ID DO PRODUTO: ";
+    final static String MSG_EXCLUSAO_PRODUTO = "EXCLUSÃO DE PRODUTOS";
+    final static String PRODUTO_EXCLUIDO_SUCESSO = "PRODUTO EXCLUÍDO COM SUCESSO";
+    final static String PRODUTO_NAO_ENCONTRADO = "PRODUTO NÃO ENCONTRADO";
     
     //ESTOQUE
     final static String MENU_ESTOQUE = "MENU ESTOQUE";
