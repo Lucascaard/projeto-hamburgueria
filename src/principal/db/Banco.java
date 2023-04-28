@@ -12,8 +12,8 @@ public class Banco {
     public static List<Cliente> clientes = new ArrayList<>();
     public static List<Produto> produtos = new ArrayList<>();
     public static List<Gerente> gerentes = new ArrayList<>();
-    //public static List<ItemEstoque> ItensEstoque = new ArrayList<>(); comentado para teste
-    public static List<ItemEstoque> itensEstoque = new ArrayList<ItemEstoque>();
+    public static Estoque estoque = new Estoque();
+    public static List<Estoque> produtoEstoques = new ArrayList<>();
     public static List<Funcionario> funcionarios = new ArrayList<>();
 
     public static void inserindoDados(){
@@ -29,8 +29,6 @@ public class Banco {
 
     Funcionario funcionario = new Funcionario("Tair", "4565", "545545", "M", "@gmail.com", LocalDate.of(2023, 2, 6), LocalTime.of(10, 15, 20), LocalTime.of(5, 10, 30));
     funcionarios.add(funcionario);
-
-    
 
     }
 }

@@ -21,8 +21,6 @@ public class ControleProduto {
             if(produto.getId() == idExterno){
                 return produto;
             }
-
-            break;
         }
 
         return null;

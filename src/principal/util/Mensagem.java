@@ -84,19 +84,6 @@ public interface Mensagem {
     final static String INFORME_PRODUTO = "INFORME O PRODUTO: ";
     final static String INFORME_QUANTIDADE = "INFORME A QUANTIDADE: ";
     final static String INFORME_ENDERECO_ESTOQUE = "INFORME O ENDEREÇO: ";
-    final static String LISTA_ESTOQUE = "LISTA DO ESTOQUE";
-    final static String ESTOQUE_VAZIO = "ESTOQUE VAZIO";
-    final static String ID_INVALIDA = "ID INVÁLIDA";
-    final static String UPDATE_ESTOQUE = "ATUALIZAR ESTOQUE";
-    final static String QTDE_ESTOQUE = "QUANTIDADE EM ESTOQUE";
-    final static String PRODUTO_NAO_ENCONTRADO = "PRODUTO NÃO ENCONTRADO";
-    final static String NOVA_QTDE = "INSIRA QUANTIDADE DO PRODUTO NO ESTOQUE";
-    final static String ESTOQUE_ALTERADO = "ESTOQUE ALTERADO COM SUCESSO";
-    final static String EXCLUIR_ESTOQUE = "EXCLUIR PRODUTO DO ESTOQUE";
-    final static String INFORME_ID_EXCLUIR_ESTOQUE = "INFORME O ID DO PRODUTO QUE DESEJA EXCLUIR DO ESTOQUE: ";
-    final static String ESTOQUE_EXCLUIDO = "ESTOQUE EXCLUIDO COM SUCESSO";
-    final static String PRODUTO_CADASTRADO_ESTOQUE = "PRODUTO CADASTRADO NO ESTOQUE";
-    final static String PRODUTO_EXISTENTE_ESTOQUE = "NÃO É POSSÍVEL CADASTRAR UM PRODUTO JA EXISTENTE";
 
 
     
