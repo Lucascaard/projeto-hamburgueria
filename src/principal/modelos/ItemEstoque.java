@@ -5,8 +5,6 @@ public class ItemEstoque {
     private Produto produto;
     private Integer qtde;
 
-
-
     public Produto getProduto() {
         return produto;
     }
