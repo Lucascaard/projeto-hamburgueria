@@ -3,6 +3,11 @@ package principal.controles;
 import principal.db.Banco;
 import principal.modelos.Cliente;
 
+/*
+ * @Author Lucas Cardoso
+ * @version 1.0 Abr 2023
+ */
+
 public class ControleCliente {
 
 	public static void adicionar(Cliente cliente){

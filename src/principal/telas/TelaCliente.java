@@ -6,6 +6,11 @@ import principal.modelos.Cliente;
 import principal.util.Mensagem;
 import principal.util.Prompt;
 
+/*
+ * @author Lucas Cardoso
+ * @version 1.0 Abr 2023
+ */
+
 public class TelaCliente {
 	
 	public static void mostrar(){
