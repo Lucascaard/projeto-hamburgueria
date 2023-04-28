@@ -2,13 +2,18 @@ package principal.modelos;
 import java.util.ArrayList;
 import java.util.List;
 
+import principal.db.Banco;
+
 public class Estoque {
 	
-		private List<ItemEstoque> itensEstoque = new ArrayList<ItemEstoque>();
 		private String enderecoEstoque;
 		
 		public void adicionarItem(ItemEstoque item) {
-			this.itensEstoque.add(item);
+			Banco.itensEstoque.add(item);
+		}
+
+		public void removerItem(ItemEstoque item) {
+			Banco.itensEstoque.remove(item);
 		}
 		
 		public Estoque() {
@@ -19,19 +24,11 @@ public class Estoque {
 			public void setEnderecoEstoque(String enderecoEstoque) {
 				this.enderecoEstoque = enderecoEstoque;
 			}
-			
-		
+				
 		//Getters
 			public String getEnderecoEstoque() {
 				return enderecoEstoque;
 			}
 
 	
-			public List<ItemEstoque> getItensEstoque() {
-				return itensEstoque;
-			}
-	
-			public void setItensEstoque(List<ItemEstoque> itensEstoque) {
-				this.itensEstoque = itensEstoque;
-			}
 	}
