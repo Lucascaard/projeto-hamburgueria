@@ -1,13 +1,19 @@
 package principal.util;
 
 public interface Mensagem {
-	
+
+
+    //CRUD
+    final static String CREATE = "CADASTRAR ";
+    final static String READ = "LISTAR";
+    final static String UPDATE = "ALTERAR";
+    final static String DELETE = "DELETAR";
+
 	//MENUS
     final static String MENU_PRINCIPAL = "               MENU PRINCIPAL";
     final static String OPCAO_INVALIDA = "OPÇÃO INVALIDA, TENTE NOVAMENTE";
     final static String MSG_ESCOLHA_UMA_OPÇÃO = "ESCOLHA UMA DAS OPÇÕES";
     final static String FINALIZADO = "PROGRAMA FINALIZADO";
-    final static String LISTAR = "LISTAR";
     final static String EXCLUIR = "EXCLUIR";
     final static String VOLTAR = "VOLTAR";
     final static String SIM = "SIM";
@@ -21,7 +27,6 @@ public interface Mensagem {
 
     //CADASTROS
     final static String TELA_DE_CADASTROS = "TELA DE CADASTROS";
-    final static String CADASTRAR = "CADASTRAR ";
     
     //PESSOA
     final static String INFORME_NOME = "NOME:";
@@ -37,6 +42,15 @@ public interface Mensagem {
     final static String NOVO_CLIENTE = "DESEJA CADASTRAR UM NOVO CLIENTE? ";
     final static String LISTA_DE_CLIENTES = "LISTA DE CLIENTES";
     final static String NAO_HA_CLIENTES = "NAÕ EXISTEM CLIENTES CADASTRADOS";
+    final static String UPDATE_CLIENTE = "ALTERAR CLIENTE";
+    final static String NOME_ORIGINAL = "INFORME O NOME DO CLIENTE QUE DESEJA ALTERAR: ";
+    final static String NOME_EXCLUIR = "INFORME O NOME DO CLIENTE QUE DESEJA EXCLUIR: ";
+    final static String NOVOS_DADOS = "INSIRA OS NOVOS DADOS DESTE CLIENTE";
+    final static String ALTERADO_COM_SUCESSO = "CLIENTE ALTERADO COM SUCESSO";
+    final static String CLIENTE_NAO_ENCONTRADO = "CLIENTE NÃO FOI ENCONTRADO";
+    final static String EXCLUIR_CLIENTE = "EXCLUIR CLIENTE";
+    final static String EXCLUIDO_COM_SUCESSO = "CLIENTE EXCLUIDO COM SUCESSO";
+
 
     //FUNCIONARIO 
     final static String MENU_FUNCIONARIO = "MENU FUNCIONÁRIO";

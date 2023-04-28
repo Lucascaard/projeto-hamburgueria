@@ -2,7 +2,6 @@ package principal.controles;
 
 import principal.db.Banco;
 import principal.modelos.Produto;
-import principal.util.Prompt;
 
 import java.util.List;
 

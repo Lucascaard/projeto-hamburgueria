@@ -1,7 +1,4 @@
 package principal.telas;
-
-import java.math.BigDecimal;
-
 import principal.controles.ControleProduto;
 import principal.db.Banco;
 import principal.modelos.Produto;
@@ -17,8 +14,8 @@ public class TelaProduto {
 		Prompt.imprimir(Mensagem.MENU_PRODUTO);
 		Prompt.separador();
 		Prompt.linhaEmBranco();
-		Prompt.imprimir("[1] - " + Mensagem.CADASTRAR);
-		Prompt.imprimir("[2] - " + Mensagem.LISTAR);
+		Prompt.imprimir("[1] - " + Mensagem.CREATE);
+		Prompt.imprimir("[2] - " + Mensagem.READ);
 		Prompt.imprimir("[3] - " + Mensagem.VOLTAR);
 		Integer opcao = Prompt.lerInteiro();
 		
@@ -97,7 +94,8 @@ public class TelaProduto {
 		} else {
 			
 			for (Produto produto : Banco.produtos) {
-				String infoProduto = "Nome: " + produto.getNome() + "\n"
+				String infoProduto = "ID: " + produto.getId() + "\n"
+									+ "Nome: " + produto.getNome() + "\n"  
 									+ "Marca: " + produto.getMarca() + "\n"
 									+ "Preço: " + produto.getPreco() + "\n"
 									+ "Código de Barras: " + produto.getCodBarra() + "\n";

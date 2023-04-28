@@ -4,8 +4,6 @@ import principal.util.Mensagem;
 import principal.util.Prompt;
 import principal.controles.ControleEstoque;
 import principal.controles.ControleProduto;
-import principal.db.Banco;
-import principal.modelos.Estoque;
 import principal.modelos.ItemEstoque;
 import principal.modelos.Produto;
 
@@ -24,8 +22,8 @@ public class TelaEstoque {
         Prompt.imprimir(Mensagem.MENU_ESTOQUE);
         Prompt.separador();
         Prompt.linhaEmBranco();
-        Prompt.imprimir("[1] - " + Mensagem.CADASTRAR);
-        Prompt.imprimir("[2] - " + Mensagem.LISTAR);
+        Prompt.imprimir("[1] - " + Mensagem.CREATE);
+        Prompt.imprimir("[2] - " + Mensagem.READ);
         Prompt.imprimir("[3] - " + Mensagem.VOLTAR);
         Integer opcao = Prompt.lerInteiro();
 
