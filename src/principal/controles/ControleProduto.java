@@ -19,8 +19,7 @@ public class ControleProduto {
     public static Produto buscarPorId(int idExterno){
         for (Produto produto : Banco.produtos) {
             if(produto.getId() == idExterno){
-                Produto produtoID = produto;
-                return produtoID;
+                return produto;
             }
 
             break;

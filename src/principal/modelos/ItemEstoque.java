@@ -2,8 +2,18 @@ package principal.modelos;
 
 public class ItemEstoque {
 
+    private Integer id;
     private Produto produto;
     private Integer qtde;
+
+
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Produto getProduto() {
         return produto;
@@ -18,4 +28,8 @@ public class ItemEstoque {
         this.qtde = qtde;
     }
     
+    @Override
+    public String toString() {
+        return "ID: " + id +  "Produto: " + produto + "\nQuantidade: " + qtde;
+    }
 }

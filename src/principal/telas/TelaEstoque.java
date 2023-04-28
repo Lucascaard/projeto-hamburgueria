@@ -63,30 +63,45 @@ public class TelaEstoque {
         Prompt.imprimir(Mensagem.MSG_CADASTRO_ESTOQUE);
         Prompt.separador();
         Integer idProduto = Prompt.lerInteiro(Mensagem.INFORME_ID);
-        Integer qtde = Prompt.lerInteiro(Mensagem.INFORME_QUANTIDADE);
+        boolean control = false;
 
-        if(!idProduto.equals(null)) {
+        for (ItemEstoque item : Banco.itensEstoque) {
+            if(item.getId() != idProduto){
+                control = true;
+            }    
+        }
 
+        if(control == true){
 
-            Produto produto = ControleProduto.buscarPorId(idProduto);
-
+            if(idProduto != null) {
+                
+                
+                Produto produto = ControleProduto.buscarPorId(idProduto);
+                
                 if(produto == null){
                     Prompt.imprimir(Mensagem.ID_INVALIDA);
                 } else {
+                    Integer qtde = Prompt.lerInteiro(Mensagem.INFORME_QUANTIDADE);
                     ItemEstoque item = new ItemEstoque();
+                    item.setId(idProduto);
                     item.setProduto(produto);
                     item.setQtde(qtde);
-        
+            
                     ControleEstoque.adicionar(item);
+    
+                    Prompt.imprimir(Mensagem.PRODUTO_CADASTRADO_ESTOQUE);
                 } 
-                
-
-                // ItemEstoque item = new ItemEstoque();
-                // item.setProduto(produto);
-                // item.setQtde(qtde);
-        
-                // ControleEstoque.adicionar(item);
-                //comentado pra teste
+                    
+    
+                    // ItemEstoque item = new ItemEstoque();
+                    // item.setProduto(produto);
+                    // item.setQtde(qtde);
+            
+                    // ControleEstoque.adicionar(item);
+                    //comentado pra teste
+            }
+        } else {
+            Prompt.imprimir(Mensagem.PRODUTO_EXISTENTE_ESTOQUE);
         }
 
         Prompt.linhaEmBranco();
@@ -111,8 +126,8 @@ public class TelaEstoque {
         } else {
 
             for (ItemEstoque produto : Banco.itensEstoque) {
-                String info = "Produto: " + produto.getProduto() + "\n"
-                            + "Quantidade: " + produto.getQtde() + "\n";
+                 String info = "Produto: " + produto.getProduto().getNome() + "\n"
+                             + "Quantidade: " + produto.getQtde() + "\n";
 
                 Prompt.imprimir(info);
             }
@@ -133,7 +148,6 @@ public class TelaEstoque {
 
         if(idProduto != null){
 
-            //Produto produtoAlterado = ControleProduto.buscarPorId(idProduto); comentado para teste
             Produto produtoAlterado = ControleProduto.buscarPorId(idProduto);
 
             if(produtoAlterado != null){
@@ -146,7 +160,7 @@ public class TelaEstoque {
                 ControleEstoque.adicionar(item);
 
                 Prompt.linhaEmBranco();
-				Prompt.imprimir(Mensagem.ALTERADO_COM_SUCESSO);
+				Prompt.imprimir(Mensagem.ESTOQUE_ALTERADO);
             } else {
                 Prompt.linhaEmBranco();
 				Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
@@ -175,8 +189,10 @@ public class TelaEstoque {
 			} else {
 				Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
 			}
+
 		Prompt.linhaEmBranco();
 		Prompt.pressionarEnter();
+
         }
 
         TelaEstoque.mostrar();

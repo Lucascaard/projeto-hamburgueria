@@ -16,9 +16,10 @@ public class ControleEstoque {
         Banco.itensEstoque.add(item);
     }
 
+
     public static boolean delete(int id){
         boolean estoqueExcluido = false;
-        for (Produto produto : Banco.produtos) {
+        for (ItemEstoque produto : Banco.itensEstoque) {
             if(produto.getId() == id){
                 Banco.produtos.remove(produto);
                 estoqueExcluido = true;
@@ -28,4 +29,14 @@ public class ControleEstoque {
 
         return estoqueExcluido;
     }
+
+    // public static void buscarPorIdEstoque(int idExterno){
+    //     for (ItemEstoque produto : Banco.itensEstoque) {
+    //         if(produto.getProduto() != null){
+    //             ItemEstoque produtoID = produto;
+    //         }
+
+    //         break;
+    //     }
+    // }
 }
