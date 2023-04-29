@@ -6,6 +6,11 @@ import principal.modelos.Cliente;
 import principal.util.Mensagem;
 import principal.util.Prompt;
 
+/*
+ * @author Lucas Cardoso
+ * @version 1.0 Abr 2023
+ */
+
 public class TelaCliente {
 	
 	public static void mostrar(){
@@ -73,35 +78,8 @@ public class TelaCliente {
 		
 	}
 
-	public static void refazer(){
-
-		// Menu pra escolher o que deseja fazer a seguir com recursão em caso de opção invalida
-		Prompt.separador();
-		Prompt.imprimir(Mensagem.NOVO_CLIENTE);
-		Prompt.separador();
-		Prompt.imprimir("[1] - " + Mensagem.SIM);
-		Prompt.imprimir("[2] - " + Mensagem.VOLTAR);
-		Prompt.imprimir("[3] - " + Mensagem.FINALIZAR_PROGRAMA);
-		Integer op = Prompt.lerInteiro();
-		switch (op) {
-			case 1:
-				TelaCliente.create();
-				break;
-			case 2:
-				TelaCliente.mostrar();
-				break;
-			case 3:
-				Prompt.imprimir(Mensagem.FINALIZADO);
-				break;
-			default:
-				Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
-				TelaCliente.refazer();
-				break;
-		}
-    }
-
-	public static void read() {
-
+	public static void read(){
+		
 		// Imprime uma mensagem de cabeçalho
 		Prompt.separador();
 		Prompt.imprimir(Mensagem.LISTA_DE_CLIENTES);
@@ -119,12 +97,12 @@ public class TelaCliente {
 			for (Cliente cliente : Banco.clientes) {
 				// Monta uma string com as informações do cliente
 				String infoCliente = "Nome: " + cliente.getNome() + "\n"
-									+ "CPF: " + cliente.getCPF() + "\n"
+				+ "CPF: " + cliente.getCPF() + "\n"
 									+ "Telefone: " + cliente.getTelefone() + "\n"
 									+ "Email: " + cliente.getEmail() + "\n"
 									+ "Sexo: " + cliente.getSexo() + "\n"
 									+ "Endereço: " + cliente.getEndereco() + "\n";
-				// Imprime as informações do cliente
+									// Imprime as informações do cliente
 				Prompt.imprimir(infoCliente);
 			}
 		}
@@ -135,9 +113,95 @@ public class TelaCliente {
 	
 	public static void update(){
 
+		Prompt.linhaEmBranco();
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.UPDATE_CLIENTE);
+		Prompt.separador();
+		String nomeOriginal = Prompt.lerLinha(Mensagem.NOME_ORIGINAL);
+		if(!nomeOriginal.isEmpty()) {
+			Cliente clienteAlterado = ControleCliente.buscar(nomeOriginal);
+			
+			if(clienteAlterado != null) {
+				Prompt.imprimir(Mensagem.NOVOS_DADOS);
+				Prompt.linhaEmBranco();
+				String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
+				String CPF = Prompt.lerLinha(Mensagem.INFORME_CPF);
+				String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
+				String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
+				String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
+				String endereco = Prompt.lerLinha(Mensagem.INFORME_ENDERECO);
+				
+				if(!nome.isEmpty() && !CPF.isEmpty()) {
+					clienteAlterado.setNome(nome);
+					clienteAlterado.setCPF(CPF);
+					clienteAlterado.setTelefone(telefone);
+					clienteAlterado.setEmail(email);
+					clienteAlterado.setSexo(sexo);
+					clienteAlterado.setEndereco(endereco);
+					
+					ControleCliente.atualizar(nomeOriginal, clienteAlterado);
+					Prompt.linhaEmBranco();
+					Prompt.imprimir(Mensagem.ALTERADO_COM_SUCESSO);
+				} 
+			} else {
+				Prompt.linhaEmBranco();
+				Prompt.imprimir(Mensagem.CLIENTE_NAO_ENCONTRADO);
+			}
+		Prompt.linhaEmBranco();
+		Prompt.pressionarEnter();
+		TelaCliente.mostrar();
+			
 	}
+}
 
 	public static void delete(){
 
+		Prompt.linhaEmBranco();
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.EXCLUIR_CLIENTE);
+		Prompt.separador();
+		String nome = Prompt.lerLinha(Mensagem.NOME_EXCLUIR);
+		
+		if(!nome.isEmpty()) {
+			boolean clienteExcluido = ControleCliente.excluir(nome);
+			Prompt.linhaEmBranco();
+			if(clienteExcluido) {
+				Prompt.imprimir(Mensagem.EXCLUIDO_COM_SUCESSO);
+			} else {
+				Prompt.imprimir(Mensagem.CLIENTE_NAO_ENCONTRADO);
+			}
+		Prompt.linhaEmBranco();
+		Prompt.pressionarEnter();
+
+		}
+	TelaCliente.mostrar();
+
 	}
+
+	public static void refazer(){
+
+	// Menu pra escolher o que deseja fazer a seguir com recursão em caso de opção invalida
+	Prompt.separador();
+	Prompt.imprimir(Mensagem.NOVO_CLIENTE);
+	Prompt.separador();
+	Prompt.imprimir("[1] - " + Mensagem.SIM);
+	Prompt.imprimir("[2] - " + Mensagem.VOLTAR);
+	Prompt.imprimir("[3] - " + Mensagem.FINALIZAR_PROGRAMA);
+	Integer op = Prompt.lerInteiro();
+	switch (op) {
+		case 1:
+			TelaCliente.create();
+			break;
+		case 2:
+			TelaCliente.mostrar();
+			break;
+		case 3:
+			Prompt.imprimir(Mensagem.FINALIZADO);
+			break;
+		default:
+			Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
+			TelaCliente.refazer();
+			break;
+	}
+}
 }

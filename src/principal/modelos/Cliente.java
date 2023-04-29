@@ -1,5 +1,9 @@
 package principal.modelos;
 
+/*
+ * @author Lucas Cardoso
+ * @version 1.0 Abr 2023
+ */
 	public class Cliente extends Pessoa {
 		
 		private String endereco;
