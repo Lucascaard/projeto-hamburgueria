@@ -98,7 +98,7 @@ public class TelaEstoque {
 
         Prompt.linhaEmBranco();
         Prompt.pressionarEnter();
-		TelaEstoque.mostrar();
+		TelaEstoque.refazerCreate();
 
     }
 
@@ -160,7 +160,7 @@ public class TelaEstoque {
 
         Prompt.linhaEmBranco();
 		Prompt.pressionarEnter();
-		TelaEstoque.mostrar();
+		TelaEstoque.refazerUpdate();
 
     }
 
@@ -189,8 +189,91 @@ public class TelaEstoque {
 
         }
 
-        TelaEstoque.mostrar();
+        TelaEstoque.refazerDelete();
+        
+    }
+    
+    public static void refazerDelete(){
+    
+        Prompt.separador();
+        Prompt.imprimir(Mensagem.DELETAR_OUTRO);
+        Prompt.separador();
+        Prompt.imprimir("[1] - " + Mensagem.SIM);
+	    Prompt.imprimir("[2] - " + Mensagem.VOLTAR);
+	    Prompt.imprimir("[3] - " + Mensagem.FINALIZAR_PROGRAMA);
+        Integer op = Prompt.lerInteiro();
+
+        switch (op) {
+            case 1:
+                TelaEstoque.delete();
+                break;
+            case 2:
+                TelaPrincipal.mostrar();
+                break;
+            case 3:
+                Prompt.imprimir(Mensagem.FINALIZADO);
+                break;
+            default:
+                Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
+                TelaEstoque.refazerDelete();
+                break;
+        }
+    }
+
+    public static void refazerCreate(){
+    
+        Prompt.separador();
+        Prompt.imprimir(Mensagem.CADASTRAR_OUTRO);
+        Prompt.separador();
+        Prompt.imprimir("[1] - " + Mensagem.SIM);
+	    Prompt.imprimir("[2] - " + Mensagem.VOLTAR);
+	    Prompt.imprimir("[3] - " + Mensagem.FINALIZAR_PROGRAMA);
+        Integer op = Prompt.lerInteiro();
+
+        switch (op) {
+            case 1:
+                TelaEstoque.create();
+                break;
+            case 2:
+                TelaPrincipal.mostrar();
+                break;
+            case 3:
+                Prompt.imprimir(Mensagem.FINALIZADO);
+                break;
+            default:
+                Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
+                TelaEstoque.refazerDelete();
+                break;
+        }
+    }
+
+    public static void refazerUpdate(){
+    
+        Prompt.separador();
+        Prompt.imprimir(Mensagem.ALTERAR_OUTRO);
+        Prompt.separador();
+        Prompt.imprimir("[1] - " + Mensagem.SIM);
+	    Prompt.imprimir("[2] - " + Mensagem.VOLTAR);
+	    Prompt.imprimir("[3] - " + Mensagem.FINALIZAR_PROGRAMA);
+        Integer op = Prompt.lerInteiro();
+
+        switch (op) {
+            case 1:
+                TelaEstoque.update();
+                break;
+            case 2:
+                TelaPrincipal.mostrar();
+                break;
+            case 3:
+                Prompt.imprimir(Mensagem.FINALIZADO);
+                break;
+            default:
+                Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
+                TelaEstoque.refazerUpdate();
+                break;
+        }
     }
 
 }
+
 
