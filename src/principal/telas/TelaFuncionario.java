@@ -13,7 +13,7 @@ public class TelaFuncionario {
 
     public static void mostrar(){
 
-        //opções ("menu")
+        //opções ("menu funcionario")
 
 		Prompt.linhaEmBranco();
 		Prompt.separador();
@@ -22,25 +22,35 @@ public class TelaFuncionario {
 		Prompt.linhaEmBranco();
 		Prompt.imprimir("[1] - " + Mensagem.CREATE);
 		Prompt.imprimir("[2] - " + Mensagem.READ);
-		Prompt.imprimir("[3] - " + Mensagem.VOLTAR);
+		Prompt.imprimir("[3] - " + Mensagem.UPDATE);
+		Prompt.imprimir("[4] - " + Mensagem.DELETE);
+		Prompt.imprimir("[5] - " + Mensagem.VOLTAR);
 		Integer opcao = Prompt.lerInteiro();
 
 			switch(opcao){
 				case 1:
-					TelaFuncionario.cadastrar();
+					TelaFuncionario.create();
 					break;
 				case 2:
-                    TelaFuncionario.listar();
+					TelaFuncionario.read();
+					break;
+				case 3:
+					TelaFuncionario.update();
+					break;
+				case 4:
+					TelaFuncionario.delete();
+					break;
+				case 5:
+					TelaPrincipal.mostrar();
 					break;
 				default:
 					Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
-					TelaPrincipal.mostrar();
+					TelaFuncionario.mostrar();
 					break;
 			}
 	}
 
-    public static void cadastrar(){
-        
+    public static void create(){
 		// Lendo e guardando os dados em variáveis
 
 		Prompt.separador();
@@ -58,7 +68,8 @@ public class TelaFuncionario {
         //verificar se o nome ta vazio e continuar
 
         if(!nome.isEmpty()) {
-            //função adicionar na classe ControleFuncionario e as variáveis como parâmetro
+          
+			//adicionar no ControleFuncionario e variaveis como parametro
 
             ControleFuncionario.adicionar(new Funcionario(nome, CPF, telefone, sexo, email, dataAdmissao, horarioEntrada, horarioSaida));
 
@@ -66,6 +77,112 @@ public class TelaFuncionario {
         Prompt.pressionarEnter();
 		TelaFuncionario.refazer();
 	}
+
+	public static void read(){
+		//separador: -------
+		Prompt.separador();
+		//mensagem da lista de funcionários
+		Prompt.imprimir(Mensagem.LISTA_DE_FUNCIONARIOS);
+		Prompt.separador();
+		Prompt.linhaEmBranco();
+
+		//se a lista de funcionários estiver vazia uma mensagem irá aparecer
+		//caso a lista tenha funcionários ela vai ser percorrida
+
+		if(Banco.funcionarios.isEmpty()) {
+			Prompt.imprimir(Mensagem.NAO_HA_FUNCIONARIOS);
+		} else {
+			//percorrendo no banco de dados a lista de funcionarios cadastrados caso exista
+			for (Funcionario funcionario : Banco.funcionarios) { 
+				String infoFuncionario = "Nome: " + funcionario.getNome() + "\n"
+										+ "CPF: " + funcionario.getCPF() + "\n"
+			 							+ "Telefone: " + funcionario.getTelefone() + "\n"
+			                            + "Sexo: " + funcionario.getSexo() + "\n"
+			 							+ "Email: " + funcionario.getEmail() + "\n"
+			 							+ "DataAdmissao: " + funcionario.getDataAdmissao() + "\n"
+			                            + "HoraEntrada: " + funcionario.getHorarioEntrada() + "\n"
+			                            + "HoraEntrada: " + funcionario.getHorarioSaida() + "\n";
+			Prompt.imprimir(infoFuncionario);
+			}
+		}
+		
+		Prompt.linhaEmBranco();
+		Prompt.pressionarEnter();
+		TelaFuncionario.mostrar();
+	}
+
+	public static void update(){
+		Prompt.linhaEmBranco();
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.UPDATE_FUNCIONARIO);
+		Prompt.separador();
+
+		String nomeOriginal = Prompt.lerLinha(Mensagem.NOME_ORIGINAL_FUNCIONARIO);
+
+		if(!nomeOriginal.isEmpty()){
+			Funcionario funcionarioAlterado = ControleFuncionario.buscar(nomeOriginal);
+
+			if(funcionarioAlterado != null) {
+				Prompt.imprimir(Mensagem.NOVOS_DADOS_FUNCIONARIO);
+				Prompt.linhaEmBranco();
+				String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
+        		String CPF = Prompt.lerLinha(Mensagem.INFORME_CPF);
+        		String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
+        		String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
+        		String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
+        		LocalDate dataAdmissao = Prompt.lerData(Mensagem.INFORME_DATA); //usar com - ( 2001-02-03 )
+        		LocalTime horarioEntrada = Prompt.lerHora(Mensagem.INFORME_HORA_ENTRADA); //usar com : ( hora:min:seg )
+        		LocalTime horarioSaida = Prompt.lerHora(Mensagem.INFORME_HORA_SAIDA);
+				
+				if(!nome.isEmpty() && !CPF.isEmpty()){
+					funcionarioAlterado.setNome(nome);
+					funcionarioAlterado.setCPF(CPF);
+					funcionarioAlterado.setTelefone(telefone);
+					funcionarioAlterado.setSexo(sexo);
+					funcionarioAlterado.setEmail(email);
+					funcionarioAlterado.setDataAdmissao(dataAdmissao);
+					funcionarioAlterado.setHorarioEntrada(horarioEntrada);
+					funcionarioAlterado.setHorarioSaida(horarioSaida);
+					
+					ControleFuncionario.atualizar(nomeOriginal, funcionarioAlterado);
+					Prompt.linhaEmBranco();
+					Prompt.imprimir(Mensagem.ALTERADO_FUNCIONARIO_SUCESSO);
+				}
+
+			} else {
+				Prompt.linhaEmBranco();
+				Prompt.imprimir(Mensagem.FUNCIONARIO_NAO_ENCONTRADO);
+			}
+
+			Prompt.linhaEmBranco();
+			Prompt.pressionarEnter();
+			TelaFuncionario.mostrar();
+		}
+	}
+
+	public static void delete(){
+		Prompt.linhaEmBranco();
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.EXCLUIR_FUNCIONARIO);
+		Prompt.separador();
+		String nome = Prompt.lerLinha(Mensagem.NOME_EXCLUIR_FUNCIONARIO);
+
+		if(!nome.isEmpty()) {
+			boolean funcionarioExcluido = ControleFuncionario.excluir(nome);
+			Prompt.linhaEmBranco();
+			if(funcionarioExcluido) {
+				Prompt.imprimir(Mensagem.EXCLUIDO_FUNCIONARIO_COM_SUCESSO);
+			} else {
+				Prompt.imprimir(Mensagem.FUNCIONARIO_NAO_ENCONTRADO);
+			}
+
+		Prompt.linhaEmBranco();
+		Prompt.pressionarEnter();
+		}
+
+		TelaFuncionario.mostrar();
+	}
+
 
 
     public static void refazer(){
@@ -80,7 +197,7 @@ public class TelaFuncionario {
 		Integer op = Prompt.lerInteiro();
 		switch (op) {
 			case 1:
-				TelaFuncionario.cadastrar();
+				TelaFuncionario.create();
 				break;
 			case 2:
                 TelaFuncionario.mostrar();
@@ -94,33 +211,32 @@ public class TelaFuncionario {
 		}
     }
 
-    public static void listar(){
+    // public static void listar(){
 
-		Prompt.separador();
-		Prompt.imprimir(Mensagem.LISTA_DE_FUNCIONARIOS);
-		Prompt.separador();
-		Prompt.linhaEmBranco();
+	// 	Prompt.separador();
+	// 	Prompt.imprimir(Mensagem.LISTA_DE_FUNCIONARIOS);
+	// 	Prompt.separador();
+	// 	Prompt.linhaEmBranco();
 	
-		if (Banco.funcionarios.isEmpty()) {
-			Prompt.imprimir(Mensagem.NAO_HA_FUNCIONARIOS); 
-		} else {
-			for (Funcionario funcionario : Banco.funcionarios) {
-				String infoFuncionario = "Nome: " + funcionario.getNome() + "\n"
-									+ "CPF: " + funcionario.getCPF() + "\n"
-									+ "Telefone: " + funcionario.getTelefone() + "\n"
-                                    + "Sexo: " + funcionario.getSexo() + "\n"
-									+ "Email: " + funcionario.getEmail() + "\n"
-									+ "DataAdmissao: " + funcionario.getDataAdmissao() + "\n"
-                                    + "HoraEntrada: " + funcionario.getHorarioEntrada() + "\n"
-                                    + "HoraEntrada: " + funcionario.getHorarioSaida() + "\n";
-				// mostrar as informações do funcionario
-				Prompt.imprimir(infoFuncionario);
-			}
-		}
-		Prompt.linhaEmBranco();
-		Prompt.pressionarEnter();
-		TelaFuncionario.mostrar();
-	}
+	// 	if (Banco.funcionarios.isEmpty()) {
+	// 		Prompt.imprimir(Mensagem.NAO_HA_FUNCIONARIOS); 
+	// 	} else {
+	// 		for (Funcionario funcionario : Banco.funcionarios) {
+	// 			String infoFuncionario = "Nome: " + funcionario.getNome() + "\n"
+	// 								+ "CPF: " + funcionario.getCPF() + "\n"
+	// 								+ "Telefone: " + funcionario.getTelefone() + "\n"
+    //                                 + "Sexo: " + funcionario.getSexo() + "\n"
+	// 								+ "Email: " + funcionario.getEmail() + "\n"
+	// 								+ "DataAdmissao: " + funcionario.getDataAdmissao() + "\n"
+    //                                 + "HoraEntrada: " + funcionario.getHorarioEntrada() + "\n"
+    //                                 + "HoraEntrada: " + funcionario.getHorarioSaida() + "\n";
+	// 			// mostrar as informações do funcionario
+	// 			Prompt.imprimir(infoFuncionario);
+	// 		}
+	// 	}
+	// 	Prompt.linhaEmBranco();
+	// 	Prompt.pressionarEnter();
+	// 	TelaFuncionario.mostrar();
+	// }
 
-    
 }

@@ -97,7 +97,7 @@ public class TelaCliente {
 			for (Cliente cliente : Banco.clientes) {
 				// Monta uma string com as informações do cliente
 				String infoCliente = "Nome: " + cliente.getNome() + "\n"
-				+ "CPF: " + cliente.getCPF() + "\n"
+									+ "CPF: " + cliente.getCPF() + "\n"
 									+ "Telefone: " + cliente.getTelefone() + "\n"
 									+ "Email: " + cliente.getEmail() + "\n"
 									+ "Sexo: " + cliente.getSexo() + "\n"
