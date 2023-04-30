@@ -64,5 +64,14 @@ public class ControleCliente {
 		}
 		return clienteExcluido;
 	}
+
+	public static boolean clienteExiste(Integer CPF){
+		for(Cliente cliente : Banco.clientes) {
+			if(cliente.getCPF().equals(CPF)){
+				return true;
+			}
+		}
+		return false;
+	}
 }
 

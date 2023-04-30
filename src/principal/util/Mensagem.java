@@ -30,7 +30,7 @@ public interface Mensagem {
     
     //PESSOA
     final static String INFORME_NOME = "NOME:";
-    final static String INFORME_CPF = "CPF:";
+    final static String INFORME_CPF = "INFORME O CPF: Ex:00000000000";
     final static String INFORME_TELEFONE = "TELEFONE:";
     final static String INFORME_EMAIL = "EMAIL:";
     final static String INFORME_SEXO = "SEXO:";
@@ -39,7 +39,7 @@ public interface Mensagem {
     final static String MSG_CADASTRO_CLIENTE = "CADASTRO DE CLIENTES"; 
     final static String MENU_CLIENTE = "MENU CLIENTE";
     final static String INFORME_ENDERECO = "ENDEREÇO: ";
-    final static String NOVO_CLIENTE = "DESEJA CADASTRAR UM NOVO CLIENTE? ";
+    final static String REFAZER = "DESEJA REFAZER A OPERAÇÃO? ";
     final static String LISTA_DE_CLIENTES = "LISTA DE CLIENTES";
     final static String NAO_HA_CLIENTES = "NAÕ EXISTEM CLIENTES CADASTRADOS";
     final static String UPDATE_CLIENTE = "ALTERAR CLIENTE";
@@ -50,6 +50,7 @@ public interface Mensagem {
     final static String CLIENTE_NAO_ENCONTRADO = "CLIENTE NÃO FOI ENCONTRADO";
     final static String EXCLUIR_CLIENTE = "EXCLUIR CLIENTE";
     final static String EXCLUIDO_COM_SUCESSO = "CLIENTE EXCLUIDO COM SUCESSO";
+    final static String JA_EXISTE = "JÁ EXISTE UM CLIENTE CADASTRADO COM ESSE CPF";
 
 
     //FUNCIONARIO 

@@ -57,8 +57,29 @@ public class TelaCliente {
 		Prompt.separador();
         Prompt.imprimir(Mensagem.MSG_CADASTRO_CLIENTE);
 		Prompt.separador();
-        String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
-        Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
+		Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
+		if(ControleCliente.clienteExiste(CPF)){
+				Prompt.separador();
+				Prompt.imprimir(Mensagem.JA_EXISTE);
+				Prompt.separador();
+				Prompt.linhaEmBranco();
+				for (Cliente cliente : Banco.clientes) {
+					if(cliente.getCPF().equals(CPF)){
+					// Monta uma string com as informações do cliente
+					String infoCliente = "Nome: " + cliente.getNome() + "\n"
+										+ "CPF: " + cliente.getCPF() + "\n"
+										+ "Telefone: " + cliente.getTelefone() + "\n"
+										+ "Email: " + cliente.getEmail() + "\n"
+										+ "Sexo: " + cliente.getSexo() + "\n"
+										+ "Endereço: " + cliente.getEndereco() + "\n";
+										// Imprime as informações do cliente
+					Prompt.imprimir(infoCliente);
+					}
+				}
+				TelaCliente.refazer();
+				return;
+			}
+		String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
         String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
         String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
         String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
@@ -182,7 +203,7 @@ public class TelaCliente {
 
 	// Menu pra escolher o que deseja fazer a seguir com recursão em caso de opção invalida
 	Prompt.separador();
-	Prompt.imprimir(Mensagem.NOVO_CLIENTE);
+	Prompt.imprimir(Mensagem.REFAZER);
 	Prompt.separador();
 	Prompt.imprimir("[1] - " + Mensagem.SIM);
 	Prompt.imprimir("[2] - " + Mensagem.VOLTAR);
