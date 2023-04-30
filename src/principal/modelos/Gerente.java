@@ -1,13 +1,12 @@
 package principal.modelos;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Gerente extends Pessoa {
 
 	private LocalDate dataAdmissao;
-	private BigDecimal salario;
+	private double salario;
 	
-	public Gerente(String nome, Integer CPF, String telefone, String sexo, String email, LocalDate dataAdmissao, BigDecimal salario) {
+	public Gerente(String nome, Integer CPF, String telefone, String sexo, String email, LocalDate dataAdmissao, Double salario) {
 		super(nome, CPF, telefone, sexo, email);
 		this.dataAdmissao = dataAdmissao;
 		this.salario = salario;
@@ -24,11 +23,11 @@ public class Gerente extends Pessoa {
 	}
 	
 	//salario
-	public void setSalario(BigDecimal salarioExterno) {
+	public void setSalario (double salarioExterno) {
 		this.salario = salarioExterno; 
 	}
 	
-	public BigDecimal getSalario() {
+	public double getSalario() {
 		return salario;
 	}
 	
