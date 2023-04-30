@@ -6,6 +6,11 @@ import principal.modelos.Cliente;
 import principal.util.Mensagem;
 import principal.util.Prompt;
 
+/*
+ * @author Lucas Cardoso
+ * @version 1.0 Abr 2023
+ */
+
 public class TelaCliente {
 	
 	public static void mostrar(){
@@ -53,7 +58,7 @@ public class TelaCliente {
         Prompt.imprimir(Mensagem.MSG_CADASTRO_CLIENTE);
 		Prompt.separador();
         String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
-        String CPF = Prompt.lerLinha(Mensagem.INFORME_CPF);
+        Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
         String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
         String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
         String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
@@ -92,7 +97,7 @@ public class TelaCliente {
 			for (Cliente cliente : Banco.clientes) {
 				// Monta uma string com as informações do cliente
 				String infoCliente = "Nome: " + cliente.getNome() + "\n"
-				+ "CPF: " + cliente.getCPF() + "\n"
+									+ "CPF: " + cliente.getCPF() + "\n"
 									+ "Telefone: " + cliente.getTelefone() + "\n"
 									+ "Email: " + cliente.getEmail() + "\n"
 									+ "Sexo: " + cliente.getSexo() + "\n"
@@ -120,13 +125,13 @@ public class TelaCliente {
 				Prompt.imprimir(Mensagem.NOVOS_DADOS);
 				Prompt.linhaEmBranco();
 				String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
-				String CPF = Prompt.lerLinha(Mensagem.INFORME_CPF);
+				Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
 				String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
 				String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
 				String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
 				String endereco = Prompt.lerLinha(Mensagem.INFORME_ENDERECO);
 				
-				if(!nome.isEmpty() && !CPF.isEmpty()) {
+				if(!nome.isEmpty() && !CPF.equals(null)) {
 					clienteAlterado.setNome(nome);
 					clienteAlterado.setCPF(CPF);
 					clienteAlterado.setTelefone(telefone);
