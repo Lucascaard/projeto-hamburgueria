@@ -57,6 +57,7 @@ public class TelaCliente {
 		Prompt.separador();
         Prompt.imprimir(Mensagem.MSG_CADASTRO_CLIENTE);
 		Prompt.separador();
+		Prompt.linhaEmBranco();
 		Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
 		if(ControleCliente.clienteExiste(CPF)){
 				Prompt.separador();
