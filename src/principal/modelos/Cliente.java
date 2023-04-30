@@ -15,7 +15,7 @@ package principal.modelos;
 			this.endereco = endereço;
 		}
 		
-		public Cliente(String nome, String CPF, String telefone, String sexo, String email, String endereco) {
+		public Cliente(String nome, Integer CPF, String telefone, String sexo, String email, String endereco) {
 			super(nome, CPF, telefone, sexo, email);
 			this.endereco = endereco;
 		}

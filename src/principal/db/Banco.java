@@ -17,7 +17,7 @@ public class Banco {
 
     public static void inserindoDados(){
 
-    Cliente cliente = new Cliente("Lucas Cardoso", "123456", "7894456", "Masculino", "email@exemplo.com","Rua 1" );
+    Cliente cliente = new Cliente("Lucas Cardoso", 123456, "7894456", "Masculino", "email@exemplo.com","Rua 1" );
     clientes.add(cliente);
 
     Produto produto = new Produto(1, "Pão", "Viscotti", 4.99, 0326);
@@ -29,13 +29,11 @@ public class Banco {
     Produto produto2 = new Produto(3, "Refrigerante", "Coca-Cola", 9.99, 0256);
     produtos.add(produto2);
 
-    Gerente gerente = new Gerente("Geucemar", "15151", "98989", "Masculino", "email@exemplo.com",LocalDate.of(2020, 1, 1), new BigDecimal(5.000));
+    Gerente gerente = new Gerente("Geucemar", 15151, "98989", "Masculino", "email@exemplo.com",LocalDate.of(2020, 1, 1), new BigDecimal(5.000));
     gerentes.add(gerente);
 
-    Funcionario funcionario = new Funcionario("Tair", "4565", "545545", "M", "@gmail.com", LocalDate.of(2023, 2, 6), LocalTime.of(10, 15, 20), LocalTime.of(5, 10, 30));
+    Funcionario funcionario = new Funcionario("Tair", 4565, "545545", "M", "@gmail.com", LocalDate.of(2023, 2, 6), LocalTime.of(10, 15, 20), LocalTime.of(5, 10, 30));
     funcionarios.add(funcionario);
-
     
-
     }
 }

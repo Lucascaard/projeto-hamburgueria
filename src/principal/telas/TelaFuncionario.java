@@ -57,7 +57,7 @@ public class TelaFuncionario {
         Prompt.imprimir(Mensagem.MSG_CADASTRO_FUNCIONARIO);
 		Prompt.separador();
         String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
-        String CPF = Prompt.lerLinha(Mensagem.INFORME_CPF);
+        Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
         String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
         String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
         String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
@@ -126,7 +126,7 @@ public class TelaFuncionario {
 				Prompt.imprimir(Mensagem.NOVOS_DADOS_FUNCIONARIO);
 				Prompt.linhaEmBranco();
 				String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
-        		String CPF = Prompt.lerLinha(Mensagem.INFORME_CPF);
+        		Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
         		String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
         		String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
         		String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
@@ -134,7 +134,7 @@ public class TelaFuncionario {
         		LocalTime horarioEntrada = Prompt.lerHora(Mensagem.INFORME_HORA_ENTRADA); //usar com : ( hora:min:seg )
         		LocalTime horarioSaida = Prompt.lerHora(Mensagem.INFORME_HORA_SAIDA);
 				
-				if(!nome.isEmpty() && !CPF.isEmpty()){
+				if(!nome.isEmpty() && !CPF.equals(null)){
 					funcionarioAlterado.setNome(nome);
 					funcionarioAlterado.setCPF(CPF);
 					funcionarioAlterado.setTelefone(telefone);

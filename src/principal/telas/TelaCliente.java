@@ -58,7 +58,7 @@ public class TelaCliente {
         Prompt.imprimir(Mensagem.MSG_CADASTRO_CLIENTE);
 		Prompt.separador();
         String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
-        String CPF = Prompt.lerLinha(Mensagem.INFORME_CPF);
+        Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
         String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
         String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
         String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
@@ -125,13 +125,13 @@ public class TelaCliente {
 				Prompt.imprimir(Mensagem.NOVOS_DADOS);
 				Prompt.linhaEmBranco();
 				String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
-				String CPF = Prompt.lerLinha(Mensagem.INFORME_CPF);
+				Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
 				String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
 				String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
 				String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
 				String endereco = Prompt.lerLinha(Mensagem.INFORME_ENDERECO);
 				
-				if(!nome.isEmpty() && !CPF.isEmpty()) {
+				if(!nome.isEmpty() && !CPF.equals(null)) {
 					clienteAlterado.setNome(nome);
 					clienteAlterado.setCPF(CPF);
 					clienteAlterado.setTelefone(telefone);

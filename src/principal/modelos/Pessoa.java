@@ -3,7 +3,7 @@ package principal.modelos;
 public class Pessoa {
 	
 	private String nome;
-	private String CPF;
+	private Integer CPF;
 	private String telefone;
 	private String sexo;
 	private String email;
@@ -12,7 +12,7 @@ public class Pessoa {
 	
 	}
 	
-	public Pessoa(String nome, String CPF, String telefone, String sexo, String email) {
+	public Pessoa(String nome, Integer CPF, String telefone, String sexo, String email) {
 		this.nome = nome;
 		this.CPF = CPF;
 		this.telefone = telefone;
@@ -32,11 +32,11 @@ public class Pessoa {
 	}
 	
 	//CPF
-	public void setCPF( String CPFexterno )    {
+	public void setCPF( Integer CPFexterno )    {
 		this.CPF = CPFexterno;
 	}
 	
-	public String getCPF() {
+	public Integer getCPF() {
 		return CPF;
 	}
 	

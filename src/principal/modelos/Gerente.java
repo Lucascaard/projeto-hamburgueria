@@ -7,7 +7,7 @@ public class Gerente extends Pessoa {
 	private LocalDate dataAdmissao;
 	private BigDecimal salario;
 	
-	public Gerente(String nome, String CPF, String telefone, String sexo, String email, LocalDate dataAdmissao, BigDecimal salario) {
+	public Gerente(String nome, Integer CPF, String telefone, String sexo, String email, LocalDate dataAdmissao, BigDecimal salario) {
 		super(nome, CPF, telefone, sexo, email);
 		this.dataAdmissao = dataAdmissao;
 		this.salario = salario;
