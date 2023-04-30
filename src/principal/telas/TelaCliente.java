@@ -113,7 +113,8 @@ public class TelaCliente {
 		// Verifica se a lista de clientes está vazia
 		if (Banco.clientes.isEmpty()) {
 			// Se a lista de clientes estiver vazia, imprime uma mensagem informando que não há clientes
-			Prompt.imprimir(Mensagem.NAO_HA_CLIENTES); 
+			Prompt.imprimir(Mensagem.NAO_HA_CLIENTES);
+			Prompt.linhaEmBranco(); 
 		} else {
 			// Se houver clientes na lista, percorre a lista com um laço 'for'
 			for (Cliente cliente : Banco.clientes) {
@@ -128,7 +129,6 @@ public class TelaCliente {
 				Prompt.imprimir(infoCliente);
 			}
 		}
-		Prompt.linhaEmBranco();
 		Prompt.pressionarEnter();
 		TelaCliente.mostrar();
 	}
@@ -139,12 +139,15 @@ public class TelaCliente {
 		Prompt.separador();
 		Prompt.imprimir(Mensagem.UPDATE_CLIENTE);
 		Prompt.separador();
+		Prompt.linhaEmBranco();
 		String nomeOriginal = Prompt.lerLinha(Mensagem.NOME_ORIGINAL);
 		if(!nomeOriginal.isEmpty()) {
 			Cliente clienteAlterado = ControleCliente.buscar(nomeOriginal);
 			
 			if(clienteAlterado != null) {
+				Prompt.separador();
 				Prompt.imprimir(Mensagem.NOVOS_DADOS);
+				Prompt.separador();
 				Prompt.linhaEmBranco();
 				String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
 				Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
@@ -168,6 +171,7 @@ public class TelaCliente {
 			} else {
 				Prompt.linhaEmBranco();
 				Prompt.imprimir(Mensagem.CLIENTE_NAO_ENCONTRADO);
+				TelaCliente.read();
 			}
 		Prompt.linhaEmBranco();
 		Prompt.pressionarEnter();
@@ -180,17 +184,20 @@ public class TelaCliente {
 
 		Prompt.linhaEmBranco();
 		Prompt.separador();
-		Prompt.imprimir(Mensagem.EXCLUIR_CLIENTE);
+		Prompt.imprimir(Mensagem.DELETAR_CLIENTE);
 		Prompt.separador();
-		String nome = Prompt.lerLinha(Mensagem.NOME_EXCLUIR);
+		Prompt.linhaEmBranco();
+		Integer CPF = Prompt.lerInteiro(Mensagem.CPF_DELETE);
 		
-		if(!nome.isEmpty()) {
-			boolean clienteExcluido = ControleCliente.excluir(nome);
+		if(!CPF.equals(null)) {
+			boolean clienteDeletado = ControleCliente.delete(CPF);
 			Prompt.linhaEmBranco();
-			if(clienteExcluido) {
+			if(clienteDeletado) {
 				Prompt.imprimir(Mensagem.EXCLUIDO_COM_SUCESSO);
+				TelaCliente.read();
 			} else {
 				Prompt.imprimir(Mensagem.CLIENTE_NAO_ENCONTRADO);
+				TelaCliente.read();
 			}
 		Prompt.linhaEmBranco();
 		Prompt.pressionarEnter();
