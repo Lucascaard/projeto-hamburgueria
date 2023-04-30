@@ -82,6 +82,7 @@ public interface Mensagem {
     final static String NOVOS_DADOS_PRODUTO = "INSIRA OS NOVOS DADOS DESTE PRODUTO";
     final static String PRODUTO_ALTERADO_COM_SUCESSO = "PRODUTO ALTERADO COM SUCESSO";
     final static String INFORME_ID = "INFORME O ID DO PRODUTO: ";
+    final static String ID_JA_EXISTE = "ID JÁ EXISTE";
     final static String MSG_EXCLUSAO_PRODUTO = "EXCLUSÃO DE PRODUTOS";
     final static String PRODUTO_EXCLUIDO_SUCESSO = "PRODUTO EXCLUÍDO COM SUCESSO";
     final static String PRODUTO_NAO_ENCONTRADO = "PRODUTO NÃO ENCONTRADO";
