@@ -148,7 +148,7 @@ public class TelaProduto {
 			Produto produtoAlterado = ControleProduto.buscarPorNome(nomeOriginal);
 			
 			if(produtoAlterado != null) {
-				Prompt.imprimir(Mensagem.NOVOS_DADOS);
+				Prompt.imprimir(Mensagem.NOVOS_DADOS_PRODUTO);
 				Prompt.linhaEmBranco();
 				Integer id = Prompt.lerInteiro(Mensagem.INFORME_ID);
 				String nome = Prompt.lerLinha(Mensagem.INFORME_NOME_PRODUTO);
@@ -165,7 +165,7 @@ public class TelaProduto {
 					
 					ControleProduto.atualizar(nomeOriginal, produtoAlterado);
 					Prompt.linhaEmBranco();
-					Prompt.imprimir(Mensagem.ALTERADO_COM_SUCESSO);
+					Prompt.imprimir(Mensagem.PRODUTO_ALTERADO_COM_SUCESSO); 
 				} 
 			} else {
 				Prompt.linhaEmBranco();

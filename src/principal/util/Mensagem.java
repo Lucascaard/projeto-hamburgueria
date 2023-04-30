@@ -98,7 +98,6 @@ public interface Mensagem {
     final static String ID_INVALIDA = "ID INVÁLIDA";
     final static String UPDATE_ESTOQUE = "ATUALIZAR ESTOQUE";
     final static String QTDE_ESTOQUE = "QUANTIDADE EM ESTOQUE";
-    final static String PRODUTO_NAO_ENCONTRADO = "PRODUTO NÃO ENCONTRADO";
     final static String NOVA_QTDE = "INSIRA QUANTIDADE DO PRODUTO NO ESTOQUE";
     final static String ESTOQUE_ALTERADO = "ESTOQUE ALTERADO COM SUCESSO";
     final static String EXCLUIR_ESTOQUE = "EXCLUIR PRODUTO DO ESTOQUE";
