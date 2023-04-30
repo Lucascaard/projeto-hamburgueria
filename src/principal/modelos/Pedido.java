@@ -7,7 +7,7 @@ public class Pedido {
 		private  LocalDateTime dataPedido;
 		private Cliente cliente;
 		private Funcionario atendente;
-		private Estoque produto;
+		// private Estoque produto;
 		
 		//GETTERS e SETTERS
 		
@@ -39,11 +39,11 @@ public class Pedido {
 		}
 		
 		//produto
-		public void setProduto( Estoque produtoExterno ) {
-			this.produto = produtoExterno;
-		}
+		// public void setProduto( Estoque produtoExterno ) {
+		// 	this.produto = produtoExterno;
+		// }
 		
-		public Estoque getProduto() {
-			return produto;
-		}
+		// public Estoque getProduto() {
+		// 	return produto;
+		// }
 }
