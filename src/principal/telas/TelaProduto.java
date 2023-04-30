@@ -16,15 +16,23 @@ public class TelaProduto {
 		Prompt.linhaEmBranco();
 		Prompt.imprimir("[1] - " + Mensagem.CREATE);
 		Prompt.imprimir("[2] - " + Mensagem.READ);
-		Prompt.imprimir("[3] - " + Mensagem.VOLTAR);
+		Prompt.imprimir("[3] - " + Mensagem.UPDATE);
+		Prompt.imprimir("[4] - " + Mensagem.DELETE);
+		Prompt.imprimir("[5] - " + Mensagem.VOLTAR);
 		Integer opcao = Prompt.lerInteiro();
 		
 		switch(opcao){
 		case 1:
-			TelaProduto.cadastrar();
+			TelaProduto.create();
 			break;
 		case 2:
-			TelaProduto.listar();
+			TelaProduto.read();
+			break;
+		case 3:
+			TelaProduto.update();
+			break;
+		case 4:
+			TelaProduto.delete();
 			break;
 		default:
 			Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
@@ -34,28 +42,51 @@ public class TelaProduto {
 		
     	}
 	
-	public static void cadastrar(){
+	public static void create(){
 
 		Prompt.separador();
         Prompt.imprimir(Mensagem.MSG_CADASTRO_PRODUTO);
 		Prompt.separador();
 		Integer id = Prompt.lerInteiro(Mensagem.INFORME_ID);
-        String nome = Prompt.lerLinha(Mensagem.INFORME_NOME_PRODUTO);
-        String marca = Prompt.lerLinha(Mensagem.INFORME_MARCA);
-        double preco  = Prompt.lerDecimal(Mensagem.INFORME_PRECO);
-        int codBarra = Prompt.lerInteiro(Mensagem.INFORME_CODBARRA);
-        
+         // verifica se o ID já existe na lista de produtos existentes
+    	boolean idJaExiste = Banco.produtos.stream()
+        .map(Produto::getId)
+        .anyMatch(id::equals);
 
+		/*Neste código, a variável id é definida como Integer, e para verificar se o id já existe é
+		é usada uma expressão lambda com o método anyMatch(), 
+		que verifica se algum elemento da lista corresponde ao id.
+		A primeira chamada da cadeia de métodos, Banco.produtos.stream(), transforma a lista de 
+		produtos em um fluxo de elementos.
+
+		Em seguida, o método map(Produto::getId) mapeia cada elemento do fluxo para o seu ID 
+		correspondente, que é um inteiro.
+
+		Finalmente, o método anyMatch(id::equals) verifica se algum elemento do fluxo é igual ao id 
+		informado. Para isso, é utilizado o método equals() do objeto id, que recebe como argumento 
+		outro objeto do tipo Integer. O método id::equals é uma forma simplificada de criar um lambda 
+		que faz a comparação entre o id e o elemento do fluxo.
+
+		O resultado desta operação é um valor booleano, que é atribuído à variável idJaExiste. 
+		Se o valor for true, significa que já existe um produto na lista com o mesmo ID informado.*/
+
+   		if (idJaExiste) {
+        Prompt.imprimir(Mensagem.ID_JA_EXISTE);
+    	} else {
+        	String nome = Prompt.lerLinha(Mensagem.INFORME_NOME_PRODUTO);
+        	String marca = Prompt.lerLinha(Mensagem.INFORME_MARCA);
+        	double preco  = Prompt.lerDecimal(Mensagem.INFORME_PRECO);
+        	int codBarra = Prompt.lerInteiro(Mensagem.INFORME_CODBARRA);
+        
         if(!nome.isEmpty()) {
-			 
-        	ControleProduto.adicionar(new Produto(id, nome, marca, preco, codBarra));
+            ControleProduto.adicionar(new Produto(id, nome, marca, preco, codBarra));
         }
+    	}
 		Prompt.pressionarEnter();
-		TelaProduto.refazer();
-		
+        TelaProduto.repeat();
 	}
 	
-	public static void refazer(){
+	public static void repeat(){
 
 		Prompt.separador();
 		Prompt.imprimir(Mensagem.NOVO_PRODUTO);
@@ -66,7 +97,7 @@ public class TelaProduto {
 		Integer op = Prompt.lerInteiro();
 		switch (op) {
 			case 1:
-				TelaProduto.cadastrar();
+				TelaProduto.create();
 				break;
 			case 2:
 				TelaProduto.mostrar();
@@ -75,12 +106,12 @@ public class TelaProduto {
 				Prompt.imprimir(Mensagem.FINALIZADO);
 			default:
 				Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
-				TelaProduto.refazer();
+				TelaProduto.repeat();
 				break;
 		}
     }
 	
-	public static void listar(){
+	public static void read(){
 
 		Prompt.separador();
 		Prompt.imprimir(Mensagem.LISTA_DE_PRODUTOS);
@@ -106,4 +137,59 @@ public class TelaProduto {
 		Prompt.pressionarEnter();
 		TelaProduto.mostrar();
 	}
+
+	public static void update(){
+		Prompt.linhaEmBranco();
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.UPDATE_PRODUTO);
+		Prompt.separador();
+		String nomeOriginal = Prompt.lerLinha(Mensagem.NOME_ORIGINAL_PRODUTO);
+		if(!nomeOriginal.isEmpty()) {
+			Produto produtoAlterado = ControleProduto.buscarPorNome(nomeOriginal);
+			
+			if(produtoAlterado != null) {
+				Prompt.imprimir(Mensagem.NOVOS_DADOS);
+				Prompt.linhaEmBranco();
+				Integer id = Prompt.lerInteiro(Mensagem.INFORME_ID);
+				String nome = Prompt.lerLinha(Mensagem.INFORME_NOME_PRODUTO);
+				String marca = Prompt.lerLinha(Mensagem.INFORME_MARCA);
+				double preco = Prompt.lerDecimal(Mensagem.INFORME_PRECO);
+				int codBarra = Prompt.lerInteiro(Mensagem.INFORME_CODBARRA);
+				
+				if(id != null && !nome.isEmpty()) {
+					produtoAlterado.setId(id);
+					produtoAlterado.setNome(nome);
+					produtoAlterado.setMarca(marca);
+					produtoAlterado.setPreco(preco);
+					produtoAlterado.setCodBarra(codBarra);
+					
+					ControleProduto.atualizar(nomeOriginal, produtoAlterado);
+					Prompt.linhaEmBranco();
+					Prompt.imprimir(Mensagem.ALTERADO_COM_SUCESSO);
+				} 
+			} else {
+				Prompt.linhaEmBranco();
+				Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
+			}
+		Prompt.linhaEmBranco();
+		Prompt.pressionarEnter();
+		TelaProduto.mostrar();
+		}
+	}
+
+	public static void delete() {
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.MSG_EXCLUSAO_PRODUTO);
+		Prompt.separador();
+		Integer id = Prompt.lerInteiro(Mensagem.INFORME_ID);
+		boolean excluiu = ControleProduto.excluir(id);
+		if(excluiu) {
+		Prompt.imprimir(Mensagem.PRODUTO_EXCLUIDO_SUCESSO);
+		} else {
+		Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
+		}
+		Prompt.pressionarEnter();
+		TelaProduto.repeat();
+		}
+
 }

@@ -76,7 +76,16 @@ public interface Mensagem {
     final static String INFORME_PRECO = "PREÇO:  Ex(4.99)";
     final static String INFORME_CODBARRA = "CÓDIGO DE BARRAS:";
     final static String NAO_HA_PRODUTOS = "NÃO EXISTEM PRODUTOS CADASTRADOS";
+    final static String UPDATE_PRODUTO = "ALTERAR PRODUTO";
+    final static String NOME_ORIGINAL_PRODUTO = "INFORME O NOME DO PRODUTO QUE DESEJA ALTERAR: ";
+    final static String NOME_EXCLUIR_PRODUTO = "INFORME O NOME DO PRODUTO QUE DESEJA EXCLUIR: ";
+    final static String NOVOS_DADOS_PRODUTO = "INSIRA OS NOVOS DADOS DESTE PRODUTO";
+    final static String PRODUTO_ALTERADO_COM_SUCESSO = "PRODUTO ALTERADO COM SUCESSO";
     final static String INFORME_ID = "INFORME O ID DO PRODUTO: ";
+    final static String ID_JA_EXISTE = "ID JÁ EXISTE";
+    final static String MSG_EXCLUSAO_PRODUTO = "EXCLUSÃO DE PRODUTOS";
+    final static String PRODUTO_EXCLUIDO_SUCESSO = "PRODUTO EXCLUÍDO COM SUCESSO";
+    final static String PRODUTO_NAO_ENCONTRADO = "PRODUTO NÃO ENCONTRADO";
     
     //ESTOQUE
     final static String MENU_ESTOQUE = "MENU ESTOQUE";
