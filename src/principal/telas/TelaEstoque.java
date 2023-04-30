@@ -44,7 +44,7 @@ public class TelaEstoque {
                     TelaEstoque.delete();
                     break;
                 case 5:
-                    TelaPrincipal.mostrar();
+                    TelaEstoque.mostrar();
                     break;
                 default:
                     Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
@@ -64,6 +64,7 @@ public class TelaEstoque {
 
         ControleEstoque.listarId();
 
+        Prompt.linhaEmBranco();
         Integer idProduto = Prompt.lerInteiro(Mensagem.INFORME_ID_CADASTRO);
 
         boolean control = ControleEstoque.produtoExiste(idProduto);
@@ -117,7 +118,8 @@ public class TelaEstoque {
         } else {
 
             for (ItemEstoque produto : Banco.itensEstoque) {
-                 String info = "Produto: " + produto.getProduto().getNome() + "\n"
+                 String info = "ID: " + produto.getId() + "\n"
+                             + "Produto: " + produto.getProduto().getNome() + "\n"
                              + "Quantidade: " + produto.getQtde() + "\n";
 
                 Prompt.imprimir(info);
@@ -136,8 +138,9 @@ public class TelaEstoque {
         Prompt.imprimir(Mensagem.UPDATE_ESTOQUE);
         Prompt.separador();
 
-        ControleEstoque.listarId();
+        ControleEstoque.ListarEstoqueEx();
 
+        Prompt.linhaEmBranco();
         Integer idProduto = Prompt.lerInteiro(Mensagem.INFORME_ID_ALTERAR);
 
         if(idProduto != null){
@@ -152,6 +155,11 @@ public class TelaEstoque {
 
                 Prompt.linhaEmBranco();
 				Prompt.imprimir(Mensagem.ESTOQUE_ALTERADO);
+                Prompt.separador();
+                Prompt.linhaEmBranco();
+                Prompt.imprimir(Mensagem.ESTOQUE_ATUAL);
+                ControleEstoque.ListarEstoqueEx();
+                Prompt.separador();
             } else {
                 Prompt.linhaEmBranco();
 				Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
@@ -171,15 +179,27 @@ public class TelaEstoque {
         Prompt.imprimir(Mensagem.EXCLUIR_ESTOQUE);
         Prompt.separador();
 
-        ControleEstoque.listarId();
+        ControleEstoque.ListarEstoqueEx();
 
+        Prompt.linhaEmBranco();
         Integer idProduto = Prompt.lerInteiro(Mensagem.INFORME_ID_EXCLUIR_ESTOQUE);
 
         if(idProduto != null){
             boolean estoqueExcluido = ControleEstoque.delete(idProduto);
 			Prompt.linhaEmBranco();
 			if(estoqueExcluido) {
+                Prompt.separador();
 				Prompt.imprimir(Mensagem.ESTOQUE_EXCLUIDO);
+                Prompt.separador();
+                Prompt.linhaEmBranco();
+                Prompt.imprimir(Mensagem.ESTOQUE_ATUAL);
+                if(ControleEstoque.ListarEstoque() == null){
+                    Prompt.imprimir(Mensagem.ESTOQUE_VAZIO);
+                }else{
+                    String estoque = ControleEstoque.ListarEstoque();
+                    Prompt.imprimir(estoque);
+                }
+                Prompt.separador();
 			} else {
 				Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
 			}
@@ -208,7 +228,7 @@ public class TelaEstoque {
                 TelaEstoque.delete();
                 break;
             case 2:
-                TelaPrincipal.mostrar();
+                TelaEstoque.mostrar();
                 break;
             case 3:
                 Prompt.imprimir(Mensagem.FINALIZADO);
@@ -235,7 +255,7 @@ public class TelaEstoque {
                 TelaEstoque.create();
                 break;
             case 2:
-                TelaPrincipal.mostrar();
+                TelaEstoque.mostrar();
                 break;
             case 3:
                 Prompt.imprimir(Mensagem.FINALIZADO);
@@ -262,7 +282,7 @@ public class TelaEstoque {
                 TelaEstoque.update();
                 break;
             case 2:
-                TelaPrincipal.mostrar();
+                TelaEstoque.mostrar();
                 break;
             case 3:
                 Prompt.imprimir(Mensagem.FINALIZADO);

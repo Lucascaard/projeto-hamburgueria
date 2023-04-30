@@ -46,4 +46,27 @@ public class ControleEstoque {
         }
     }
 
+
+    public static String ListarEstoque(){
+        for (ItemEstoque produto : Banco.itensEstoque) {
+            String info = "\nID: " + produto.getId() +"\n"
+                        + "Produto: " + produto.getProduto().getNome() + "\n"
+                        + "Quantidade: " + produto.getQtde();
+
+            return info;
+        }
+
+        return null;
+    }
+
+    public static void ListarEstoqueEx(){
+        for (ItemEstoque produto : Banco.itensEstoque) {
+            String info = "\nID: " + produto.getId() +"\n"
+                        + "Produto: " + produto.getProduto().getNome() + "\n"
+                        + "Quantidade: " + produto.getQtde();
+
+            Prompt.imprimir(info);
+        }
+
+    }
 }

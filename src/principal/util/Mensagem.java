@@ -115,6 +115,7 @@ public interface Mensagem {
     final static String CADASTRAR_OUTRO = "DESEJA CADASTRAR OUTRO PRODUTO?";
     final static String ALTERAR_OUTRO = "DESEJA ATUALIZAR OUTRO PRODUTO?";
     final static String DELETAR_OUTRO = "DESEJA DELETAR OUTRO PRODUTO?";
+    final static String ESTOQUE_ATUAL = "ESTOQUE ATUAL";
 
 
 
