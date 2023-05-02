@@ -1,5 +1,4 @@
 package principal.controles;
-
 import principal.db.Banco;
 import principal.modelos.Cliente;
 
@@ -52,17 +51,17 @@ public class ControleCliente {
 		}
 	}
 
-    public static boolean excluir(String nome) {
-		boolean clienteExcluido = false;
+    public static boolean delete(Integer CPF) {
+		boolean clienteDelete = false;
 		for (int i = 0; i < Banco.clientes.size(); i++) {
 			Cliente cliente = Banco.clientes.get(i);
-			if (cliente.getNome().equalsIgnoreCase(nome)) {
+			if (cliente.getCPF().equals(CPF)) {
 				Banco.clientes.remove(i);
-				clienteExcluido = true;
+				clienteDelete = true;
 				break;
 			}
 		}
-		return clienteExcluido;
+		return clienteDelete;
 	}
 
 	public static boolean clienteExiste(Integer CPF){

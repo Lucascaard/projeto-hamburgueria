@@ -1,6 +1,5 @@
 package principal.db;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -29,7 +28,7 @@ public class Banco {
     Produto produto2 = new Produto(3, "Refrigerante", "Coca-Cola", 9.99, 0256);
     produtos.add(produto2);
 
-    Gerente gerente = new Gerente("Geucemar", 15151, "98989", "Masculino", "email@exemplo.com",LocalDate.of(2020, 1, 1), new BigDecimal(5.000));
+    Gerente gerente = new Gerente("Geucemar", 15151, "98989", "Masculino", "email@exemplo.com",LocalDate.of(2020, 1, 1), 5.000);
     gerentes.add(gerente);
 
     Funcionario funcionario = new Funcionario("Tair", 4565, "545545", "M", "@gmail.com", LocalDate.of(2023, 2, 6), LocalTime.of(10, 15, 20), LocalTime.of(5, 10, 30));
