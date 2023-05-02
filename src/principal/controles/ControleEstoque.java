@@ -3,6 +3,8 @@ package principal.controles;
 import principal.db.Banco;
 import principal.modelos.ItemEstoque;
 import principal.modelos.Produto;
+import principal.telas.TelaEstoque;
+import principal.util.Mensagem;
 import principal.util.Prompt;
 
 public class ControleEstoque {
@@ -46,20 +48,7 @@ public class ControleEstoque {
         }
     }
 
-
-    public static String ListarEstoque(){
-        for (ItemEstoque produto : Banco.itensEstoque) {
-            String info = "\nID: " + produto.getId() +"\n"
-                        + "Produto: " + produto.getProduto().getNome() + "\n"
-                        + "Quantidade: " + produto.getQtde();
-
-            return info;
-        }
-
-        return null;
-    }
-
-    public static void ListarEstoqueEx(){
+    public static void ListarEstoqueAtual(){
         for (ItemEstoque produto : Banco.itensEstoque) {
             String info = "\nID: " + produto.getId() +"\n"
                         + "Produto: " + produto.getProduto().getNome() + "\n"
@@ -69,4 +58,122 @@ public class ControleEstoque {
         }
 
     }
+
+    public static void Cadastrar(boolean control, Integer idProduto){
+        if(!control){
+
+            if(idProduto != null) {
+                
+                Produto produto = ControleProduto.buscarPorId(idProduto);
+                
+                if(produto == null){
+                    Prompt.linhaEmBranco();
+                    Prompt.imprimir(Mensagem.ID_INVALIDA);
+                } else {
+                    Integer qtde = Prompt.lerInteiro(Mensagem.INFORME_QUANTIDADE);
+                    ItemEstoque item = new ItemEstoque();
+                    item.setId(idProduto);
+                    item.setProduto(produto);
+                    item.setQtde(qtde);
+            
+                    ControleEstoque.adicionar(item);
+    
+                    Prompt.linhaEmBranco();
+                    Prompt.imprimir(Mensagem.PRODUTO_CADASTRADO_ESTOQUE);
+                } 
+                    
+            }
+        } else {
+
+            Prompt.linhaEmBranco();
+            Prompt.imprimir(Mensagem.PRODUTO_EXISTENTE_ESTOQUE);
+        }
+    }
+
+    public static void Update(Integer idProduto){
+        if(idProduto != null){
+
+            boolean produtoExiste = ControleEstoque.produtoExiste(idProduto);
+
+            if(produtoExiste){
+
+                Integer qtde = Prompt.lerInteiro(Mensagem.QTDE_ESTOQUE);
+
+                ControleEstoque.alterarQuantidade(idProduto, qtde);
+
+                Prompt.linhaEmBranco();
+				Prompt.imprimir(Mensagem.ESTOQUE_ALTERADO);
+                Prompt.separador();
+                Prompt.imprimir(Mensagem.ESTOQUE_ATUAL);
+                ControleEstoque.ListarEstoqueAtual();
+                Prompt.separador();
+            } else {
+                Prompt.linhaEmBranco();
+				Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
+            }
+        }
+    }
+
+
+    public static void Delete(Integer idProduto){
+        if(idProduto != null){
+            boolean estoqueExcluido = ControleEstoque.delete(idProduto);
+			Prompt.linhaEmBranco();
+			if(estoqueExcluido) {
+                Prompt.separador();
+				Prompt.imprimir(Mensagem.ESTOQUE_EXCLUIDO);
+                Prompt.separador();
+                if(Banco.itensEstoque.isEmpty()){
+                    Prompt.imprimir(Mensagem.ESTOQUE_VAZIO);
+                }else{
+                    Prompt.imprimir(Mensagem.ESTOQUE_ATUAL);
+                    ControleEstoque.ListarEstoqueAtual();
+                }
+                Prompt.separador();
+			} else {
+				Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
+			}
+        }
+    }
+
+    public static void repeat(String control){
+    
+        Prompt.separador();
+        if(control.equals("create")){
+            Prompt.imprimir(Mensagem.CADASTRAR_OUTRO);
+        } else if(control.equals("update")){
+            Prompt.imprimir(Mensagem.ALTERAR_OUTRO);
+        } else if(control.equals("delete")){
+            Prompt.imprimir(Mensagem.DELETAR_OUTRO);
+        }
+        
+        Prompt.separador();
+        Prompt.imprimir("[1] - " + Mensagem.SIM);
+	    Prompt.imprimir("[2] - " + Mensagem.VOLTAR);
+	    Prompt.imprimir("[3] - " + Mensagem.FINALIZAR_PROGRAMA);
+        Integer op = Prompt.lerInteiro();
+
+        switch (op) {
+            case 1:
+                if(control.equals("create")){
+                    TelaEstoque.create();;
+                } else if(control.equals("update")){
+                    TelaEstoque.update();;
+                } else if(control.equals("delete")){
+                    TelaEstoque.delete();
+                }
+                break;
+            case 2:
+                TelaEstoque.mostrar();
+                break;
+            case 3:
+                Prompt.imprimir(Mensagem.FINALIZADO);
+                break;
+            default:
+                Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
+                TelaEstoque.mostrar();
+                break;
+        }
+    }
+    
 }

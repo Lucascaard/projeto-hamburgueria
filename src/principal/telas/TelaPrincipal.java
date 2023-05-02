@@ -41,6 +41,7 @@ public static void mostrar(){
                 break;
             case 6:
                 TelaLogin.mostrar();
+                break;
             case 7:
                 Prompt.imprimir(Mensagem.FINALIZADO);
                 break;
