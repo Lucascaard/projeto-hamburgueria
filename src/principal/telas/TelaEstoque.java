@@ -14,40 +14,7 @@ public class TelaEstoque {
 
     public static void mostrar(){
 
-        Prompt.linhaEmBranco();
-        Prompt.separador();
-        Prompt.imprimir(Mensagem.MENU_ESTOQUE);
-        Prompt.separador();
-        Prompt.linhaEmBranco();
-        Prompt.imprimir("[1] - " + Mensagem.CREATE);
-        Prompt.imprimir("[2] - " + Mensagem.READ);
-        Prompt.imprimir("[3] - " + Mensagem.UPDATE);
-        Prompt.imprimir("[4] - " + Mensagem.DELETE);
-        Prompt.imprimir("[5] - " + Mensagem.VOLTAR);
-        Integer opcao = Prompt.lerInteiro();
-
-            switch (opcao) {
-                case 1:
-                    TelaEstoque.create();
-                    break;
-                case 2:
-                    TelaEstoque.read();
-                    break;
-                case 3:
-                    TelaEstoque.update();
-                    break;
-                case 4:
-                    TelaEstoque.delete();
-                    break;
-                case 5:
-                    TelaPrincipal.mostrar();
-                    break;
-                default:
-                    Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
-                    TelaPrincipal.mostrar();
-                    break;
-            }
-
+        ControleEstoque.MenuEstoque();
 
     }
 
