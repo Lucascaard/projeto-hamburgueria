@@ -137,5 +137,6 @@ public interface Mensagem {
     final static String INFORME_DATAADMISSAO = "INFORME A DATA DE ADMINSSÃO DO GERENTE";
     final static String INFORME_SALARIO = "INFORME O SALÁRIO DO GERENTE"; 
     
+    
 
 }
