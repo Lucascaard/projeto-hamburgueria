@@ -11,7 +11,7 @@ import principal.util.Prompt;
 
 public class TelaFuncionario {
 
-    public static void mostrar(){
+    public static void mostrar(){ 
 
         //opções ("menu funcionario")
 
@@ -56,8 +56,34 @@ public class TelaFuncionario {
 		Prompt.separador();
         Prompt.imprimir(Mensagem.MSG_CADASTRO_FUNCIONARIO);
 		Prompt.separador();
+		Prompt.linhaEmBranco();
+
+		Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
+		//verificando se o cpf ja existe
+		if(ControleFuncionario.funcionarioExiste(CPF)){
+			Prompt.separador();
+			Prompt.imprimir(Mensagem.FUNCIONARIO_EXISTE);
+			Prompt.separador();
+			Prompt.linhaEmBranco();
+			for(Funcionario funcionario : Banco.funcionarios){
+				if(funcionario.getCPF().equals(CPF)){
+					//mostra as informaçoes do funcionario com este cpf cadastrado
+					String infoFuncionario = "Nome: " + funcionario.getNome() + "\n"
+											+ "CPF: " + funcionario.getCPF() + "\n"
+					 						+ "Telefone: " + funcionario.getTelefone() + "\n"
+											+ "Sexo: " + funcionario.getSexo() + "\n"
+					 						+ "Email: " + funcionario.getEmail() + "\n"
+					 						+ "DataAdmissao: " + funcionario.getDataAdmissao() + "\n"
+											+ "HoraEntrada: " + funcionario.getHorarioEntrada() + "\n"
+											+ "HoraEntrada: " + funcionario.getHorarioSaida() + "\n";
+					Prompt.imprimir(infoFuncionario);						
+				}
+			}
+			TelaFuncionario.refazer();
+			return;
+		}
+
         String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
-        Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
         String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
         String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
         String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
@@ -152,6 +178,7 @@ public class TelaFuncionario {
 			} else {
 				Prompt.linhaEmBranco();
 				Prompt.imprimir(Mensagem.FUNCIONARIO_NAO_ENCONTRADO);
+				TelaFuncionario.read();
 			}
 
 			Prompt.linhaEmBranco();
@@ -160,27 +187,33 @@ public class TelaFuncionario {
 		}
 	}
 
+
 	public static void delete(){
+
 		Prompt.linhaEmBranco();
 		Prompt.separador();
-		Prompt.imprimir(Mensagem.EXCLUIR_FUNCIONARIO);
+		Prompt.imprimir(Mensagem.DELETAR_FUNCIONARIO);
 		Prompt.separador();
-		String nome = Prompt.lerLinha(Mensagem.NOME_EXCLUIR_FUNCIONARIO);
+		Prompt.linhaEmBranco();
 
-		if(!nome.isEmpty()) {
-			boolean funcionarioExcluido = ControleFuncionario.excluir(nome);
+		Integer CPF = Prompt.lerInteiro(Mensagem.FUNCIONARIO_CPF_DELETE);
+		
+		if(!CPF.equals(null)) {
+			boolean funcionarioDeletado = ControleFuncionario.excluir(CPF);
 			Prompt.linhaEmBranco();
-			if(funcionarioExcluido) {
-				Prompt.imprimir(Mensagem.EXCLUIDO_FUNCIONARIO_COM_SUCESSO);
+			if(funcionarioDeletado) {
+				Prompt.imprimir(Mensagem.FUNCIONARIO_EXCLUIDO);
+				TelaFuncionario.read();
 			} else {
 				Prompt.imprimir(Mensagem.FUNCIONARIO_NAO_ENCONTRADO);
+				TelaFuncionario.read();
 			}
-
 		Prompt.linhaEmBranco();
 		Prompt.pressionarEnter();
-		}
 
-		TelaFuncionario.mostrar();
+		}
+	TelaFuncionario.mostrar();
+
 	}
 
 
@@ -210,7 +243,7 @@ public class TelaFuncionario {
 				break;
 		}
     }
-
+}
     // public static void listar(){
 
 	// 	Prompt.separador();
@@ -238,5 +271,3 @@ public class TelaFuncionario {
 	// 	Prompt.pressionarEnter();
 	// 	TelaFuncionario.mostrar();
 	// }
-
-}

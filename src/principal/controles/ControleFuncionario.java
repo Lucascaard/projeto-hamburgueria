@@ -21,6 +21,7 @@ public class ControleFuncionario {
         return funcionarioRetorno;
     }
 
+
     //duas funções com o mesmo nome porém com parametros diferentes ou seja, se os parametros passados
     //corresponderem aos parametros da primeira função se o índice do funcionario que deve ser atualizado é 
     //conhecido, a primeira função pode ser usada, mas se o nome original do funcionario for usado como referência, a segunda função pode ser usada.
@@ -39,17 +40,17 @@ public class ControleFuncionario {
 		}
 	}
 
-    //recebe uma string nome que vai ser usada como parametro para exclusão
+    //recebe uma string CPF que vai ser usada como parametro para exclusão
     //mas poderia ser um id, um cpf, algo especifico de um determinado funcionario
-    public static boolean excluir(String nome) {
+    public static boolean excluir(Integer CPF) {
         //atribui o valor falso para indicar que ninguém foi excluido
 		boolean funcionarioExcluido = false;
-        //percorrer o banco de funcionarios em busca do q tenha o nome usado no parametro
+        //percorrer o banco de funcionarios em busca do q tenha o CPF usado no parametro
 		for (int i = 0; i < Banco.funcionarios.size(); i++) {
 			Funcionario funcionario = Banco.funcionarios.get(i);
-			if (funcionario.getNome().equalsIgnoreCase(nome)) {
+			if (funcionario.getCPF().equals(CPF)) {
 				Banco.funcionarios.remove(i);
-                //se o nome for encontrado na lista ele vai ser removido 
+                //se o CPF for encontrado na lista ele vai ser removido 
                 //mostrando q algm foi excluido 
 				funcionarioExcluido = true;
 				break;
@@ -57,5 +58,18 @@ public class ControleFuncionario {
 		}
 		return funcionarioExcluido;
 	}
+
+    public static boolean funcionarioExiste(Integer CPF){
+        //verificar no banco de dados se ja existe esse cpf
+		for(Funcionario funcionario : Banco.funcionarios) {
+			if(funcionario.getCPF().equals(CPF)){
+				return true;
+			}
+		}
+		return false;
+	}
+
+
+
 }
 
