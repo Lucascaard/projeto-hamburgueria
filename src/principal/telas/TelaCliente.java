@@ -140,9 +140,11 @@ public class TelaCliente {
 		Prompt.imprimir(Mensagem.UPDATE_CLIENTE);
 		Prompt.separador();
 		Prompt.linhaEmBranco();
-		String nomeOriginal = Prompt.lerLinha(Mensagem.CPF_ORIGINAL);
-		if(!nomeOriginal.isEmpty()) {
-			Cliente clienteAlterado = ControleCliente.buscar(nomeOriginal);
+		Integer cpfOriginal = Prompt.lerInteiro(Mensagem.CPF_ORIGINAL);
+
+
+		if(!cpfOriginal.equals(null)) {
+			Cliente clienteAlterado = ControleCliente.buscar(cpfOriginal);
 			
 			if(clienteAlterado != null) {
 				Prompt.separador();
@@ -164,7 +166,7 @@ public class TelaCliente {
 					clienteAlterado.setSexo(sexo);
 					clienteAlterado.setEndereco(endereco);
 					
-					ControleCliente.atualizar(nomeOriginal, clienteAlterado);
+					ControleCliente.atualizar(cpfOriginal, clienteAlterado);
 					Prompt.linhaEmBranco();
 					Prompt.imprimir(Mensagem.ALTERADO_COM_SUCESSO);
 				} 
