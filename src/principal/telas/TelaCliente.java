@@ -57,8 +57,30 @@ public class TelaCliente {
 		Prompt.separador();
         Prompt.imprimir(Mensagem.MSG_CADASTRO_CLIENTE);
 		Prompt.separador();
-        String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
-        Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
+		Prompt.linhaEmBranco();
+		Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
+		if(ControleCliente.clienteExiste(CPF)){
+				Prompt.separador();
+				Prompt.imprimir(Mensagem.JA_EXISTE);
+				Prompt.separador();
+				Prompt.linhaEmBranco();
+				for (Cliente cliente : Banco.clientes) {
+					if(cliente.getCPF().equals(CPF)){
+					// Monta uma string com as informações do cliente
+					String infoCliente = "Nome: " + cliente.getNome() + "\n"
+										+ "CPF: " + cliente.getCPF() + "\n"
+										+ "Telefone: " + cliente.getTelefone() + "\n"
+										+ "Email: " + cliente.getEmail() + "\n"
+										+ "Sexo: " + cliente.getSexo() + "\n"
+										+ "Endereço: " + cliente.getEndereco() + "\n";
+										// Imprime as informações do cliente
+					Prompt.imprimir(infoCliente);
+					}
+				}
+				TelaCliente.refazer();
+				return;
+			}
+		String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
         String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
         String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
         String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
@@ -91,7 +113,8 @@ public class TelaCliente {
 		// Verifica se a lista de clientes está vazia
 		if (Banco.clientes.isEmpty()) {
 			// Se a lista de clientes estiver vazia, imprime uma mensagem informando que não há clientes
-			Prompt.imprimir(Mensagem.NAO_HA_CLIENTES); 
+			Prompt.imprimir(Mensagem.NAO_HA_CLIENTES);
+			Prompt.linhaEmBranco(); 
 		} else {
 			// Se houver clientes na lista, percorre a lista com um laço 'for'
 			for (Cliente cliente : Banco.clientes) {
@@ -106,7 +129,6 @@ public class TelaCliente {
 				Prompt.imprimir(infoCliente);
 			}
 		}
-		Prompt.linhaEmBranco();
 		Prompt.pressionarEnter();
 		TelaCliente.mostrar();
 	}
@@ -117,12 +139,15 @@ public class TelaCliente {
 		Prompt.separador();
 		Prompt.imprimir(Mensagem.UPDATE_CLIENTE);
 		Prompt.separador();
+		Prompt.linhaEmBranco();
 		String nomeOriginal = Prompt.lerLinha(Mensagem.NOME_ORIGINAL);
 		if(!nomeOriginal.isEmpty()) {
 			Cliente clienteAlterado = ControleCliente.buscar(nomeOriginal);
 			
 			if(clienteAlterado != null) {
+				Prompt.separador();
 				Prompt.imprimir(Mensagem.NOVOS_DADOS);
+				Prompt.separador();
 				Prompt.linhaEmBranco();
 				String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
 				Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
@@ -146,6 +171,7 @@ public class TelaCliente {
 			} else {
 				Prompt.linhaEmBranco();
 				Prompt.imprimir(Mensagem.CLIENTE_NAO_ENCONTRADO);
+				TelaCliente.read();
 			}
 		Prompt.linhaEmBranco();
 		Prompt.pressionarEnter();
@@ -158,17 +184,20 @@ public class TelaCliente {
 
 		Prompt.linhaEmBranco();
 		Prompt.separador();
-		Prompt.imprimir(Mensagem.EXCLUIR_CLIENTE);
+		Prompt.imprimir(Mensagem.DELETAR_CLIENTE);
 		Prompt.separador();
-		String nome = Prompt.lerLinha(Mensagem.NOME_EXCLUIR);
+		Prompt.linhaEmBranco();
+		Integer CPF = Prompt.lerInteiro(Mensagem.CPF_DELETE);
 		
-		if(!nome.isEmpty()) {
-			boolean clienteExcluido = ControleCliente.excluir(nome);
+		if(!CPF.equals(null)) {
+			boolean clienteDeletado = ControleCliente.delete(CPF);
 			Prompt.linhaEmBranco();
-			if(clienteExcluido) {
+			if(clienteDeletado) {
 				Prompt.imprimir(Mensagem.EXCLUIDO_COM_SUCESSO);
+				TelaCliente.read();
 			} else {
 				Prompt.imprimir(Mensagem.CLIENTE_NAO_ENCONTRADO);
+				TelaCliente.read();
 			}
 		Prompt.linhaEmBranco();
 		Prompt.pressionarEnter();
@@ -182,7 +211,7 @@ public class TelaCliente {
 
 	// Menu pra escolher o que deseja fazer a seguir com recursão em caso de opção invalida
 	Prompt.separador();
-	Prompt.imprimir(Mensagem.NOVO_CLIENTE);
+	Prompt.imprimir(Mensagem.REFAZER);
 	Prompt.separador();
 	Prompt.imprimir("[1] - " + Mensagem.SIM);
 	Prompt.imprimir("[2] - " + Mensagem.VOLTAR);

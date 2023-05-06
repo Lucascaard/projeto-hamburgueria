@@ -30,7 +30,7 @@ public interface Mensagem {
     
     //PESSOA
     final static String INFORME_NOME = "NOME:";
-    final static String INFORME_CPF = "CPF:";
+    final static String INFORME_CPF = "INFORME O CPF: Ex:00000000000";
     final static String INFORME_TELEFONE = "TELEFONE:";
     final static String INFORME_EMAIL = "EMAIL:";
     final static String INFORME_SEXO = "SEXO:";
@@ -39,17 +39,18 @@ public interface Mensagem {
     final static String MSG_CADASTRO_CLIENTE = "CADASTRO DE CLIENTES"; 
     final static String MENU_CLIENTE = "MENU CLIENTE";
     final static String INFORME_ENDERECO = "ENDEREÇO: ";
-    final static String NOVO_CLIENTE = "DESEJA CADASTRAR UM NOVO CLIENTE? ";
+    final static String REFAZER = "DESEJA REFAZER A OPERAÇÃO? ";
     final static String LISTA_DE_CLIENTES = "LISTA DE CLIENTES";
     final static String NAO_HA_CLIENTES = "NAÕ EXISTEM CLIENTES CADASTRADOS";
     final static String UPDATE_CLIENTE = "ALTERAR CLIENTE";
     final static String NOME_ORIGINAL = "INFORME O NOME DO CLIENTE QUE DESEJA ALTERAR: ";
-    final static String NOME_EXCLUIR = "INFORME O NOME DO CLIENTE QUE DESEJA EXCLUIR: ";
+    final static String CPF_DELETE = "INFORME O CPF DO CLIENTE QUE DESEJA DELETAR: ";
     final static String NOVOS_DADOS = "INSIRA OS NOVOS DADOS DESTE CLIENTE";
     final static String ALTERADO_COM_SUCESSO = "CLIENTE ALTERADO COM SUCESSO";
     final static String CLIENTE_NAO_ENCONTRADO = "CLIENTE NÃO FOI ENCONTRADO";
-    final static String EXCLUIR_CLIENTE = "EXCLUIR CLIENTE";
+    final static String DELETAR_CLIENTE = "DELETAR CLIENTE";
     final static String EXCLUIDO_COM_SUCESSO = "CLIENTE EXCLUIDO COM SUCESSO";
+    final static String JA_EXISTE = "JÁ EXISTE UM CLIENTE CADASTRADO COM ESSE CPF";
 
 
     //FUNCIONARIO 
@@ -114,12 +115,27 @@ public interface Mensagem {
     final static String CADASTRAR_OUTRO = "DESEJA CADASTRAR OUTRO PRODUTO?";
     final static String ALTERAR_OUTRO = "DESEJA ATUALIZAR OUTRO PRODUTO?";
     final static String DELETAR_OUTRO = "DESEJA DELETAR OUTRO PRODUTO?";
+    final static String ESTOQUE_ATUAL = "ESTOQUE ATUAL";
 
 
 
 
     //GERENTE
     final static String MENU_GERENTE = "MENU GERENTE";
+    final static String MSG_CADASTRO_GERENTE = "CADASTRO DE GERENTES"; 
+    final static String LISTA_DE_GERENTES = "LISTA DE GERENTES";
+    final static String NAO_HA_GERENTES = "NAÕ EXISTEM GERENTES CADASTRADOS";
+    final static String UPDATE_GERENTE = "ALTERAR GERENTE";
+    final static String NOME_ORIGINAL_GERENTE = "INFORME O NOME DO GERENTE QUE DESEJA ALTERAR: ";
+    final static String CPF_DELETE_GERENTE = "INFORME O CPF DO GERENTE QUE DESEJA DELETAR: ";
+    final static String NOVOS_DADOS_GERENTE = "INSIRA OS NOVOS DADOS DESTE GERENTE";
+    final static String ALTERADO_COM_SUCESSO_GERENTE = "GERENTE ALTERADO COM SUCESSO";
+    final static String GERENTE_NAO_ENCONTRADO = "GERENTE NÃO FOI ENCONTRADO";
+    final static String DELETAR_GERENTE = "DELETAR GERENTE";
+    final static String EXCLUIDO_COM_SUCESSO_GERENTE = "GERENTE EXCLUIDO COM SUCESSO";
+    final static String JA_EXISTE_GERENTE = "JÁ EXISTE UM GERENTE CADASTRADO COM ESSE CPF";
+    final static String INFORME_DATAADMISSAO = "INFORME A DATA DE ADMINSSÃO DO GERENTE";
+    final static String INFORME_SALARIO = "INFORME O SALÁRIO DO GERENTE"; 
     
 
 }
