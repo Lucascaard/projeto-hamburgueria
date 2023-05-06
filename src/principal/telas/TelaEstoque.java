@@ -12,11 +12,11 @@ import principal.db.Banco;
 
 public class TelaEstoque {
 
-    public static void mostrar(){
+public static void mostrar(){
 
-        ControleEstoque.MenuEstoque();
+    ControleEstoque.MenuEstoque();
 
-    }
+}
 
     public static void create(){
 
