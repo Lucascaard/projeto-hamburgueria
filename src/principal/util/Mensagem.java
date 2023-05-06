@@ -43,7 +43,7 @@ public interface Mensagem {
     final static String LISTA_DE_CLIENTES = "LISTA DE CLIENTES";
     final static String NAO_HA_CLIENTES = "NAÕ EXISTEM CLIENTES CADASTRADOS";
     final static String UPDATE_CLIENTE = "ALTERAR CLIENTE";
-    final static String NOME_ORIGINAL = "INFORME O NOME DO CLIENTE QUE DESEJA ALTERAR: ";
+    final static String CPF_ORIGINAL = "INFORME O CPF DO CLIENTE QUE DESEJA ALTERAR: ";
     final static String CPF_DELETE = "INFORME O CPF DO CLIENTE QUE DESEJA DELETAR: ";
     final static String NOVOS_DADOS = "INSIRA OS NOVOS DADOS DESTE CLIENTE";
     final static String ALTERADO_COM_SUCESSO = "CLIENTE ALTERADO COM SUCESSO";
@@ -141,6 +141,7 @@ public interface Mensagem {
     final static String JA_EXISTE_GERENTE = "JÁ EXISTE UM GERENTE CADASTRADO COM ESSE CPF";
     final static String INFORME_DATAADMISSAO = "INFORME A DATA DE ADMINSSÃO DO GERENTE";
     final static String INFORME_SALARIO = "INFORME O SALÁRIO DO GERENTE"; 
+    
     
 
 }
