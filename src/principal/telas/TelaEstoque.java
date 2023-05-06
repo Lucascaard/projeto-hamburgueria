@@ -2,6 +2,7 @@ package principal.telas;
 
 import principal.util.Mensagem;
 import principal.util.Prompt;
+
 import principal.controles.ControleEstoque;
 import principal.db.Banco;
 
@@ -50,7 +51,14 @@ public static void mostrar(){
         if(Banco.itensEstoque.isEmpty()){
             Prompt.imprimir(Mensagem.ESTOQUE_VAZIO);
         } else {
-            ControleEstoque.ListarEstoqueAtual();
+            ControleEstoque.ListarEstoque();
+            Prompt.separador();
+            Prompt.imprimir(Mensagem.RELATORIO_ESTOQUE);
+            String control = Prompt.lerLinha(Mensagem.SIM_NAO);
+
+            if(control.equals("s")){
+                ControleEstoque.planilhaEstoque();
+            }
         }
 
         Prompt.linhaEmBranco();
@@ -70,7 +78,7 @@ public static void mostrar(){
             TelaEstoque.mostrar();
         } else {
 
-            ControleEstoque.ListarEstoqueAtual();
+            ControleEstoque.ListarEstoque();
     
             Prompt.linhaEmBranco();
             Integer idProduto = Prompt.lerInteiro(Mensagem.INFORME_ID_ALTERAR);
@@ -97,7 +105,7 @@ public static void mostrar(){
             TelaEstoque.mostrar();
         } else {
 
-            ControleEstoque.ListarEstoqueAtual();
+            ControleEstoque.ListarEstoque();
 
             Prompt.linhaEmBranco();
             Integer idProduto = Prompt.lerInteiro(Mensagem.INFORME_ID_EXCLUIR_ESTOQUE);

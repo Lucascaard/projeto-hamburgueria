@@ -18,9 +18,8 @@ public static void mostrar(){
         Prompt.imprimir("[2] " + Mensagem.MENU_FUNCIONARIO);
         Prompt.imprimir("[3] " + Mensagem.MENU_PRODUTO);
         Prompt.imprimir("[4] " + Mensagem.MENU_GERENTE);
-        Prompt.imprimir("[5] " + Mensagem.MENU_ESTOQUE);
-        Prompt.imprimir("[6] " + Mensagem.VOLTAR);
-        Prompt.imprimir("[7] " + Mensagem.FINALIZAR_PROGRAMA);
+        Prompt.imprimir("[5] " + Mensagem.VOLTAR);
+        Prompt.imprimir("[6] " + Mensagem.FINALIZAR_PROGRAMA);
         Integer opcao = Prompt.lerInteiro();
 
         switch (opcao) {
@@ -37,12 +36,9 @@ public static void mostrar(){
                 TelaGerente.mostrar(); // alterado para teste
                 break;
             case 5:
-                TelaEstoque.mostrar();
-                break;
-            case 6:
                 TelaLogin.mostrar();
                 break;
-            case 7:
+            case 6:
                 Prompt.imprimir(Mensagem.FINALIZADO);
                 break;
             default:

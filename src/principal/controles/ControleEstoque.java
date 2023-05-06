@@ -1,5 +1,8 @@
 package principal.controles;
 
+import java.io.File;
+import java.util.Formatter;
+
 import principal.db.Banco;
 import principal.modelos.ItemEstoque;
 import principal.modelos.Produto;
@@ -49,7 +52,7 @@ public class ControleEstoque {
         }
     }
 
-    public static void ListarEstoqueAtual(){
+    public static void ListarEstoque(){
         for (ItemEstoque produto : Banco.itensEstoque) {
             String info = "\nID: " + produto.getId() +"\n"
                         + "Produto: " + produto.getProduto().getNome() + "\n"
@@ -106,7 +109,7 @@ public class ControleEstoque {
 				Prompt.imprimir(Mensagem.ESTOQUE_ALTERADO);
                 Prompt.separador();
                 Prompt.imprimir(Mensagem.ESTOQUE_ATUAL);
-                ControleEstoque.ListarEstoqueAtual();
+                ControleEstoque.ListarEstoque();
                 Prompt.separador();
             } else {
                 Prompt.linhaEmBranco();
@@ -128,7 +131,7 @@ public class ControleEstoque {
                     Prompt.imprimir(Mensagem.ESTOQUE_VAZIO);
                 }else{
                     Prompt.imprimir(Mensagem.ESTOQUE_ATUAL);
-                    ControleEstoque.ListarEstoqueAtual();
+                    ControleEstoque.ListarEstoque();
                 }
                 Prompt.separador();
 			} else {
@@ -176,6 +179,32 @@ public class ControleEstoque {
                 break;
         }
     }
+
+    public static void planilhaEstoque(){
+
+        File file = new File("projeto-hamburgueria\\src\\principal\\planilhaEstoque.csv");
+
+        try (Formatter formatter = new Formatter(file)){
+
+            formatter.format("ID;NOME;MARCA;QUANTIDADE;\n");
+
+            for (ItemEstoque item : Banco.itensEstoque) {
+                formatter.format(item.getId() + ";"
+                                + item.getProduto().getNome() + ";"
+                                + item.getProduto().getMarca() + ";"
+                                + item.getQtde() + ";\n");
+            }
+
+            Prompt.separador();
+            Prompt.imprimir(Mensagem.PLANILHA_FEITA);
+            Prompt.separador();
+            formatter.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    };
     
     public static void MenuEstoque(){
         

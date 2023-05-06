@@ -21,7 +21,8 @@ public class TelaGerente {
 		Prompt.imprimir("[2] - " + Mensagem.READ);
 		Prompt.imprimir("[3] - " + Mensagem.UPDATE);
 		Prompt.imprimir("[4] - " + Mensagem.DELETE);
-		Prompt.imprimir("[5] - " + Mensagem.VOLTAR);
+		Prompt.imprimir("[5] - " + Mensagem.MENU_ESTOQUE);
+		Prompt.imprimir("[6] - " + Mensagem.VOLTAR);
 		Integer opcao = Prompt.lerInteiro();
 
 			switch(opcao){
@@ -38,6 +39,9 @@ public class TelaGerente {
 					TelaGerente.delete();
 					break;
 				case 5:
+					TelaEstoque.mostrar();
+					break;
+				case 6:
 					TelaPrincipal.mostrar();
 					break;
 				default:

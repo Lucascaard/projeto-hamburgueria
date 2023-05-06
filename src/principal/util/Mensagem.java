@@ -23,7 +23,7 @@ public interface Mensagem {
     final static String TELA_LOGIN = "                   TELA DE LOGIN";
     final static String MSG_INFORME_LOGIN = "INFORME O LOGIN: ";
     final static String MSG_INFORME_SENHA = "INFORME A SENHA: ";
-    final static String MSG_LOGIN_OR_SENHA_INVALID = "LOGIN OU SENHA INVALIDO, TENTE NOVAMENTE!";
+    final static String MSG_LOGIN_OR_SENHA_INVALIDA = "LOGIN OU SENHA INVALIDO, TENTE NOVAMENTE!";
 
     //CADASTROS
     final static String TELA_DE_CADASTROS = "TELA DE CADASTROS";
@@ -121,9 +121,7 @@ public interface Mensagem {
     final static String ALTERAR_OUTRO = "DESEJA ATUALIZAR OUTRO PRODUTO?";
     final static String DELETAR_OUTRO = "DESEJA DELETAR OUTRO PRODUTO?";
     final static String ESTOQUE_ATUAL = "ESTOQUE ATUAL";
-
-
-
+    final static String RELATORIO_ESTOQUE = "DESEJA VER O RELATÓRIO DO ESTOQUE EM PLANILHA?";
 
     //GERENTE
     final static String MENU_GERENTE = "MENU GERENTE";
@@ -140,7 +138,9 @@ public interface Mensagem {
     final static String EXCLUIDO_COM_SUCESSO_GERENTE = "GERENTE EXCLUIDO COM SUCESSO";
     final static String JA_EXISTE_GERENTE = "JÁ EXISTE UM GERENTE CADASTRADO COM ESSE CPF";
     final static String INFORME_DATAADMISSAO = "INFORME A DATA DE ADMINSSÃO DO GERENTE";
-    final static String INFORME_SALARIO = "INFORME O SALÁRIO DO GERENTE"; 
+    final static String INFORME_SALARIO = "INFORME O SALÁRIO DO GERENTE";
+    final static String PLANILHA_FEITA = "PLANILHA FEITA COM SUCESSO"; 
+    final static String SIM_NAO = "SIM (S) / NÃO (N)";
     
 
 }

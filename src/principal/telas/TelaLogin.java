@@ -16,10 +16,10 @@ public class TelaLogin {
 
         if(LoginAutenticacao.autenticar(login, senha)){
             TelaPrincipal.mostrar();
-        } else{
+        } else {
             Prompt.linhaEmBranco();
-            Prompt.imprimir(Mensagem.MSG_LOGIN_OR_SENHA_INVALID);
+            Prompt.imprimir(Mensagem.MSG_LOGIN_OR_SENHA_INVALIDA);
             TelaLogin.mostrar();
-        }
+        }    
     }
 }
