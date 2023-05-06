@@ -13,10 +13,10 @@ public class ControleCliente {
         Banco.clientes.add(cliente);
     }
 
-    public static Cliente buscar(String nome) {
+    public static Cliente buscar(Integer cpf) {
 		Cliente clienteRetorno = null;
 		for (Cliente cliente : Banco.clientes) {
-			if (cliente.getNome().equalsIgnoreCase(nome)) {
+			if (cliente.getCPF().equals(cpf)) {
 				clienteRetorno = cliente;
 				break;
 			}
@@ -41,10 +41,10 @@ public class ControleCliente {
 		Banco.clientes.set(indexAlterar, clienteAlterado);
 	}
 
-	public static void atualizar(String nomeOriginal, Cliente clienteAlterado) {
+	public static void atualizar(Integer cpfOriginal, Cliente clienteAlterado) {
 		for (int i = 0; i < Banco.clientes.size(); i++) {
 			Cliente cliente = Banco.clientes.get(i);
-			if (cliente.getNome().equalsIgnoreCase(nomeOriginal)) {
+			if (cliente.getCPF().equals(cpfOriginal)) {
 				Banco.clientes.set(i, clienteAlterado);
 			    break;
 			}
