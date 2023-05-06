@@ -11,12 +11,12 @@ public class ControleFuncionario {
     }
 
 //buscar no banco de dados a partir do nome se o funcionário existe
-    public static Funcionario buscar(String nome) {
+    public static Funcionario buscar(Integer cpf) {
 		//iniciando a variavel no null
         Funcionario funcionarioRetorno = null;
         for (Funcionario funcionario : Banco.funcionarios) {
 			//Verifica-se se o nome do funcionário atual, obtido através do método "getNome()", é igual ao nome fornecido como parâmetro
-            if (funcionario.getNome().equalsIgnoreCase(nome)) {
+            if (funcionario.getCPF().equals(cpf)) {
                 funcionarioRetorno = funcionario;
 				//A variável "funcionarioRetorno" recebe o valor do funcionário atual e o loop é interrompido
                 break;
@@ -34,10 +34,11 @@ public class ControleFuncionario {
 		Banco.funcionarios.set(indexAlterar, funcionarioAlterado);
 	}
 
-	public static void atualizar(String nomeOriginal, Funcionario funcionarioAlterado) {
+	public static void atualizar(Integer cpfOrigem, Funcionario funcionarioAlterado) {
 		for (int i = 0; i < Banco.funcionarios.size(); i++) {
+			//vai procura no banco de dados se o cpf do funcionario existe 
 			Funcionario funcionario = Banco.funcionarios.get(i);
-			if (funcionario.getNome().equalsIgnoreCase(nomeOriginal)) {
+			if (funcionario.getCPF().equals(cpfOrigem)) {
 				Banco.funcionarios.set(i, funcionarioAlterado);
 			    break;
 			}
