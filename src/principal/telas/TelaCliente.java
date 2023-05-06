@@ -140,7 +140,7 @@ public class TelaCliente {
 		Prompt.imprimir(Mensagem.UPDATE_CLIENTE);
 		Prompt.separador();
 		Prompt.linhaEmBranco();
-		String nomeOriginal = Prompt.lerLinha(Mensagem.NOME_ORIGINAL);
+		String nomeOriginal = Prompt.lerLinha(Mensagem.CPF_ORIGINAL);
 		if(!nomeOriginal.isEmpty()) {
 			Cliente clienteAlterado = ControleCliente.buscar(nomeOriginal);
 			
