@@ -156,17 +156,32 @@ public class TelaProduto {
 				double preco = Prompt.lerDecimal(Mensagem.INFORME_PRECO);
 				int codBarra = Prompt.lerInteiro(Mensagem.INFORME_CODBARRA);
 				
-				if(id != null && !nome.isEmpty()) {
-					produtoAlterado.setId(id);
-					produtoAlterado.setNome(nome);
-					produtoAlterado.setMarca(marca);
-					produtoAlterado.setPreco(preco);
-					produtoAlterado.setCodBarra(codBarra);
-					
-					ControleProduto.atualizar(nomeOriginal, produtoAlterado);
-					Prompt.linhaEmBranco();
-					Prompt.imprimir(Mensagem.PRODUTO_ALTERADO_COM_SUCESSO); 
-				} 
+				boolean mesmoID = id != null && id.equals(produtoAlterado.getId());
+            boolean idJaExiste = !mesmoID && Banco.produtos.stream()
+                    .map(Produto::getId)
+                    .anyMatch(id::equals);
+
+            if (idJaExiste) {
+                if (mesmoID) {
+                    // permite a atualização do produto com o mesmo ID
+                } else {
+                    Prompt.imprimir(Mensagem.ID_JA_EXISTE);
+					Prompt.pressionarEnter();
+                    TelaProduto.mostrar();
+                }
+            }
+
+            	if(id != null && !nome.isEmpty()) {
+                	produtoAlterado.setId(id);
+                	produtoAlterado.setNome(nome);
+                	produtoAlterado.setMarca(marca);
+                	produtoAlterado.setPreco(preco);
+                	produtoAlterado.setCodBarra(codBarra);
+
+                ControleProduto.atualizar(nomeOriginal, produtoAlterado);
+                Prompt.linhaEmBranco();
+                Prompt.imprimir(Mensagem.PRODUTO_ALTERADO_COM_SUCESSO);
+            }
 			} else {
 				Prompt.linhaEmBranco();
 				Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
