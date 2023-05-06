@@ -39,6 +39,7 @@ public class ControleFuncionario {
 			//vai procura no banco de dados se o cpf do funcionario existe 
 			Funcionario funcionario = Banco.funcionarios.get(i);
 			if (funcionario.getCPF().equals(cpfOrigem)) {
+				//realiza as alterações
 				Banco.funcionarios.set(i, funcionarioAlterado);
 			    break;
 			}
