@@ -5,19 +5,24 @@ import principal.modelos.Funcionario;
 
 public class ControleFuncionario {
     
+	// funcionario é adicionado à lista de funcionários no banco de dados
     public static void adicionar(Funcionario funcionario){
         Banco.funcionarios.add(funcionario);
     }
 
-
+//buscar no banco de dados a partir do nome se o funcionário existe
     public static Funcionario buscar(String nome) {
+		//iniciando a variavel no null
         Funcionario funcionarioRetorno = null;
         for (Funcionario funcionario : Banco.funcionarios) {
+			//Verifica-se se o nome do funcionário atual, obtido através do método "getNome()", é igual ao nome fornecido como parâmetro
             if (funcionario.getNome().equalsIgnoreCase(nome)) {
                 funcionarioRetorno = funcionario;
+				//A variável "funcionarioRetorno" recebe o valor do funcionário atual e o loop é interrompido
                 break;
             }
         }
+		//O objeto "funcionarioRetorno" é retornado pela função. Se nenhum funcionário com o nome correspondente for encontrado, o valor retornado será "null".
         return funcionarioRetorno;
     }
 
@@ -25,7 +30,6 @@ public class ControleFuncionario {
     //duas funções com o mesmo nome porém com parametros diferentes ou seja, se os parametros passados
     //corresponderem aos parametros da primeira função se o índice do funcionario que deve ser atualizado é 
     //conhecido, a primeira função pode ser usada, mas se o nome original do funcionario for usado como referência, a segunda função pode ser usada.
-
     public static void atualizar(int indexAlterar, Funcionario funcionarioAlterado) {
 		Banco.funcionarios.set(indexAlterar, funcionarioAlterado);
 	}
@@ -63,9 +67,11 @@ public class ControleFuncionario {
         //verificar no banco de dados se ja existe esse cpf
 		for(Funcionario funcionario : Banco.funcionarios) {
 			if(funcionario.getCPF().equals(CPF)){
+				//se o funcionário for encontrado no banco de dados ele retorna true
 				return true;
 			}
 		}
+		//nenhum funcionário foi encontrado no banco de dados
 		return false;
 	}
 

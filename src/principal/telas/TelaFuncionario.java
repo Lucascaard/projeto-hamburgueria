@@ -66,6 +66,7 @@ public class TelaFuncionario {
 			Prompt.separador();
 			Prompt.linhaEmBranco();
 			for(Funcionario funcionario : Banco.funcionarios){
+				//se esse cpf existir 
 				if(funcionario.getCPF().equals(CPF)){
 					//mostra as informaçoes do funcionario com este cpf cadastrado
 					String infoFuncionario = "Nome: " + funcionario.getNome() + "\n"
@@ -82,7 +83,7 @@ public class TelaFuncionario {
 			TelaFuncionario.refazer();
 			return;
 		}
-
+//se nao entrar no if vai pedir os dados: 
         String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
         String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
         String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
@@ -197,7 +198,7 @@ public class TelaFuncionario {
 		Prompt.linhaEmBranco();
 
 		Integer CPF = Prompt.lerInteiro(Mensagem.FUNCIONARIO_CPF_DELETE);
-		
+		//se o cpf existir o funcionário vai ser excluido do banco de dados
 		if(!CPF.equals(null)) {
 			boolean funcionarioDeletado = ControleFuncionario.excluir(CPF);
 			Prompt.linhaEmBranco();
@@ -205,6 +206,7 @@ public class TelaFuncionario {
 				Prompt.imprimir(Mensagem.FUNCIONARIO_EXCLUIDO);
 				TelaFuncionario.read();
 			} else {
+			//se o funcionário não existir vai ser retornada uma mensagem de que nao foi encontrado
 				Prompt.imprimir(Mensagem.FUNCIONARIO_NAO_ENCONTRADO);
 				TelaFuncionario.read();
 			}
