@@ -41,14 +41,14 @@ public class ControleProduto {
 
     
 
-    public static void atualizar(int indexAlterar, Produto produtoAlterado) {
-		Banco.produtos.set(indexAlterar, produtoAlterado);
-	}
+    // public static void atualizar(int indexAlterar, Produto produtoAlterado) {
+	// 	Banco.produtos.set(indexAlterar, produtoAlterado);
+	// }
 
-	public static void atualizar(String nomeOriginal, Produto produtoAlterado) {
+	public static void atualizar(int idOriginal, Produto produtoAlterado) {
 		for (int i = 0; i < Banco.produtos.size(); i++) {
 			Produto produto = Banco.produtos.get(i);
-			if (produto.getNome().equalsIgnoreCase(nomeOriginal)) {
+			if (produto.getId() == idOriginal) {
 				Banco.produtos.set(i, produtoAlterado);
 			    break;
 			}
