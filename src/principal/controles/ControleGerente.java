@@ -19,14 +19,25 @@ public class ControleGerente {
 		return gerenteRetorno;
 	}
 
-    public static void atualizar(int indexAlterar, Gerente gerenteAlterado) {
-		Banco.gerentes.set(indexAlterar, gerenteAlterado);
+	public static Gerente buscarCPF(int CPF) {
+		Gerente gerenteRetorno = null;
+		for (Gerente gerente : Banco.gerentes) {
+			if (gerente.getCPF().equals(CPF)) {
+				gerenteRetorno = gerente;
+				break;
+			}
+		}
+		return gerenteRetorno;
 	}
 
-	public static void atualizar(String nomeOriginal, Gerente gerenteAlterado) {
+    // public static void atualizar(int indexAlterar, Gerente gerenteAlterado) {
+	// 	Banco.gerentes.set(indexAlterar, gerenteAlterado);
+	// }
+
+	public static void atualizar(int CPFalterado, Gerente gerenteAlterado) {
 		for (int i = 0; i < Banco.gerentes.size(); i++) {
 			Gerente gerente = Banco.gerentes.get(i);
-			if (gerente.getNome().equalsIgnoreCase(nomeOriginal)) {
+			if (gerente.getCPF().equals(CPFalterado)) {
 				Banco.gerentes.set(i, gerenteAlterado);
 			    break;
 			}

@@ -1,7 +1,7 @@
 package principal.controles;
 
-import java.io.File;
-import java.util.Formatter;
+// import java.io.File;
+// import java.util.Formatter;
 
 import principal.db.Banco;
 import principal.modelos.ItemEstoque;
@@ -180,31 +180,31 @@ public class ControleEstoque {
         }
     }
 
-    public static void planilhaEstoque(){
+    // public static void planilhaEstoque(){
 
-        File file = new File("projeto-hamburgueria\\src\\principal\\planilhaEstoque.csv");
+    //     File file = new File("projeto-hamburgueria\\src\\principal\\planilhaEstoque.csv");
 
-        try (Formatter formatter = new Formatter(file)){
+    //     try (Formatter formatter = new Formatter(file)){
 
-            formatter.format("ID;NOME;MARCA;QUANTIDADE;\n");
+    //         formatter.format("ID;NOME;MARCA;QUANTIDADE;\n");
 
-            for (ItemEstoque item : Banco.itensEstoque) {
-                formatter.format(item.getId() + ";"
-                                + item.getProduto().getNome() + ";"
-                                + item.getProduto().getMarca() + ";"
-                                + item.getQtde() + ";\n");
-            }
+    //         for (ItemEstoque item : Banco.itensEstoque) {
+    //             formatter.format(item.getId() + ";"
+    //                             + item.getProduto().getNome() + ";"
+    //                             + item.getProduto().getMarca() + ";"
+    //                             + item.getQtde() + ";\n");
+    //         }
 
-            Prompt.separador();
-            Prompt.imprimir(Mensagem.PLANILHA_FEITA);
-            Prompt.separador();
-            formatter.close();
+    //         Prompt.separador();
+    //         Prompt.imprimir(Mensagem.PLANILHA_FEITA);
+    //         Prompt.separador();
+    //         formatter.close();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
 
-    };
+    // };
     
     public static void MenuEstoque(){
         

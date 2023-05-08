@@ -123,9 +123,6 @@ public interface Mensagem {
     final static String DELETAR_OUTRO = "DESEJA DELETAR OUTRO PRODUTO?";
     final static String ESTOQUE_ATUAL = "ESTOQUE ATUAL";
 
-
-
-
     //GERENTE
     final static String MENU_GERENTE = "MENU GERENTE";
     final static String MSG_CADASTRO_GERENTE = "CADASTRO DE GERENTES"; 

@@ -52,13 +52,13 @@ public static void mostrar(){
             Prompt.imprimir(Mensagem.ESTOQUE_VAZIO);
         } else {
             ControleEstoque.ListarEstoque();
-            Prompt.separador();
-            Prompt.imprimir(Mensagem.RELATORIO_ESTOQUE);
-            String control = Prompt.lerLinha(Mensagem.SIM_NAO);
+            // Prompt.separador();
+            // Prompt.imprimir(Mensagem.RELATORIO_ESTOQUE);
+            // String control = Prompt.lerLinha(Mensagem.SIM_NAO);
 
-            if(control.equals("s")){
-                ControleEstoque.planilhaEstoque();
-            }
+            // if(control.equals("s")){
+            //     ControleEstoque.planilhaEstoque();
+            // }
         }
 
         Prompt.linhaEmBranco();

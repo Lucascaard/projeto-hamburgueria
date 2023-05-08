@@ -126,9 +126,9 @@ public class TelaGerente {
 		Prompt.imprimir(Mensagem.UPDATE_GERENTE);
 		Prompt.separador();
 		Prompt.linhaEmBranco();
-		String nomeOriginal = Prompt.lerLinha(Mensagem.NOME_ORIGINAL_GERENTE);
-		if(!nomeOriginal.isEmpty()) {
-			Gerente gerenteAlterado = ControleGerente.buscar(nomeOriginal);
+		Integer CPForiginal = Prompt.lerInteiro(Mensagem.INFORME_CPF);
+		if(!CPForiginal.equals(null)) {
+			Gerente gerenteAlterado = ControleGerente.buscarCPF(CPForiginal);
 			
 			if(gerenteAlterado != null) {
 				Prompt.separador();
@@ -152,7 +152,7 @@ public class TelaGerente {
                     gerenteAlterado.setDataAdmissao(dataAdmissao);
                     gerenteAlterado.setSalario(salario);
 					
-					ControleGerente.atualizar(nomeOriginal, gerenteAlterado);
+					ControleGerente.atualizar(CPForiginal, gerenteAlterado);
 					Prompt.linhaEmBranco();
 					Prompt.imprimir(Mensagem.ALTERADO_COM_SUCESSO_GERENTE);
 					TelaGerente.read();
