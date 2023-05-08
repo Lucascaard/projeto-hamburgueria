@@ -34,6 +34,9 @@ public class TelaProduto {
 		case 4:
 			TelaProduto.delete();
 			break;
+		case 5:
+			TelaPrincipal.mostrar();
+			break;
 		default:
 			Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
 			TelaPrincipal.mostrar();

@@ -74,16 +74,16 @@ public class TelaFuncionario {
 					 						+ "Telefone: " + funcionario.getTelefone() + "\n"
 											+ "Sexo: " + funcionario.getSexo() + "\n"
 					 						+ "Email: " + funcionario.getEmail() + "\n"
-					 						+ "DataAdmissao: " + funcionario.getDataAdmissao() + "\n"
-											+ "HoraEntrada: " + funcionario.getHorarioEntrada() + "\n"
-											+ "HoraEntrada: " + funcionario.getHorarioSaida() + "\n";
+					 						+ "Data de Admissao: " + funcionario.getDataAdmissao() + "\n"
+											+ "Hora de Entrada: " + funcionario.getHorarioEntrada() + "\n"
+											+ "Hora de Saída: " + funcionario.getHorarioSaida() + "\n";
 					Prompt.imprimir(infoFuncionario);						
 				}
 			}
 			TelaFuncionario.refazer();
 			return;
 		}
-//se nao entrar no if vai pedir os dados: 
+		//se nao entrar no if vai pedir os dados: 
         String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
         String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
         String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
@@ -106,7 +106,6 @@ public class TelaFuncionario {
 			//adicionar no ControleFuncionario e variaveis como parametro
 
             ControleFuncionario.adicionar(new Funcionario(nome, CPF, telefone, sexo, email, dataAdmissao, horarioEntrada, horarioSaida));
-
         }
         Prompt.pressionarEnter();
 		TelaFuncionario.refazer();
@@ -133,13 +132,12 @@ public class TelaFuncionario {
 			 							+ "Telefone: " + funcionario.getTelefone() + "\n"
 			                            + "Sexo: " + funcionario.getSexo() + "\n"
 			 							+ "Email: " + funcionario.getEmail() + "\n"
-			 							+ "DataAdmissao: " + funcionario.getDataAdmissao() + "\n"
-			                            + "HoraEntrada: " + funcionario.getHorarioEntrada() + "\n"
-			                            + "HoraEntrada: " + funcionario.getHorarioSaida() + "\n";
+			 							+ "Data de Admissao: " + funcionario.getDataAdmissao() + "\n"
+			                            + "Hora de Entrada: " + funcionario.getHorarioEntrada() + "\n"
+			                            + "Hora de Saída: " + funcionario.getHorarioSaida() + "\n";
 			Prompt.imprimir(infoFuncionario);
 			}
 		}
-		
 		Prompt.linhaEmBranco();
 		Prompt.pressionarEnter();
 		TelaFuncionario.mostrar();
@@ -200,7 +198,6 @@ public class TelaFuncionario {
 		}
 	}
 
-
 	public static void delete(){
 
 		Prompt.linhaEmBranco();
@@ -232,8 +229,6 @@ public class TelaFuncionario {
 
 	}
 
-
-
     public static void refazer(){
 
 		// Menu pra escolher o que deseja fazer a seguir com recursão em caso de opção invalida
@@ -261,30 +256,3 @@ public class TelaFuncionario {
 		}
     }
 }
-    // public static void listar(){
-
-	// 	Prompt.separador();
-	// 	Prompt.imprimir(Mensagem.LISTA_DE_FUNCIONARIOS);
-	// 	Prompt.separador();
-	// 	Prompt.linhaEmBranco();
-	
-	// 	if (Banco.funcionarios.isEmpty()) {
-	// 		Prompt.imprimir(Mensagem.NAO_HA_FUNCIONARIOS); 
-	// 	} else {
-	// 		for (Funcionario funcionario : Banco.funcionarios) {
-	// 			String infoFuncionario = "Nome: " + funcionario.getNome() + "\n"
-	// 								+ "CPF: " + funcionario.getCPF() + "\n"
-	// 								+ "Telefone: " + funcionario.getTelefone() + "\n"
-    //                                 + "Sexo: " + funcionario.getSexo() + "\n"
-	// 								+ "Email: " + funcionario.getEmail() + "\n"
-	// 								+ "DataAdmissao: " + funcionario.getDataAdmissao() + "\n"
-    //                                 + "HoraEntrada: " + funcionario.getHorarioEntrada() + "\n"
-    //                                 + "HoraEntrada: " + funcionario.getHorarioSaida() + "\n";
-	// 			// mostrar as informações do funcionario
-	// 			Prompt.imprimir(infoFuncionario);
-	// 		}
-	// 	}
-	// 	Prompt.linhaEmBranco();
-	// 	Prompt.pressionarEnter();
-	// 	TelaFuncionario.mostrar();
-	// }

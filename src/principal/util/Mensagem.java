@@ -2,7 +2,6 @@ package principal.util;
 
 public interface Mensagem {
 
-
     //CRUD
     final static String CREATE = "CADASTRAR ";
     final static String READ = "LISTAR";
@@ -52,7 +51,6 @@ public interface Mensagem {
     final static String EXCLUIDO_COM_SUCESSO = "CLIENTE EXCLUIDO COM SUCESSO";
     final static String CLIENTE_CAD_SUCESSO = "CLIENTE CADASTRADO COM SUCESSO!";
     final static String JA_EXISTE = "JÁ EXISTE UM CLIENTE CADASTRADO COM ESSE CPF";
-
 
     //FUNCIONARIO 
     final static String MENU_FUNCIONARIO = "MENU FUNCIONÁRIO";

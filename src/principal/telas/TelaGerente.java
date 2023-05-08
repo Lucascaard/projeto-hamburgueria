@@ -49,7 +49,6 @@ public class TelaGerente {
 
 	public static void create(){
         
-
 		Prompt.separador();
         Prompt.imprimir(Mensagem.MSG_CADASTRO_GERENTE);
 		Prompt.separador();
@@ -81,7 +80,6 @@ public class TelaGerente {
         String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
         LocalDate dataAdmissao = Prompt.lerData(Mensagem.INFORME_DATA_ADMISSAO);
         double salario = Prompt.lerDecimal(Mensagem.INFORME_SALARIO);
-
 
         if(!nome.isEmpty()) {
 			 ControleGerente.adicionar(new Gerente(nome, CPF, telefone, sexo, email, dataAdmissao, salario));

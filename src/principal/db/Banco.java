@@ -31,8 +31,7 @@ public class Banco {
     Gerente gerente = new Gerente("Geucemar", 15151, "98989", "Masculino", "email@exemplo.com",LocalDate.of(2020, 1, 1), 5000.0);
     gerentes.add(gerente);
 
-    Funcionario funcionario = new Funcionario("Tair", 4565, "545545", "M", "@gmail.com", LocalDate.of(2023, 2, 6), LocalTime.of(10, 15, 20), LocalTime.of(5, 10, 30));
+    Funcionario funcionario = new Funcionario("Tair", 4565, "545545", "Masculino", "@gmail.com", LocalDate.of(2023, 2, 6), LocalTime.of(10, 15, 20), LocalTime.of(5, 10, 30));
     funcionarios.add(funcionario);
-    
     }
 }
