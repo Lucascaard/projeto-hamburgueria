@@ -18,7 +18,7 @@ public class TelaLogin {
             TelaPrincipal.mostrar();
         } else {
             Prompt.linhaEmBranco();
-            Prompt.imprimir(Mensagem.MSG_LOGIN_OR_SENHA_INVALIDA);
+            Prompt.imprimir(Mensagem.MSG_LOGIN_OR_SENHA_INVALID);
             TelaLogin.mostrar();
         }    
     }

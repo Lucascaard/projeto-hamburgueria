@@ -39,10 +39,6 @@ public class ControleCliente {
 	a primeira função pode ser usada, mas se o nome original do cliente for usado como referência, 
 	a segunda função pode ser usada. Isso permite maior flexibilidade no uso da função, 
 	dependendo das informações disponíveis no momento em que é chamada. */
-	
-    public static void atualizar(int indexAlterar, Cliente clienteAlterado) {
-		Banco.clientes.set(indexAlterar, clienteAlterado);
-	}
 
 	public static void atualizar(Integer cpfOriginal, Cliente clienteAlterado) {
 		for (int i = 0; i < Banco.clientes.size(); i++) {

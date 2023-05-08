@@ -30,9 +30,6 @@ public class ControleFuncionario {
     //duas funções com o mesmo nome porém com parametros diferentes ou seja, se os parametros passados
     //corresponderem aos parametros da primeira função se o índice do funcionario que deve ser atualizado é 
     //conhecido, a primeira função pode ser usada, mas se o nome original do funcionario for usado como referência, a segunda função pode ser usada.
-    public static void atualizar(int indexAlterar, Funcionario funcionarioAlterado) {
-		Banco.funcionarios.set(indexAlterar, funcionarioAlterado);
-	}
 
 	public static void atualizar(Integer cpfOrigem, Funcionario funcionarioAlterado) {
 		for (int i = 0; i < Banco.funcionarios.size(); i++) {

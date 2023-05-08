@@ -52,6 +52,12 @@ public class TelaCliente {
         String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
         String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
         String endereco = Prompt.lerLinha(Mensagem.INFORME_ENDERECO);
+		//MENSAGEM DE SUCESSO
+		Prompt.linhaEmBranco();
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.CLIENTE_CAD_SUCESSO);
+		Prompt.separador();
+		Prompt.linhaEmBranco();
 
 		// Verificando se nome esta vazio
 

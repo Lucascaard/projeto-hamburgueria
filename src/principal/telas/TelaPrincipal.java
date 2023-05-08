@@ -34,7 +34,7 @@ public static void mostrar(){
                 TelaProduto.mostrar();
                 break;
             case 4:
-                TelaGerente.mostrar(); // alterado para teste
+                TelaGerente.mostrar(); 
                 break;
             case 5:
                 TelaEstoque.mostrar();
