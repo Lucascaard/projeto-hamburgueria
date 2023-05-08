@@ -68,7 +68,7 @@ public class TelaFuncionario {
 			for(Funcionario funcionario : Banco.funcionarios){
 				//se esse cpf existir 
 				if(funcionario.getCPF().equals(CPF)){
-					//mostra as informaçoes do funcionario com este cpf cadastrado
+					//mostra as informações do funcionario com este cpf cadastrado
 					String infoFuncionario = "Nome: " + funcionario.getNome() + "\n"
 											+ "CPF: " + funcionario.getCPF() + "\n"
 					 						+ "Telefone: " + funcionario.getTelefone() + "\n"
@@ -91,6 +91,13 @@ public class TelaFuncionario {
         LocalDate dataAdmissao = Prompt.lerData(Mensagem.INFORME_DATA); //usar com - ( 2001-02-03 )
         LocalTime horarioEntrada = Prompt.lerHora(Mensagem.INFORME_HORA_ENTRADA); //usar com : ( hora:min:seg )
         LocalTime horarioSaida = Prompt.lerHora(Mensagem.INFORME_HORA_SAIDA);
+
+		//MENSAGEM DE SUCESSO
+		Prompt.linhaEmBranco();
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.FUNC_CAD_SUCESSO);
+		Prompt.separador();
+		Prompt.linhaEmBranco();
 		
         //verificar se o nome ta vazio e continuar
 
@@ -246,6 +253,7 @@ public class TelaFuncionario {
 				break;
 			case 3:
 				Prompt.imprimir(Mensagem.FINALIZADO);
+				break;
 			default:
 				Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
 				TelaFuncionario.refazer();
