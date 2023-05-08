@@ -23,7 +23,7 @@ public interface Mensagem {
     final static String TELA_LOGIN = "                   TELA DE LOGIN";
     final static String MSG_INFORME_LOGIN = "INFORME O LOGIN: ";
     final static String MSG_INFORME_SENHA = "INFORME A SENHA: ";
-    final static String MSG_LOGIN_OR_SENHA_INVALIDA = "LOGIN OU SENHA INVALIDO, TENTE NOVAMENTE!";
+    final static String MSG_LOGIN_OR_SENHA_INVALID = "LOGIN OU SENHA INVALIDO, TENTE NOVAMENTE!";
 
     //CADASTROS
     final static String TELA_DE_CADASTROS = "TELA DE CADASTROS";
@@ -56,7 +56,7 @@ public interface Mensagem {
     //FUNCIONARIO 
     final static String MENU_FUNCIONARIO = "MENU FUNCIONÁRIO";
     final static String MSG_CADASTRO_FUNCIONARIO = "CADASTRO DE FUNCIONÁRIOS";
-    final static String INFORME_DATA = "INFORME A DATA DE ADMISSÃO DESTE FUNCIONÁRIO Ex(0000-00-00)";
+    final static String INFORME_DATA = "INFORME A DATA DE ADMISSÃO DESTE FUNCIONÁRIO Ex(AAAA-MM-DD)";
     final static String INFORME_HORA_ENTRADA = "INFORME A HORA DA ENTRADA DESTE FUNCIONÁRIO Ex(HH:mm:ss)";
     final static String INFORME_HORA_SAIDA = "INFORME A HORA DA SAÍDA DESTE FUNCIONÁRIO Ex(HH:mm:ss)";
     final static String NOVO_FUNCIONARIO = "DESEJA CADASTRAR UM NOVO FUNCIONÁRIO? ";
@@ -75,6 +75,7 @@ public interface Mensagem {
     final static String FUNCIONARIO_CPF_DELETE = "INFORME O CPF DO FUNCIONÁRIO QUE DESEJA DELETAR";
     final static String FUNCIONARIO_EXCLUIDO = "FUNCIONÁRIO EXCLUÍDO COM SUCESSO";
     final static String DELETAR_FUNCIONARIO = "DELETAR FUNCIONÁRIO";
+    final static String FUNC_CAD_SUCESSO = "FUNCIONARIO CADASTRADO COM SUCESSO";
 
     //PRODUTO
     final static String MSG_CADASTRO_PRODUTO = "CADASTRO DE PRODUTOS";
@@ -121,15 +122,15 @@ public interface Mensagem {
     final static String ALTERAR_OUTRO = "DESEJA ATUALIZAR OUTRO PRODUTO?";
     final static String DELETAR_OUTRO = "DESEJA DELETAR OUTRO PRODUTO?";
     final static String ESTOQUE_ATUAL = "ESTOQUE ATUAL";
-    final static String RELATORIO_ESTOQUE = "DESEJA VER O RELATÓRIO DO ESTOQUE EM PLANILHA?";
-    final static String PLANILHA_FEITA = "PLANILHA FEITA COM SUCESSO"; 
-    final static String SIM_NAO = "SIM (S) / NÃO (N)";
+
+
+
 
     //GERENTE
     final static String MENU_GERENTE = "MENU GERENTE";
     final static String MSG_CADASTRO_GERENTE = "CADASTRO DE GERENTES"; 
     final static String LISTA_DE_GERENTES = "LISTA DE GERENTES";
-    final static String NAO_HA_GERENTES = "NÃO EXISTEM GERENTES CADASTRADOS";
+    final static String NAO_HA_GERENTES = "NAÕ EXISTEM GERENTES CADASTRADOS";
     final static String UPDATE_GERENTE = "ALTERAR GERENTE";
     final static String NOME_ORIGINAL_GERENTE = "INFORME O NOME DO GERENTE QUE DESEJA ALTERAR: ";
     final static String CPF_DELETE_GERENTE = "INFORME O CPF DO GERENTE QUE DESEJA DELETAR: ";
@@ -139,9 +140,8 @@ public interface Mensagem {
     final static String DELETAR_GERENTE = "DELETAR GERENTE";
     final static String EXCLUIDO_COM_SUCESSO_GERENTE = "GERENTE EXCLUIDO COM SUCESSO";
     final static String JA_EXISTE_GERENTE = "JÁ EXISTE UM GERENTE CADASTRADO COM ESSE CPF";
-    final static String INFORME_DATAADMISSAO = "INFORME A DATA DE ADMINSSÃO DO GERENTE";
-    final static String INFORME_SALARIO = "INFORME O SALÁRIO DO GERENTE";
-
+    final static String INFORME_DATA_ADMISSAO = "INFORME A DATA DE ADMISSÃO DO GERENTE Ex: AAAA-MM-DD";
+    final static String INFORME_SALARIO = "INFORME O SALÁRIO DO GERENTE Ex: 2000.0"; 
     
     
 

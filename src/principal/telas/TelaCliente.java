@@ -14,40 +14,7 @@ import principal.util.Prompt;
 public class TelaCliente {
 	
 	public static void mostrar(){
-
-		Prompt.linhaEmBranco();
-		Prompt.separador();
-		Prompt.imprimir(Mensagem.MENU_CLIENTE);
-		Prompt.separador();
-		Prompt.linhaEmBranco();
-		Prompt.imprimir("[1] - " + Mensagem.CREATE);
-		Prompt.imprimir("[2] - " + Mensagem.READ);
-		Prompt.imprimir("[3] - " + Mensagem.UPDATE);
-		Prompt.imprimir("[4] - " + Mensagem.DELETE);
-		Prompt.imprimir("[5] - " + Mensagem.VOLTAR);
-		Integer opcao = Prompt.lerInteiro();
-
-			switch(opcao){
-				case 1:
-					TelaCliente.create();
-					break;
-				case 2:
-					TelaCliente.read();
-					break;
-				case 3:
-					TelaCliente.update();
-					break;
-				case 4:
-					TelaCliente.delete();
-					break;
-				case 5:
-					TelaPrincipal.mostrar();
-					break;
-				default:
-					Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
-					TelaCliente.mostrar();
-					break;
-			}
+		ControleCliente.menuDoCliente();
 	}
 
 	public static void create(){
@@ -169,15 +136,18 @@ public class TelaCliente {
 					ControleCliente.atualizar(cpfOriginal, clienteAlterado);
 					Prompt.linhaEmBranco();
 					Prompt.imprimir(Mensagem.ALTERADO_COM_SUCESSO);
+					TelaCliente.read();
+					return;
 				} 
 			} else {
 				Prompt.linhaEmBranco();
 				Prompt.imprimir(Mensagem.CLIENTE_NAO_ENCONTRADO);
 				TelaCliente.read();
+				return;
 			}
-		Prompt.linhaEmBranco();
-		Prompt.pressionarEnter();
-		TelaCliente.mostrar();
+		// Prompt.linhaEmBranco();
+		// Prompt.pressionarEnter();
+		// TelaCliente.mostrar();
 			
 	}
 }
@@ -197,16 +167,14 @@ public class TelaCliente {
 			if(clienteDeletado) {
 				Prompt.imprimir(Mensagem.EXCLUIDO_COM_SUCESSO);
 				TelaCliente.read();
+				return;
 			} else {
 				Prompt.imprimir(Mensagem.CLIENTE_NAO_ENCONTRADO);
 				TelaCliente.read();
+				return;
 			}
-		Prompt.linhaEmBranco();
-		Prompt.pressionarEnter();
-
+			
 		}
-	TelaCliente.mostrar();
-
 	}
 
 	public static void repeat(){
