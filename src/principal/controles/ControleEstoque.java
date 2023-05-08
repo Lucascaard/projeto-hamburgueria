@@ -60,7 +60,6 @@ public class ControleEstoque {
 
             Prompt.imprimir(info);
         }
-
     }
 
     public static void Cadastrar(boolean control, Integer idProduto){
@@ -85,7 +84,6 @@ public class ControleEstoque {
                     Prompt.linhaEmBranco();
                     Prompt.imprimir(Mensagem.PRODUTO_CADASTRADO_ESTOQUE);
                 } 
-                    
             }
         } else {
 
@@ -180,32 +178,6 @@ public class ControleEstoque {
         }
     }
 
-    // public static void planilhaEstoque(){
-
-    //     File file = new File("projeto-hamburgueria\\src\\principal\\planilhaEstoque.csv");
-
-    //     try (Formatter formatter = new Formatter(file)){
-
-    //         formatter.format("ID;NOME;MARCA;QUANTIDADE;\n");
-
-    //         for (ItemEstoque item : Banco.itensEstoque) {
-    //             formatter.format(item.getId() + ";"
-    //                             + item.getProduto().getNome() + ";"
-    //                             + item.getProduto().getMarca() + ";"
-    //                             + item.getQtde() + ";\n");
-    //         }
-
-    //         Prompt.separador();
-    //         Prompt.imprimir(Mensagem.PLANILHA_FEITA);
-    //         Prompt.separador();
-    //         formatter.close();
-
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     }
-
-    // };
-    
     public static void MenuEstoque(){
         
         Prompt.linhaEmBranco();

@@ -13,11 +13,10 @@ import principal.db.Banco;
 
 public class TelaEstoque {
 
-public static void mostrar(){
+    public static void mostrar(){
 
-    ControleEstoque.MenuEstoque();
-
-}
+        ControleEstoque.MenuEstoque();
+    }
 
     public static void create(){
 
@@ -38,7 +37,6 @@ public static void mostrar(){
         Prompt.linhaEmBranco();
         Prompt.pressionarEnter();
 		ControleEstoque.repeat("create");
-
     }
 
     public static void read(){
@@ -52,13 +50,6 @@ public static void mostrar(){
             Prompt.imprimir(Mensagem.ESTOQUE_VAZIO);
         } else {
             ControleEstoque.ListarEstoque();
-            // Prompt.separador();
-            // Prompt.imprimir(Mensagem.RELATORIO_ESTOQUE);
-            // String control = Prompt.lerLinha(Mensagem.SIM_NAO);
-
-            // if(control.equals("s")){
-            //     ControleEstoque.planilhaEstoque();
-            // }
         }
 
         Prompt.linhaEmBranco();
@@ -89,8 +80,6 @@ public static void mostrar(){
             Prompt.pressionarEnter();
             ControleEstoque.repeat("update");
         }
-
-
     }
 
     public static void delete(){
@@ -118,7 +107,6 @@ public static void mostrar(){
             ControleEstoque.repeat("delete");
         }
     }
-
 }
 
 
