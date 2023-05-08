@@ -176,17 +176,20 @@ public class TelaFuncionario {
 					ControleFuncionario.atualizar(cpfOrigem, funcionarioAlterado);
 					Prompt.linhaEmBranco();
 					Prompt.imprimir(Mensagem.ALTERADO_FUNCIONARIO_SUCESSO);
+					TelaFuncionario.read();
+					return;
 				}
 
 			} else {
 				Prompt.linhaEmBranco();
 				Prompt.imprimir(Mensagem.FUNCIONARIO_NAO_ENCONTRADO);
 				TelaFuncionario.read();
+				return;
 			}
 
-			Prompt.linhaEmBranco();
-			Prompt.pressionarEnter();
-			TelaFuncionario.mostrar();
+			// Prompt.linhaEmBranco();
+			// Prompt.pressionarEnter();
+			// TelaFuncionario.mostrar();
 		}
 	}
 
@@ -207,16 +210,18 @@ public class TelaFuncionario {
 			if(funcionarioDeletado) {
 				Prompt.imprimir(Mensagem.FUNCIONARIO_EXCLUIDO);
 				TelaFuncionario.read();
+				return;
 			} else {
 			//se o funcionário não existir vai ser retornada uma mensagem de que nao foi encontrado
 				Prompt.imprimir(Mensagem.FUNCIONARIO_NAO_ENCONTRADO);
 				TelaFuncionario.read();
+				return;
 			}
-		Prompt.linhaEmBranco();
-		Prompt.pressionarEnter();
+		// Prompt.linhaEmBranco();
+		// Prompt.pressionarEnter();
 
 		}
-	TelaFuncionario.mostrar();
+	// TelaFuncionario.mostrar();
 
 	}
 
