@@ -14,40 +14,7 @@ import principal.util.Prompt;
 public class TelaCliente {
 	
 	public static void mostrar(){
-
-		Prompt.linhaEmBranco();
-		Prompt.separador();
-		Prompt.imprimir(Mensagem.MENU_CLIENTE);
-		Prompt.separador();
-		Prompt.linhaEmBranco();
-		Prompt.imprimir("[1] - " + Mensagem.CREATE);
-		Prompt.imprimir("[2] - " + Mensagem.READ);
-		Prompt.imprimir("[3] - " + Mensagem.UPDATE);
-		Prompt.imprimir("[4] - " + Mensagem.DELETE);
-		Prompt.imprimir("[5] - " + Mensagem.VOLTAR);
-		Integer opcao = Prompt.lerInteiro();
-
-			switch(opcao){
-				case 1:
-					TelaCliente.create();
-					break;
-				case 2:
-					TelaCliente.read();
-					break;
-				case 3:
-					TelaCliente.update();
-					break;
-				case 4:
-					TelaCliente.delete();
-					break;
-				case 5:
-					TelaPrincipal.mostrar();
-					break;
-				default:
-					Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
-					TelaCliente.mostrar();
-					break;
-			}
+		ControleCliente.menuDoCliente();
 	}
 
 	public static void create(){
@@ -77,7 +44,7 @@ public class TelaCliente {
 					Prompt.imprimir(infoCliente);
 					}
 				}
-				TelaCliente.refazer();
+				TelaCliente.repeat();
 				return;
 			}
 		String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
@@ -96,7 +63,7 @@ public class TelaCliente {
         	ControleCliente.adicionar(new Cliente(nome, CPF, telefone, sexo, email, endereco));
         }
 		Prompt.pressionarEnter();
-		TelaCliente.refazer();
+		TelaCliente.repeat();
 		
 	}
 
@@ -140,9 +107,11 @@ public class TelaCliente {
 		Prompt.imprimir(Mensagem.UPDATE_CLIENTE);
 		Prompt.separador();
 		Prompt.linhaEmBranco();
-		String nomeOriginal = Prompt.lerLinha(Mensagem.NOME_ORIGINAL);
-		if(!nomeOriginal.isEmpty()) {
-			Cliente clienteAlterado = ControleCliente.buscar(nomeOriginal);
+		Integer cpfOriginal = Prompt.lerInteiro(Mensagem.CPF_ORIGINAL);
+
+
+		if(!cpfOriginal.equals(null)) {
+			Cliente clienteAlterado = ControleCliente.buscar(cpfOriginal);
 			
 			if(clienteAlterado != null) {
 				Prompt.separador();
@@ -164,7 +133,7 @@ public class TelaCliente {
 					clienteAlterado.setSexo(sexo);
 					clienteAlterado.setEndereco(endereco);
 					
-					ControleCliente.atualizar(nomeOriginal, clienteAlterado);
+					ControleCliente.atualizar(cpfOriginal, clienteAlterado);
 					Prompt.linhaEmBranco();
 					Prompt.imprimir(Mensagem.ALTERADO_COM_SUCESSO);
 				} 
@@ -195,19 +164,16 @@ public class TelaCliente {
 			if(clienteDeletado) {
 				Prompt.imprimir(Mensagem.EXCLUIDO_COM_SUCESSO);
 				TelaCliente.read();
+				return;
 			} else {
 				Prompt.imprimir(Mensagem.CLIENTE_NAO_ENCONTRADO);
 				TelaCliente.read();
+				return;
 			}
-		Prompt.linhaEmBranco();
-		Prompt.pressionarEnter();
-
 		}
-	TelaCliente.mostrar();
-
 	}
 
-	public static void refazer(){
+	public static void repeat(){
 
 	// Menu pra escolher o que deseja fazer a seguir com recursão em caso de opção invalida
 	Prompt.separador();
@@ -229,7 +195,7 @@ public class TelaCliente {
 			break;
 		default:
 			Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
-			TelaCliente.refazer();
+			TelaCliente.repeat();
 			break;
 	}
 }
