@@ -67,8 +67,8 @@ public class TelaGerente {
 										+ "Telefone: " + gerente.getTelefone() + "\n"
 										+ "Email: " + gerente.getEmail() + "\n"
 										+ "Sexo: " + gerente.getSexo() + "\n"
-                                        + "dataAdmissao: " + gerente.getDataAdmissao() + "\n"
-                                        + "salario: " + gerente.getSalario() + "\n";
+                                        + "Data de Admissao: " + gerente.getDataAdmissao() + "\n"
+                                        + "Salário: " + gerente.getSalario() + "\n";
 					Prompt.imprimir(infoGerente);
 					}
 				}
@@ -79,7 +79,7 @@ public class TelaGerente {
         String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
         String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
         String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
-        LocalDate dataAdmissao = Prompt.lerData(Mensagem.INFORME_DATAADMISSAO);
+        LocalDate dataAdmissao = Prompt.lerData(Mensagem.INFORME_DATA_ADMISSAO);
         double salario = Prompt.lerDecimal(Mensagem.INFORME_SALARIO);
 
 
@@ -110,8 +110,8 @@ public class TelaGerente {
 									+ "Telefone: " + gerente.getTelefone() + "\n"
 									+ "Email: " + gerente.getEmail() + "\n"
 									+ "Sexo: " + gerente.getSexo() + "\n"
-                                    + "dataAdmissao: " + gerente.getDataAdmissao() + "\n"
-                                    + "salario: " + gerente.getSalario() + "\n";
+                                    + "Data de Admissao: " + gerente.getDataAdmissao() + "\n"
+                                    + "Salário: " + gerente.getSalario() + "\n";
 				Prompt.imprimir(infoGerente);
 			}
 		}
@@ -140,7 +140,7 @@ public class TelaGerente {
 				String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
 				String email = Prompt.lerLinha(Mensagem.INFORME_EMAIL);
 				String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
-                LocalDate dataAdmissao = Prompt.lerData(Mensagem.INFORME_DATAADMISSAO);
+                LocalDate dataAdmissao = Prompt.lerData(Mensagem.INFORME_DATA_ADMISSAO);
                 double salario = Prompt.lerDecimal(Mensagem.INFORME_SALARIO);
 				
 				if(!nome.isEmpty() && !CPF.equals(null)) {
@@ -155,16 +155,15 @@ public class TelaGerente {
 					ControleGerente.atualizar(nomeOriginal, gerenteAlterado);
 					Prompt.linhaEmBranco();
 					Prompt.imprimir(Mensagem.ALTERADO_COM_SUCESSO_GERENTE);
+					TelaGerente.read();
+					return;
 				} 
 			} else {
 				Prompt.linhaEmBranco();
 				Prompt.imprimir(Mensagem.GERENTE_NAO_ENCONTRADO);
 				TelaGerente.read();
-			}
-		Prompt.linhaEmBranco();
-		Prompt.pressionarEnter();
-		TelaGerente.mostrar();
-			
+				return;
+			}		
 	}
 }
 
@@ -183,16 +182,13 @@ public class TelaGerente {
 			if(gerenteDeletado) {
 				Prompt.imprimir(Mensagem.EXCLUIDO_COM_SUCESSO_GERENTE);
 				TelaGerente.read();
+				return;
 			} else {
 				Prompt.imprimir(Mensagem.GERENTE_NAO_ENCONTRADO);
 				TelaGerente.read();
+				return;
 			}
-		Prompt.linhaEmBranco();
-		Prompt.pressionarEnter();
-
 		}
-	TelaGerente.mostrar();
-
 	}
 
 	public static void refazer(){

@@ -136,15 +136,18 @@ public class TelaCliente {
 					ControleCliente.atualizar(cpfOriginal, clienteAlterado);
 					Prompt.linhaEmBranco();
 					Prompt.imprimir(Mensagem.ALTERADO_COM_SUCESSO);
+					TelaCliente.read();
+					return;
 				} 
 			} else {
 				Prompt.linhaEmBranco();
 				Prompt.imprimir(Mensagem.CLIENTE_NAO_ENCONTRADO);
 				TelaCliente.read();
+				return;
 			}
-		Prompt.linhaEmBranco();
-		Prompt.pressionarEnter();
-		TelaCliente.mostrar();
+		// Prompt.linhaEmBranco();
+		// Prompt.pressionarEnter();
+		// TelaCliente.mostrar();
 			
 	}
 }
@@ -170,6 +173,7 @@ public class TelaCliente {
 				TelaCliente.read();
 				return;
 			}
+			
 		}
 	}
 
