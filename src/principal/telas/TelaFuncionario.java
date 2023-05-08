@@ -66,6 +66,7 @@ public class TelaFuncionario {
 			Prompt.separador();
 			Prompt.linhaEmBranco();
 			for(Funcionario funcionario : Banco.funcionarios){
+				//se esse cpf existir 
 				if(funcionario.getCPF().equals(CPF)){
 					//mostra as informaçoes do funcionario com este cpf cadastrado
 					String infoFuncionario = "Nome: " + funcionario.getNome() + "\n"
@@ -82,7 +83,7 @@ public class TelaFuncionario {
 			TelaFuncionario.refazer();
 			return;
 		}
-
+//se nao entrar no if vai pedir os dados: 
         String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
         String telefone = Prompt.lerLinha(Mensagem.INFORME_TELEFONE);
         String sexo = Prompt.lerLinha(Mensagem.INFORME_SEXO);
@@ -143,13 +144,15 @@ public class TelaFuncionario {
 		Prompt.imprimir(Mensagem.UPDATE_FUNCIONARIO);
 		Prompt.separador();
 
-		String nomeOriginal = Prompt.lerLinha(Mensagem.NOME_ORIGINAL_FUNCIONARIO);
+		Integer cpfOrigem = Prompt.lerInteiro(Mensagem.CPF_ORIGINAL_FUNCIONARIO);
 
-		if(!nomeOriginal.isEmpty()){
-			Funcionario funcionarioAlterado = ControleFuncionario.buscar(nomeOriginal);
+		if(!cpfOrigem.equals(null)){
+			Funcionario funcionarioAlterado = ControleFuncionario.buscar(cpfOrigem);
 
 			if(funcionarioAlterado != null) {
+				Prompt.separador();
 				Prompt.imprimir(Mensagem.NOVOS_DADOS_FUNCIONARIO);
+				Prompt.separador();
 				Prompt.linhaEmBranco();
 				String nome = Prompt.lerLinha(Mensagem.INFORME_NOME);
         		Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
@@ -170,7 +173,7 @@ public class TelaFuncionario {
 					funcionarioAlterado.setHorarioEntrada(horarioEntrada);
 					funcionarioAlterado.setHorarioSaida(horarioSaida);
 					
-					ControleFuncionario.atualizar(nomeOriginal, funcionarioAlterado);
+					ControleFuncionario.atualizar(cpfOrigem, funcionarioAlterado);
 					Prompt.linhaEmBranco();
 					Prompt.imprimir(Mensagem.ALTERADO_FUNCIONARIO_SUCESSO);
 				}
@@ -197,7 +200,7 @@ public class TelaFuncionario {
 		Prompt.linhaEmBranco();
 
 		Integer CPF = Prompt.lerInteiro(Mensagem.FUNCIONARIO_CPF_DELETE);
-		
+		//se o cpf existir o funcionário vai ser excluido do banco de dados
 		if(!CPF.equals(null)) {
 			boolean funcionarioDeletado = ControleFuncionario.excluir(CPF);
 			Prompt.linhaEmBranco();
@@ -205,6 +208,7 @@ public class TelaFuncionario {
 				Prompt.imprimir(Mensagem.FUNCIONARIO_EXCLUIDO);
 				TelaFuncionario.read();
 			} else {
+			//se o funcionário não existir vai ser retornada uma mensagem de que nao foi encontrado
 				Prompt.imprimir(Mensagem.FUNCIONARIO_NAO_ENCONTRADO);
 				TelaFuncionario.read();
 			}
