@@ -95,6 +95,7 @@ public interface Mensagem {
     final static String INFORME_ID = "INFORME O ID DO PRODUTO: ";
     final static String ID_JA_EXISTE = "ID JÁ EXISTE";
     final static String MSG_EXCLUSAO_PRODUTO = "EXCLUSÃO DE PRODUTOS";
+    final static String DELETAR_OUTRO_PRODUTO = "DESEJA DELETAR OUTRO PRODUTO?";
     final static String PRODUTO_EXCLUIDO_SUCESSO = "PRODUTO EXCLUÍDO COM SUCESSO";
     final static String PRODUTO_NAO_ENCONTRADO = "PRODUTO NÃO ENCONTRADO";
     

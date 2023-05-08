@@ -157,18 +157,18 @@ public class TelaProduto {
 				int codBarra = Prompt.lerInteiro(Mensagem.INFORME_CODBARRA);
 				
 				boolean mesmoID = id != null && id.equals(produtoAlterado.getId());
-            boolean idJaExiste = !mesmoID && Banco.produtos.stream()
+            	boolean idJaExiste = !mesmoID && Banco.produtos.stream()
                     .map(Produto::getId)
                     .anyMatch(id::equals);
 
-            if (idJaExiste) {
-                if (mesmoID) {
-                    // permite a atualização do produto com o mesmo ID
-                } else {
-                    Prompt.imprimir(Mensagem.ID_JA_EXISTE);
-					Prompt.pressionarEnter();
-                    TelaProduto.mostrar();
-                }
+            	if (idJaExiste) {
+                	if (mesmoID) {
+                    	// permite a atualização do produto com o mesmo ID
+                	} else {
+                    	Prompt.imprimir(Mensagem.ID_JA_EXISTE);
+						Prompt.pressionarEnter();
+                    	TelaProduto.mostrar();
+                	}
             }
 
             	if(id != null && !nome.isEmpty()) {
@@ -181,7 +181,7 @@ public class TelaProduto {
                 ControleProduto.atualizar(nomeOriginal, produtoAlterado);
                 Prompt.linhaEmBranco();
                 Prompt.imprimir(Mensagem.PRODUTO_ALTERADO_COM_SUCESSO);
-            }
+            	}
 			} else {
 				Prompt.linhaEmBranco();
 				Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
@@ -204,7 +204,32 @@ public class TelaProduto {
 		Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
 		}
 		Prompt.pressionarEnter();
-		TelaProduto.repeat();
+		TelaProduto.repeatDelete();
+	}
+
+	public static void repeatDelete(){
+
+		Prompt.separador();
+		Prompt.imprimir(Mensagem.DELETAR_OUTRO_PRODUTO);
+		Prompt.separador();
+		Prompt.imprimir("[1] - " + Mensagem.SIM);
+		Prompt.imprimir("[2] - " + Mensagem.VOLTAR);
+		Prompt.imprimir("[3] - " + Mensagem.FINALIZAR_PROGRAMA);
+		Integer op = Prompt.lerInteiro();
+		switch (op) {
+			case 1:
+				TelaProduto.delete();
+				break;
+			case 2:
+				TelaProduto.mostrar();
+				break;
+			case 3:
+				Prompt.imprimir(Mensagem.FINALIZADO);
+			default:
+				Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
+				TelaProduto.repeat();
+				break;
 		}
+    }
 
 }
