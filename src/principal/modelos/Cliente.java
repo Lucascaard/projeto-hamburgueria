@@ -31,4 +31,10 @@ package principal.modelos;
 		public String getEndereco() {
 			return endereco;
 		}
+
+		@Override
+		public String toString() {
+			// TODO Auto-generated method stub
+			return super.toString();
+		}
 	}

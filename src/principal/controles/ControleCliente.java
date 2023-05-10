@@ -72,5 +72,38 @@ public class ControleCliente {
 		}
 		return false;
 	}
+//###################################################################################
+	public static String clienteEspecifico(Integer CPF){
+		for (Cliente cliente : Banco.clientes) {
+			if(cliente.getCPF().equals(CPF)){
+			// Monta uma string com as informações do cliente
+			String infoCliente = "Nome: " + cliente.getNome() + "\n"
+								+ "CPF: " + cliente.getCPF() + "\n"
+								+ "Telefone: " + cliente.getTelefone() + "\n"
+								+ "Email: " + cliente.getEmail() + "\n"
+								+ "Sexo: " + cliente.getSexo() + "\n"
+								+ "Endereço: " + cliente.getEndereco() + "\n";
+								// Imprime as informações do cliente
+			return infoCliente;
+			}
+	}
+	return null;
+}
+
+	public static String listaClientes(){
+		for (Cliente cliente : Banco.clientes) {
+			// Monta uma string com as informações do cliente
+			String infoCliente = "Nome: " + cliente.getNome() + "\n"
+								+ "CPF: " + cliente.getCPF() + "\n"
+								+ "Telefone: " + cliente.getTelefone() + "\n"
+								+ "Email: " + cliente.getEmail() + "\n"
+								+ "Sexo: " + cliente.getSexo() + "\n"
+								+ "Endereço: " + cliente.getEndereco() + "\n";
+								// Imprime as informações do cliente
+			return infoCliente;
+		}
+		return null;
+	}
+
 }
 
