@@ -1,9 +1,6 @@
 package principal.controles;
 import principal.db.Banco;
 import principal.modelos.Cliente;
-import principal.util.Mensagem;
-import principal.util.Prompt;
-import principal.telas.*;
 
 /*
  * @Author Lucas Cardoso
