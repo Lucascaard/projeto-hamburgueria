@@ -28,6 +28,6 @@ public class ItemEstoque {
     
     @Override
     public String toString() {
-        return "ID: " + id +  "Produto: " + produto + "\nQuantidade: " + qtde;
+        return "ID: " + id +  "\nProduto: " + produto.getNome() + "\nQuantidade: " + qtde + "\n";
     }
 }

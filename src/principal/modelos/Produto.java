@@ -62,5 +62,9 @@ public class Produto  {
         this.codBarra = codBarra;
     }
 
-    
+
+    @Override
+    public String toString() {
+        return "ID: " + id + "\nProduto: " + nome + "\nMarca: " + marca + "\n";
+    }
 }

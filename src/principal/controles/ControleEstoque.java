@@ -38,11 +38,12 @@ public class ControleEstoque {
         return false;
     }
 
-    public static void listarId(){
-        for (Produto produto : Banco.produtos) {
-            Prompt.imprimir("ID: " + produto.getId() + "\nProduto: " + produto.getNome() + "\nMarca: " + produto.getMarca() + "\n");
-        }
-    }
+    // public static String listarId(){
+    //     for (Produto produto : Banco.produtos) {
+    //         return produto.toString();
+    //     }
+    //     return null;
+    // }
 
     public static void alterarQuantidade(int id, int qtde){
         for (ItemEstoque item : Banco.itensEstoque) {
@@ -52,93 +53,93 @@ public class ControleEstoque {
         }
     }
 
-    public static void ListarEstoque(){
-        for (ItemEstoque produto : Banco.itensEstoque) {
-            String info = "\nID: " + produto.getId() +"\n"
-                        + "Produto: " + produto.getProduto().getNome() + "\n"
-                        + "Quantidade: " + produto.getQtde();
+    // public static void ListarEstoque(){
+    //     for (ItemEstoque produto : Banco.itensEstoque) {
+    //         String info = "\nID: " + produto.getId() +"\n"
+    //                     + "Produto: " + produto.getProduto().getNome() + "\n"
+    //                     + "Quantidade: " + produto.getQtde();
 
-            Prompt.imprimir(info);
-        }
+    //         Prompt.imprimir(info);
+    //     }
 
-    }
+    // }
 
-    public static void Cadastrar(boolean control, Integer idProduto){
-        if(!control){
+    // public static void Cadastrar(boolean control, Integer idProduto){
+    //     if(!control){
 
-            if(idProduto != null) {
+    //         if(idProduto != null) {
                 
-                Produto produto = ControleProduto.buscarPorId(idProduto);
+    //             Produto produto = ControleProduto.buscarPorId(idProduto);
                 
-                if(produto == null){
-                    Prompt.linhaEmBranco();
-                    Prompt.imprimir(Mensagem.ID_INVALIDA);
-                } else {
-                    Integer qtde = Prompt.lerInteiro(Mensagem.INFORME_QUANTIDADE);
-                    ItemEstoque item = new ItemEstoque();
-                    item.setId(idProduto);
-                    item.setProduto(produto);
-                    item.setQtde(qtde);
+    //             if(produto == null){
+    //                 Prompt.linhaEmBranco();
+    //                 Prompt.imprimir(Mensagem.ID_INVALIDA);
+    //             } else {
+    //                 Integer qtde = Prompt.lerInteiro(Mensagem.INFORME_QUANTIDADE);
+    //                 ItemEstoque item = new ItemEstoque();
+    //                 item.setId(idProduto);
+    //                 item.setProduto(produto);
+    //                 item.setQtde(qtde);
             
-                    ControleEstoque.adicionar(item);
+    //                 ControleEstoque.adicionar(item);
     
-                    Prompt.linhaEmBranco();
-                    Prompt.imprimir(Mensagem.PRODUTO_CADASTRADO_ESTOQUE);
-                } 
+    //                 Prompt.linhaEmBranco();
+    //                 Prompt.imprimir(Mensagem.PRODUTO_CADASTRADO_ESTOQUE);
+    //             } 
                     
-            }
-        } else {
+    //         }
+    //     } else {
 
-            Prompt.linhaEmBranco();
-            Prompt.imprimir(Mensagem.PRODUTO_EXISTENTE_ESTOQUE);
-        }
-    }
+    //         Prompt.linhaEmBranco();
+    //         Prompt.imprimir(Mensagem.PRODUTO_EXISTENTE_ESTOQUE);
+    //     }
+    // }
 
-    public static void Update(Integer idProduto){
-        if(idProduto != null){
+    // public static void Update(Integer idProduto){
+    //     if(idProduto != null){
 
-            boolean produtoExiste = ControleEstoque.produtoExiste(idProduto);
+    //         boolean produtoExiste = ControleEstoque.produtoExiste(idProduto);
 
-            if(produtoExiste){
+    //         if(produtoExiste){
 
-                Integer qtde = Prompt.lerInteiro(Mensagem.QTDE_ESTOQUE);
+    //             Integer qtde = Prompt.lerInteiro(Mensagem.QTDE_ESTOQUE);
 
-                ControleEstoque.alterarQuantidade(idProduto, qtde);
+    //             ControleEstoque.alterarQuantidade(idProduto, qtde);
 
-                Prompt.linhaEmBranco();
-				Prompt.imprimir(Mensagem.ESTOQUE_ALTERADO);
-                Prompt.separador();
-                Prompt.imprimir(Mensagem.ESTOQUE_ATUAL);
-                ControleEstoque.ListarEstoque();
-                Prompt.separador();
-            } else {
-                Prompt.linhaEmBranco();
-				Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
-            }
-        }
-    }
+    //             Prompt.linhaEmBranco();
+	// 			Prompt.imprimir(Mensagem.ESTOQUE_ALTERADO);
+    //             Prompt.separador();
+    //             Prompt.imprimir(Mensagem.ESTOQUE_ATUAL);
+    //             ControleEstoque.ListarEstoque();
+    //             Prompt.separador();
+    //         } else {
+    //             Prompt.linhaEmBranco();
+	// 			Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
+    //         }
+    //     }
+    // }
 
 
-    public static void Delete(Integer idProduto){
-        if(idProduto != null){
-            boolean estoqueExcluido = ControleEstoque.delete(idProduto);
-			Prompt.linhaEmBranco();
-			if(estoqueExcluido) {
-                Prompt.separador();
-				Prompt.imprimir(Mensagem.ESTOQUE_EXCLUIDO);
-                Prompt.separador();
-                if(Banco.itensEstoque.isEmpty()){
-                    Prompt.imprimir(Mensagem.ESTOQUE_VAZIO);
-                }else{
-                    Prompt.imprimir(Mensagem.ESTOQUE_ATUAL);
-                    ControleEstoque.ListarEstoque();
-                }
-                Prompt.separador();
-			} else {
-				Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
-			}
-        }
-    }
+    // public static void Delete(Integer idProduto){
+    //     if(idProduto != null){
+    //         boolean estoqueExcluido = ControleEstoque.delete(idProduto);
+	// 		Prompt.linhaEmBranco();
+	// 		if(estoqueExcluido) {
+    //             Prompt.separador();
+	// 			Prompt.imprimir(Mensagem.ESTOQUE_EXCLUIDO);
+    //             Prompt.separador();
+    //             if(Banco.itensEstoque.isEmpty()){
+    //                 Prompt.imprimir(Mensagem.ESTOQUE_VAZIO);
+    //             }else{
+    //                 Prompt.imprimir(Mensagem.ESTOQUE_ATUAL);
+    //                 ControleEstoque.ListarEstoque();
+    //             }
+    //             Prompt.separador();
+	// 		} else {
+	// 			Prompt.imprimir(Mensagem.PRODUTO_NAO_ENCONTRADO);
+	// 		}
+    //     }
+    // }
 
     public static void repeat(String control){
     
@@ -206,40 +207,40 @@ public class ControleEstoque {
 
     // };
     
-    public static void MenuEstoque(){
+    // public static void MenuEstoque(){
         
-        Prompt.linhaEmBranco();
-        Prompt.separador();
-        Prompt.imprimir(Mensagem.MENU_ESTOQUE);
-        Prompt.separador();
-        Prompt.linhaEmBranco();
-        Prompt.imprimir("[1] - " + Mensagem.CREATE);
-        Prompt.imprimir("[2] - " + Mensagem.READ);
-        Prompt.imprimir("[3] - " + Mensagem.UPDATE);
-        Prompt.imprimir("[4] - " + Mensagem.DELETE);
-        Prompt.imprimir("[5] - " + Mensagem.VOLTAR);
-        Integer opcao = Prompt.lerInteiro();
+    //     Prompt.linhaEmBranco();
+    //     Prompt.separador();
+    //     Prompt.imprimir(Mensagem.MENU_ESTOQUE);
+    //     Prompt.separador();
+    //     Prompt.linhaEmBranco();
+    //     Prompt.imprimir("[1] - " + Mensagem.CREATE);
+    //     Prompt.imprimir("[2] - " + Mensagem.READ);
+    //     Prompt.imprimir("[3] - " + Mensagem.UPDATE);
+    //     Prompt.imprimir("[4] - " + Mensagem.DELETE);
+    //     Prompt.imprimir("[5] - " + Mensagem.VOLTAR);
+    //     Integer opcao = Prompt.lerInteiro();
 
-            switch (opcao) {
-                case 1:
-                    TelaEstoque.create();
-                    break;
-                case 2:
-                    TelaEstoque.read();
-                    break;
-                case 3:
-                    TelaEstoque.update();
-                    break;
-                case 4:
-                    TelaEstoque.delete();
-                    break;
-                case 5:
-                    TelaPrincipal.mostrar();
-                    break;
-                default:
-                    Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
-                    TelaPrincipal.mostrar();
-                    break;
-            }
-    }
+    //         switch (opcao) {
+    //             case 1:
+    //                 TelaEstoque.create();
+    //                 break;
+    //             case 2:
+    //                 TelaEstoque.read();
+    //                 break;
+    //             case 3:
+    //                 TelaEstoque.update();
+    //                 break;
+    //             case 4:
+    //                 TelaEstoque.delete();
+    //                 break;
+    //             case 5:
+    //                 TelaPrincipal.mostrar();
+    //                 break;
+    //             default:
+    //                 Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
+    //                 TelaPrincipal.mostrar();
+    //                 break;
+    //         }
+    // }
 }

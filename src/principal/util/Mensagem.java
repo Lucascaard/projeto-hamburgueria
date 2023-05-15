@@ -23,7 +23,7 @@ public interface Mensagem {
     final static String TELA_LOGIN = "                   TELA DE LOGIN";
     final static String MSG_INFORME_LOGIN = "INFORME O LOGIN: ";
     final static String MSG_INFORME_SENHA = "INFORME A SENHA: ";
-    final static String MSG_LOGIN_OR_SENHA_INVALID = "LOGIN OU SENHA INVALIDO, TENTE NOVAMENTE!";
+    final static String MSG_LOGIN_OR_SENHA_INVALIDA = "LOGIN OU SENHA INVALIDO, TENTE NOVAMENTE!";
 
     //CADASTROS
     final static String TELA_DE_CADASTROS = "TELA DE CADASTROS";
