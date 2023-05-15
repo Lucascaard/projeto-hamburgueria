@@ -25,9 +25,4 @@ public class ItemEstoque {
     public void setQtde(Integer qtde) {
         this.qtde = qtde;
     }
-    
-    @Override
-    public String toString() {
-        return "ID: " + id +  "Produto: " + produto + "\nQuantidade: " + qtde;
-    }
 }

@@ -58,24 +58,13 @@ public class TelaCliente {
 		Prompt.separador();
 		Prompt.linhaEmBranco();
 		Integer CPF = Prompt.lerInteiro(Mensagem.INFORME_CPF);
+ 
 		if(ControleCliente.clienteExiste(CPF)){
 				Prompt.separador();
 				Prompt.imprimir(Mensagem.JA_EXISTE);
 				Prompt.separador();
 				Prompt.linhaEmBranco();
-				for (Cliente cliente : Banco.clientes) {
-					if(cliente.getCPF().equals(CPF)){
-					// Monta uma string com as informações do cliente
-					String infoCliente = "Nome: " + cliente.getNome() + "\n"
-										+ "CPF: " + cliente.getCPF() + "\n"
-										+ "Telefone: " + cliente.getTelefone() + "\n"
-										+ "Email: " + cliente.getEmail() + "\n"
-										+ "Sexo: " + cliente.getSexo() + "\n"
-										+ "Endereço: " + cliente.getEndereco() + "\n";
-										// Imprime as informações do cliente
-					Prompt.imprimir(infoCliente);
-					}
-				}
+				Prompt.imprimir(ControleCliente.clienteEspecifico(CPF));
 				TelaCliente.repeat();
 				return;
 			}
@@ -102,7 +91,6 @@ public class TelaCliente {
         }
 		Prompt.pressionarEnter();
 		TelaCliente.repeat();
-		
 	}
 
 	public static void read(){
@@ -121,18 +109,7 @@ public class TelaCliente {
 			Prompt.imprimir(Mensagem.NAO_HA_CLIENTES);
 			Prompt.linhaEmBranco(); 
 		} else {
-			// Se houver clientes na lista, percorre a lista com um laço 'for'
-			for (Cliente cliente : Banco.clientes) {
-				// Monta uma string com as informações do cliente
-				String infoCliente = "Nome: " + cliente.getNome() + "\n"
-									+ "CPF: " + cliente.getCPF() + "\n"
-									+ "Telefone: " + cliente.getTelefone() + "\n"
-									+ "Email: " + cliente.getEmail() + "\n"
-									+ "Sexo: " + cliente.getSexo() + "\n"
-									+ "Endereço: " + cliente.getEndereco() + "\n";
-									// Imprime as informações do cliente
-				Prompt.imprimir(infoCliente);
-			}
+			Prompt.imprimir(ControleCliente.listaClientes());
 		}
 		Prompt.pressionarEnter();
 		TelaCliente.mostrar();
@@ -182,11 +159,7 @@ public class TelaCliente {
 				Prompt.imprimir(Mensagem.CLIENTE_NAO_ENCONTRADO);
 				TelaCliente.read();
 				return;
-			}
-		// Prompt.linhaEmBranco();
-		// Prompt.pressionarEnter();
-		// TelaCliente.mostrar();
-			
+			}	
 	}
 }
 
@@ -211,7 +184,6 @@ public class TelaCliente {
 				TelaCliente.read();
 				return;
 			}
-			
 		}
 	}
 
