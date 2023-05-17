@@ -18,8 +18,6 @@ public class TelaEstoque {
 
 public static void mostrar(){
 
-    // ControleEstoque.MenuEstoque();
-
         Prompt.linhaEmBranco();
         Prompt.separador();
         Prompt.imprimir(Mensagem.MENU_ESTOQUE);
@@ -76,8 +74,6 @@ public static void mostrar(){
 
         boolean control = ControleEstoque.produtoExiste(idProduto);
 
-        // ControleEstoque.Cadastrar(control, idProduto);
-
         if(!control){
 
             if(idProduto != null) {
@@ -89,12 +85,14 @@ public static void mostrar(){
                     Prompt.imprimir(Mensagem.ID_INVALIDA);
                 } else {
                     Integer qtde = Prompt.lerInteiro(Mensagem.INFORME_QUANTIDADE);
-                    ItemEstoque item = new ItemEstoque();
-                    item.setId(idProduto);
-                    item.setProduto(produto);
-                    item.setQtde(qtde);
+                    // ItemEstoque item = new ItemEstoque();
+                    // item.setId(idProduto);
+                    // item.setProduto(produto);
+                    // item.setQtde(qtde);
+
+                    ItemEstoque prod = ControleEstoque.criarProduto(idProduto, produto, qtde);
             
-                    ControleEstoque.adicionar(item);
+                    ControleEstoque.adicionar(prod);
     
                     Prompt.linhaEmBranco();
                     Prompt.imprimir(Mensagem.PRODUTO_CADASTRADO_ESTOQUE);
@@ -109,7 +107,28 @@ public static void mostrar(){
 
         Prompt.linhaEmBranco();
         Prompt.pressionarEnter();
-		ControleEstoque.repeat("create");
+        Prompt.imprimir(Mensagem.CADASTRAR_OUTRO);
+        Prompt.separador();
+        Prompt.imprimir("[1] - " + Mensagem.SIM);
+	    Prompt.imprimir("[2] - " + Mensagem.VOLTAR);
+	    Prompt.imprimir("[3] - " + Mensagem.FINALIZAR_PROGRAMA);
+        Integer op = Prompt.lerInteiro();
+
+        switch (op) {
+            case 1:
+                TelaEstoque.create();;
+                break;
+            case 2:
+                TelaEstoque.mostrar();
+                break;
+            case 3:
+                Prompt.imprimir(Mensagem.FINALIZADO);
+                break;
+            default:
+                Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
+                TelaEstoque.mostrar();
+                break;
+        }
 
     }
 
@@ -145,7 +164,6 @@ public static void mostrar(){
             TelaEstoque.mostrar();
         } else {
 
-            // ControleEstoque.ListarEstoque();
             for (ItemEstoque item : Banco.itensEstoque ) {
                 Prompt.imprimir(item);
             }
@@ -153,7 +171,6 @@ public static void mostrar(){
             Prompt.linhaEmBranco();
             Integer idProduto = Prompt.lerInteiro(Mensagem.INFORME_ID_ALTERAR);
     
-            // ControleEstoque.Update(idProduto);
             if(idProduto != null){
 
                 boolean produtoExiste = ControleEstoque.produtoExiste(idProduto);
@@ -168,8 +185,7 @@ public static void mostrar(){
                     Prompt.imprimir(Mensagem.ESTOQUE_ALTERADO);
                     Prompt.separador();
                     Prompt.imprimir(Mensagem.ESTOQUE_ATUAL);
-                    
-
+                    Prompt.linhaEmBranco();
                     // ControleEstoque.ListarEstoque();
                     for (ItemEstoque item : Banco.itensEstoque) {
                         Prompt.imprimir(item);
@@ -182,11 +198,32 @@ public static void mostrar(){
                 }
             }
     
-            Prompt.linhaEmBranco();
-            Prompt.pressionarEnter();
-            ControleEstoque.repeat("update");
         }
-
+        
+        Prompt.linhaEmBranco();
+        Prompt.pressionarEnter();
+        Prompt.imprimir(Mensagem.ALTERAR_OUTRO);
+        Prompt.separador();
+        Prompt.imprimir("[1] - " + Mensagem.SIM);
+        Prompt.imprimir("[2] - " + Mensagem.VOLTAR);
+        Prompt.imprimir("[3] - " + Mensagem.FINALIZAR_PROGRAMA);
+        Integer op = Prompt.lerInteiro();
+        
+        switch (op) {
+            case 1:
+                TelaEstoque.update();;
+                break;
+            case 2:
+                TelaEstoque.mostrar();
+                break;
+            case 3:
+                Prompt.imprimir(Mensagem.FINALIZADO);
+                break;
+            default:
+                Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
+                TelaEstoque.mostrar();
+                break;
+        }
 
     }
 
@@ -202,7 +239,6 @@ public static void mostrar(){
             TelaEstoque.mostrar();
         } else {
 
-            // ControleEstoque.ListarEstoque();
             for (ItemEstoque item : Banco.itensEstoque) {
                 Prompt.imprimir(item);
             }
@@ -210,7 +246,6 @@ public static void mostrar(){
             Prompt.linhaEmBranco();
             Integer idProduto = Prompt.lerInteiro(Mensagem.INFORME_ID_EXCLUIR_ESTOQUE);
 
-            // ControleEstoque.Delete(idProduto);
             if(idProduto != null){
 
                 boolean estoqueExcluido = ControleEstoque.delete(idProduto);
@@ -227,7 +262,8 @@ public static void mostrar(){
 
                     }else{
                         Prompt.imprimir(Mensagem.ESTOQUE_ATUAL);
-                        // ControleEstoque.ListarEstoque();
+                        Prompt.linhaEmBranco();
+
                         for (ItemEstoque item : Banco.itensEstoque) {
                             Prompt.imprimir(item);
                         }
@@ -242,12 +278,35 @@ public static void mostrar(){
             }
         }
 
-            Prompt.linhaEmBranco();
-            Prompt.pressionarEnter();
+        Prompt.linhaEmBranco();
+        Prompt.pressionarEnter();
 
-            ControleEstoque.repeat("delete");
+        Prompt.imprimir(Mensagem.DELETAR_OUTRO);
+        Prompt.separador();
+        Prompt.imprimir("[1] - " + Mensagem.SIM);
+	    Prompt.imprimir("[2] - " + Mensagem.VOLTAR);
+	    Prompt.imprimir("[3] - " + Mensagem.FINALIZAR_PROGRAMA);
+        Integer op = Prompt.lerInteiro();
+
+        switch (op) {
+            case 1:
+                TelaEstoque.delete();
+                break;
+            case 2:
+                TelaEstoque.mostrar();
+                break;
+            case 3:
+                Prompt.imprimir(Mensagem.FINALIZADO);
+                break;
+            default:
+                Prompt.imprimir(Mensagem.OPCAO_INVALIDA);
+                TelaEstoque.mostrar();
+                break;
         }
+
     }
+
+}
 
 
 
