@@ -10,10 +10,11 @@ import principal.modelos.Cliente;
 public class ControleCliente {
 
 	public static void adicionar(Cliente cliente){
-        Banco.clientes.add(cliente);
+		
+        Banco.clientes.add(cliente); // DAO
     }
 
-    public static Cliente buscar(Integer cpf) {
+    public static Cliente buscar(Integer cpf) { // DAO
 		Cliente clienteRetorno = null;
 		for (Cliente cliente : Banco.clientes) {
 			if (cliente.getCPF().equals(cpf)) {
@@ -43,7 +44,7 @@ public class ControleCliente {
 			if (cliente.getCPF().equals(cpfOriginal)) {
 				Banco.clientes.set(i, clienteAlterado);
 			    break;
-			}
+			} // DAO
 		}
 	}
 
@@ -55,7 +56,7 @@ public class ControleCliente {
 				Banco.clientes.remove(i);
 				clienteDelete = true;
 				break;
-			}
+			} // DAO
 		}
 		return clienteDelete;
 	}
@@ -63,7 +64,7 @@ public class ControleCliente {
 	public static boolean clienteExiste(Integer CPF){
 		for(Cliente cliente : Banco.clientes) {
 			if(cliente.getCPF().equals(CPF)){
-				return true;
+				return true; // DAO
 			}
 		}
 		return false;
